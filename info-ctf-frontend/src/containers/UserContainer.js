@@ -43,6 +43,7 @@ const UserContainer = () => {
         }
     }, [search]);
 
+
     // user 정보 저장
     useEffect(() => {
         setInfo(search.contents);
