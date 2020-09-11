@@ -74,6 +74,7 @@ const RegisterContainer = ({ location, history }) => {
                 alert("아이디가 사용 불가능합니다.");
         }
     }, [idcheck, dispatch]);
+
     // 이메일 인증 보내기 성공여부 확인
     useEffect(() => {
         if (getemail) {

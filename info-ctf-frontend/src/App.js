@@ -13,6 +13,7 @@ import AdminRegisterPage from './pages/AdminRegisterPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import FindPasswordPage from './pages/FindPasswordPage';
 
+
 function App() {
   return (
     <>
@@ -24,8 +25,8 @@ function App() {
       <Route component={ChallengesPage} path="/challenges" />
       <Route component={UserPage} path="/user" />
       <Route component={ShowQuiz} path="/quiz/:num" />
-      <Route component={AdminRegisterPage} path="/infowargame/admin/register" />
-      <Route component={AdminLoginPage} path="/infowargame/admin/login" />
+      <Route component={AdminRegisterPage} path="/adminregister" />
+      <Route component={AdminLoginPage} path="/adminlogin" />
       <Route component={FindPasswordPage} path="/findpassword" />
     </>
   );

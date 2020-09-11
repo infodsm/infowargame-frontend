@@ -82,21 +82,7 @@ color: white;
 `;
 
 
-const AdminRegisterForm = ({ id, password, nickname, email, team, onChangeField, idCheckSubmit, sendEmailSubmit, getEmailSubmit }) => {
-
-    const [modal, setModal] = useState(false);
-
-    const onRemoveClick = () => {
-        setModal(true);
-    };
-
-    const onCancel = () => {
-        setModal(false);
-    };
-
-    const onConfirm = () => {
-        setModal(false);
-    };
+const AdminRegisterForm = ({ id, password, nickname, code, onChangeField, onSubmit, idCheckSubmit }) => {
 
     const onChangeInput = e => {
         const { name } = e.target;
@@ -116,26 +102,12 @@ const AdminRegisterForm = ({ id, password, nickname, email, team, onChangeField,
                 <br />
                 <StyledInput name="nickname" placeholder="nickname" onChange={onChangeInput} value={nickname} />
                 <br />
-                <StyledInput name="email" placeholder="email" onChange={onChangeInput} value={email} />
-                <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={sendEmailSubmit} >이메일확인</StyledButton>
-                <StyledButton style={{ marginLeft: '950px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={onRemoveClick} >코드입력</StyledButton>
-                <StyledInput name="team" placeholder="team" style={{ marginTop: '20px' }} onChange={onChangeInput} value={team} />
+                <StyledInput name="code" placeholder="code" onChange={onChangeInput} value={code} />
                 <br />
                 <div className="ButtonArea">
-                    <StyledButton>sign in</StyledButton>
+                    <StyledButton onClick={onSubmit}>sign in</StyledButton>
                             &nbsp;
-                        <StyledButton><Link to="/loginafter" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
-                </div>
-
-                <div className="ModalArea">
-                    <AskCheckModal
-                        classNmae="modal"
-                        visible={modal}
-                        onConfirm={onConfirm}
-                        onCancel={onCancel}
-                        onChange={onChangeInput}
-                        onClick={getEmailSubmit}
-                    />
+                        <StyledButton><Link to="/adminlogin" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
                 </div>
             </AdminRegisterArea>
         </>

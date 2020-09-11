@@ -88,11 +88,11 @@ const AdminLoginForm = ({ id, password, onChangeField }) => {
                 <StyledInput name="password" type="password" placeholder="password" value={password} onChange={onChange} />
                 <br />
                 <div className="ButtonArea">
-                    <StyledButton><Link to="/infowargame/admin/register" style={{ textDecoration: 'none', color: 'white' }}>sign in</Link></StyledButton>
+                    <StyledButton><Link to="/adminregister" style={{ textDecoration: 'none', color: 'white' }}>sign in</Link></StyledButton>
                             &nbsp;
                         <StyledButton><Link to="/loginafter" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
                 </div>
-                <span className="findpassword"><Link to="/" style={{ textDecoration: 'none', color: 'gray' }}>find password</Link></span>
+                <span className="findpassword"><Link to="/findpassword" style={{ textDecoration: 'none', color: 'gray' }}>find password</Link></span>
             </AdminLoginArea>
         </>
     );

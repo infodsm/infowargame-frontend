@@ -93,7 +93,7 @@ const Header = () => {
                         <Link to="/scoreboard" style={{ textDecoration: 'none', color: '#FF89FF' }}>
                             ScoreBoard
                     </Link></li>
-                    <div className="logo"><Link to="/"><img src="/images/logo.png" alt="logo" style={{ textDecoration: 'none' }} /></Link></div>
+                    <div className="logo"><Link to="/notification"><img src="/images/logo.png" alt="logo" style={{ textDecoration: 'none' }} /></Link></div>
                     <li><Link to="/challenges" style={{ textDecoration: 'none', color: '#FF89FF' }}>Challenges</Link></li>
 
                     <li className="user"><Link to="/user" style={{ textDecoration: 'none', color: '#FF89FF' }}>User</Link></li>

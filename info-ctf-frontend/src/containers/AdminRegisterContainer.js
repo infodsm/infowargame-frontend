@@ -2,29 +2,22 @@ import React, { useEffect, useCallback } from 'react';
 import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { adminRegisterChangeField, adminRegisterInitialize } from '../modules/adminregister';
+import { adminRegisterChangeField, adminRegisterInitialize, adminRegisterPost } from '../modules/adminregister';
 import AdminRegisterForm from '../components/auth/AdminRegisterForm';
-import { idCheck, idUnload } from '../modules/idcheck';
-import { sendEmail } from '../modules/sendemail';
-import { getEmail } from '../modules/getemail';
+import { idCheck } from '../modules/idcheck';
 
-const AdminRegisterContainer = ({ location }) => {
+const AdminRegisterContainer = ({ location, history }) => {
     const dispatch = useDispatch();
-    const { id, password, nickname, email, team, check, error, code, idcheck, sendemail, getemail, } = useSelector(({ adminregister, idcheck, sendemail, getemail }) => ({
+    const { adminregister, id, password, nickname, idcheck, error, code } = useSelector(({ adminregister, idcheck }) => ({
         id: adminregister.id,
         password: adminregister.password,
         nickname: adminregister.nickname,
-        email: adminregister.email,
-        team: adminregister.team,
         code: adminregister.code,
         idcheck: idcheck.idcheck,
-        check: idcheck.check,
         error: idcheck.error,
-        sendEmail: sendemail.sendemail,
-        EmailCheck: sendemail.EmailCheck,
-        getemail: getemail.getemail,
-
+        adminregister: adminregister.adminregister,
     }));
+
     // 아이디 중복확인
     const idCheckSubmit = () => {
         const { id } = qs.parse(location.search, {
@@ -32,23 +25,13 @@ const AdminRegisterContainer = ({ location }) => {
         });
         dispatch(idCheck({ id }));
     };
-    // 이메일 인증 보내기
-    const sendEmailSubmit = () => {
-        const { email } = qs.parse(location.search, {
-            ignoreQueryPrefix: true,
-        });
-        dispatch(sendEmail({ email }));
+
+    // 어드민 회원가입
+    const onSubmit = e => {
+        e.preventDefault();
+        dispatch(adminRegisterPost({ id, password, nickname, code }));
     };
-    // 이메일 인증 받기
-    const getEmailSubmit = () => {
-        const { id } = qs.parse(location.search, {
-            ignoreQueryPrefix: true,
-        });
-        const { code } = qs.parse(location.search, {
-            ignoreQueryPrefix: true,
-        });
-        dispatch(getEmail({ id, code }));
-    };
+
     // 인풋 값 변경하기
     const onChangeField = useCallback(payload => dispatch(adminRegisterChangeField(payload)), [dispatch]);
 
@@ -67,28 +50,42 @@ const AdminRegisterContainer = ({ location }) => {
 
     // ID 중복 체크 성공여부 확인
     useEffect(() => {
-        if (check) {
-            alert('아이디가 사용 가능합니다.');
+        if (idcheck) {
+            if (idcheck.check === true)
+                alert('아이디가 사용 가능합니다.');
         }
-        if (check === false) {
-            alert("아이디 사용 불가능");
-            dispatch(idUnload());
-            console.log(error);
+        if (idcheck) {
+            if (idcheck.check === false)
+                alert("아이디가 사용 불가능합니다.");
         }
-    }, [check, dispatch, error]);
+        if (idcheck) {
+            if (error)
+                alert("오류발생");
+        }
+    }, [idcheck, dispatch]);
+
+    // 어드민 회원가입 성공 여부 확인
+    useEffect(() => {
+        if (adminregister) {
+            if (adminregister.check === true) {
+                alert("회원가입이 완료되었습니다!");
+                history.push('/adminlogin');
+            }
+            if (adminregister.check === false) {
+                alert("회원가입 실패");
+            }
+        }
+    }, [history, adminregister]);
 
 
     return <AdminRegisterForm
         onChangeField={onChangeField}
         idCheckSubmit={idCheckSubmit}
-        sendEmailSubmit={sendEmailSubmit}
-        getEmailSubmit={getEmailSubmit}
         id={id}
         password={password}
         nickname={nickname}
-        email={email}
-        team={team}
         code={code}
+        onSubmit={onSubmit}
     />;
 };
 
