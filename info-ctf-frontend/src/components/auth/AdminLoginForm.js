@@ -72,7 +72,7 @@ text-align: center;
 color: white;
 `;
 
-const AdminLoginForm = ({ id, password, onChangeField }) => {
+const AdminLoginForm = ({ id, password, onChangeField, onSubmit }) => {
 
     const onChange = e => {
         const { name } = e.target;
@@ -90,7 +90,7 @@ const AdminLoginForm = ({ id, password, onChangeField }) => {
                 <div className="ButtonArea">
                     <StyledButton><Link to="/adminregister" style={{ textDecoration: 'none', color: 'white' }}>sign in</Link></StyledButton>
                             &nbsp;
-                        <StyledButton><Link to="/loginafter" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
+                        <StyledButton onClick={onSubmit}>login</StyledButton>
                 </div>
                 <span className="findpassword"><Link to="/findpassword" style={{ textDecoration: 'none', color: 'gray' }}>find password</Link></span>
             </AdminLoginArea>

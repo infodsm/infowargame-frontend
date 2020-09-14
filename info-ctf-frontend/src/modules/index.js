@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 import register, { registerpostSaga } from './register';
 import login, { loginpostSaga } from './login';
-import adminlogin from './adminlogin';
+import adminlogin, { adminloginpostSaga } from './adminlogin';
 import adminregister, { adminregistersaga } from './adminregister';
 import loading from './loading';
 import idcheck, { idcheckSaga } from './idcheck';
@@ -19,7 +19,7 @@ import search, { searchSaga } from './search';
 const rootReducer = combineReducers({ register, login, loading, idcheck, sendemail, getemail, adminlogin, adminregister, findpassword, mypages, mypagemodified, search, });
 
 export function* rootSaga() {
-    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(),]);
+    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(), adminloginpostSaga(),]);
 }
 
 export default rootReducer;

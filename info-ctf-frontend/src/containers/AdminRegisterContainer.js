@@ -18,12 +18,12 @@ const AdminRegisterContainer = ({ location, history }) => {
         adminregister: adminregister.adminregister,
     }));
 
-    // 아이디 중복확인
+    var userid = id;
+
+
+    // 아이디 중복 체크
     const idCheckSubmit = () => {
-        const { id } = qs.parse(location.search, {
-            ignoreQueryPrefix: true,
-        });
-        dispatch(idCheck({ id }));
+        dispatch(idCheck({ userid }));
     };
 
     // 어드민 회원가입
