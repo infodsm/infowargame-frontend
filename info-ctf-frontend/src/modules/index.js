@@ -12,14 +12,15 @@ import findpassword, { findpasswordpostSaga } from './findpassword';
 import mypages, { mypageSaga } from './mypages';
 import mypagemodified, { mypagemodifiedSaga } from './mypagemodified';
 import search, { searchSaga } from './search';
+import makequiz, { makequizpostSaga } from './makequiz';
 
 
 
 
-const rootReducer = combineReducers({ register, login, loading, idcheck, sendemail, getemail, adminlogin, adminregister, findpassword, mypages, mypagemodified, search, });
+const rootReducer = combineReducers({ register, login, loading, idcheck, sendemail, getemail, adminlogin, adminregister, findpassword, mypages, mypagemodified, search, makequiz, });
 
 export function* rootSaga() {
-    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(), adminloginpostSaga(),]);
+    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(), adminloginpostSaga(), makequizpostSaga(),]);
 }
 
 export default rootReducer;

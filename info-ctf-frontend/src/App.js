@@ -12,6 +12,7 @@ import ShowQuiz from './pages/ShowQuiz';
 import AdminRegisterPage from './pages/AdminRegisterPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import FindPasswordPage from './pages/FindPasswordPage';
+import MakeQuizPage from './pages/MakeQuizPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Route component={AdminRegisterPage} path="/adminregister" />
       <Route component={AdminLoginPage} path="/adminlogin" />
       <Route component={FindPasswordPage} path="/findpassword" />
+      <Route component={MakeQuizPage} path="/makequiz" />
     </>
   );
 }
