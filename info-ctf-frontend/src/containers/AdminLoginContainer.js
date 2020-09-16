@@ -1,50 +1,49 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { adminChangeField, adminInitialize, adminloginPost } from '../modules/adminlogin';
+import { changeField, initialize, adminloginPost } from '../modules/adminlogin';
 import AdminLoginForm from '../components/auth/AdminLoginForm';
 
 const AdminLoginContainer = ({ history }) => {
     const dispatch = useDispatch();
     const { id, password, adminlogin, } = useSelector(({ adminlogin }) => ({
+        adminlogin: adminlogin.adminlogin,
         id: adminlogin.id,
         password: adminlogin.password,
-        adminlogin: adminlogin.adminlogin,
     }));
 
     // 인풋 값 업데이트
-    const onChange = useCallback(payload => dispatch(adminChangeField(payload)), [dispatch]);
+    const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
-        dispatch(adminInitialize());
+        dispatch(initialize());
     }, [dispatch]);
 
     // 컴포넌트가 언마운트될 때 인풋 초기화
     useEffect(() => {
         return () => {
-            dispatch(adminInitialize());
+            dispatch(initialize());
         }
     }, [dispatch]);
 
     // 로그인 요청
     const onSubmit = e => {
-        e.preventDefault();
         dispatch(adminloginPost({ id, password }));
     };
 
     // 로그인 성공 여부 확인
     useEffect(() => {
         if (adminlogin) {
-            if (adminlogin.check === true || adminlogin.token) {
+            if (adminlogin.check === true) {
                 alert("로그인 성공");
                 localStorage.setItem("user", JSON.stringify(adminlogin.token)); // localStorage에 토큰 저장
                 history.push('/loginafter');    // 마이페이지로 이동
             }
         }
         if (adminlogin) {
-            if (adminlogin.check === false || adminlogin.token === null) {
-                alert("로그인 실패");   // 로그인 실패 처리
+            if (adminlogin.check === false) {
+                alert("로그인 실패");
                 history.push('/');
             }
         }

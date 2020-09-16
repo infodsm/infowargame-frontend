@@ -1,12 +1,16 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { changeInput, uploadfilePost } from '../modules/uploadfile';
 import { initialize, changeField, makequizPost } from '../modules/makequiz';
 import MakeQuizItem from '../components/Quiz/MakeQuizItem';
+import client from '../lib/api/client';
 
 const MakeQuizContainer = ({ history }) => {
+    const [uploadFileData, setUploadFileData] = useState(null);
+
     const dispatch = useDispatch();
-    const { category, id, point, quizname, contents, makequiz, error, } = useSelector(({ makequiz }) => ({
+    const { category, id, point, quizname, contents, makequiz, error, uploadfile, file } = useSelector(({ makequiz, uploadfile }) => ({
         category: makequiz.category,
         id: makequiz.id,
         point: makequiz.point,
@@ -14,10 +18,15 @@ const MakeQuizContainer = ({ history }) => {
         contents: makequiz.contents,
         makequiz: makequiz.makequiz,
         error: makequiz.error,
+        file: uploadfile.file,
+        uploadfile: uploadfile.uploadfile,
     }));
 
     // 인풋 값 업데이트
     const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
+
+    // file 인풋 업데이트
+    const onChangeFile = useCallback(payload => dispatch(changeInput(payload)), [dispatch]);
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
@@ -31,11 +40,26 @@ const MakeQuizContainer = ({ history }) => {
         }
     }, [dispatch]);
 
+    // 파일 추가 API 요청
+    const fileAdd = async e => {
+        if (!uploadFileData) return;
+        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const formdata = new FormData();
+        try {
+            formdata.append("quizname", quizname);
+            formdata.append("filetoadd", uploadFileData);
+            const result = await client.post(`http://121.152.10.41:4000/api/admin/fileadd`, formdata, { headers: { 'token': token } })
+        } catch (err) {
+            alert("에러");
+        }
+    };
+
     // 문제 만들기 api 요청
     const onSubmit = e => {
         e.preventDefault();
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         dispatch(makequizPost({ category, id, point, quizname, contents, token }));
+        fileAdd(); // file 추가 api 요청
     };
 
     // 문제 만들기 성공/실패 확인
@@ -59,6 +83,7 @@ const MakeQuizContainer = ({ history }) => {
     return (
         <MakeQuizItem
             onChangeField={onChange}
+            ChangeFile={setUploadFileData}
             onSubmit={onSubmit}
             category={category}
             id={id}
@@ -66,6 +91,8 @@ const MakeQuizContainer = ({ history }) => {
             quizname={quizname}
             contents={contents}
             makequiz={makequiz}
+            file={file}
+            fileAdd={fileAdd}
         />
     );
 };

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import Header from '../common/Header';
+import { uploadfilePost } from '../../modules/uploadfile';
 import { BsDownload } from "react-icons/bs";
 
 
@@ -124,7 +126,12 @@ color: white;
 `;
 
 
-const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, onSubmit }) => {
+const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, file, fileAdd }) => {
+
+    const onChangeFile = (e) => {
+        const { name } = e.target;
+        ChangeFile(e.target.files[0]);
+    };
 
     const onChange = e => {
         const { name } = e.target;
@@ -146,8 +153,7 @@ const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onCha
                     문제 내용
                 </MakeQuizContent>
                 <InputArea>
-                    <StyledInput type="file" style={{ marginLeft: '100px', width: '54%' }}></StyledInput>
-                    <StyledButton style={{ marginRight: '231px' }}>파일추가</StyledButton>
+                    <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '54%' }}></StyledInput>
                     <StyledButton style={{ marginRight: '76px' }}>파일삭제</StyledButton>
                 </InputArea>
                 <StyledInput type="text" placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { withRouter, Redirect } from 'react-router-dom';
 
 const AdminLoginArea = styled.div`
     padding: 2rem;
@@ -72,20 +74,45 @@ text-align: center;
 color: white;
 `;
 
-const AdminLoginForm = ({ id, password, onChangeField, onSubmit }) => {
+const AdminLoginForm = ({ history }) => {
+
+    const [login, setLogin] = useState({ id: '', password: '' });
 
     const onChange = e => {
-        const { name } = e.target;
-        onChangeField({ key: name, value: e.target.value });
+        setLogin({ ...login, [e.target.name]: e.target.value });
     };
+
+    const onSubmit = e => {
+        e.preventDefault();
+        console.log(login);
+        axios.post(("http://121.152.10.41:4000/api/admin/login"), {
+            id: login.id,
+            password: login.password,
+        }).then(result => {
+            console.log(result);
+            if (result.data.check === true) {   // 예외 처리
+                alert("로그인 성공!");
+                if (!result.data.token) {
+                    alert("에러");
+                    return;
+                }
+                localStorage.setItem("user", JSON.stringify(result.data.token)); // localStorage에 토큰 저장
+                history.push('/notification');
+            }
+            else if (result.data.check === false) {
+                alert("로그인 실패");
+                return <Redirect to="/adminlogin" />
+            }
+        })
+    }
 
     return (
         <>
             <AdminLoginArea>
                 <h1>어드민 로그인</h1>
-                <StyledInput name="id" placeholder="id" value={id} onChange={onChange} />
+                <StyledInput name="id" onChange={onChange} placeholder="id" />
                 <br />
-                <StyledInput name="password" type="password" placeholder="password" value={password} onChange={onChange} />
+                <StyledInput type="password" name="password" onChange={onChange} placeholder="password" />
                 <br />
                 <div className="ButtonArea">
                     <StyledButton><Link to="/adminregister" style={{ textDecoration: 'none', color: 'white' }}>sign in</Link></StyledButton>
@@ -99,4 +126,4 @@ const AdminLoginForm = ({ id, password, onChangeField, onSubmit }) => {
 
 };
 
-export default AdminLoginForm;
+export default withRouter(AdminLoginForm);

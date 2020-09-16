@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AdminLoginContainer from '../containers/AdminLoginContainer';
+import AdminLoginForm from '../components/auth/AdminLoginForm';
 import Header from '../components/common/Header';
 
 /* 화면 전체를 채움 */
@@ -18,13 +19,13 @@ justify-content: center;
 align-items: center;
 `;
 
-const AdminLoginPage = () => {
+const AdminLoginPage = ({ history }) => {
 
     return (
         <>
             <AdminLoginPageBlock>
                 <Header />
-                <AdminLoginContainer />
+                <AdminLoginForm history={history} />
             </AdminLoginPageBlock>
         </>
     );

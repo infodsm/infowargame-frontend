@@ -27,6 +27,7 @@ const initialState = {
     point: '',
     quizname: '',
     contents: '',
+    filetoadd: null,
     makequiz: null,
     error: null,
 };
