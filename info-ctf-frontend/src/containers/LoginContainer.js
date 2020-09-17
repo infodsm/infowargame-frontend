@@ -39,6 +39,7 @@ const LoginContainer = ({ history }) => {
             if (login.check === true || login.token) {
                 alert("로그인 성공");
                 localStorage.setItem("user", JSON.stringify(login.token)); // localStorage에 토큰 저장
+                localStorage.setItem("users", 'users');
                 history.push('/notification');    // 공지로 이동
             }
         }

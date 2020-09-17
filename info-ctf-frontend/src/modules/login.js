@@ -20,7 +20,9 @@ const loginPostSaga = createRequestSaga(LOGIN_POST, authAPI.login);
 
 function logoutSaga() {
     try {
-        localStorage.removeItem('user'); // localStorage에서 user를 제거
+        localStorage.removeItem('user'); // localStorage에서 user(token 값)를 제거
+        localStorage.removeItem('admin'); // localStroage에서 admin을 제거
+        localStorage.removeItem('users'); // localStorage에서 users를 제거
     } catch (e) {
         console.log(e);
     }

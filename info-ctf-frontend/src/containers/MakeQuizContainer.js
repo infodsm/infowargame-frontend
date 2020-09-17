@@ -53,9 +53,16 @@ const MakeQuizContainer = ({ history }) => {
     // 문제 만들기 api 요청
     const onSubmit = e => {
         e.preventDefault();
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-        dispatch(makequizPost({ category, id, point, quizname, contents, token }));
-        fileAdd(); // file 추가 api 요청
+        if (admin) {
+            dispatch(makequizPost({ category, id, point, quizname, contents, token }));
+            fileAdd(); // file 추가 api 요청
+        }
+        if (users) {
+            alert("어드민만 사용 가능한 기능입니다.");
+        }
     };
 
     // 문제 만들기 성공/실패 확인

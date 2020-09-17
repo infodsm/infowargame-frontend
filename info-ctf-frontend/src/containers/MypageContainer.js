@@ -31,21 +31,41 @@ const MypageContainer = ({ history, location }) => {
 
     // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
     useEffect(() => {
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-        dispatch(mypagees({ token }));
+        if (users) {
+            dispatch(mypagees({ token }));
+        }
+        if (admin) {
+            alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
+            history.goBack();
+        }
     }, []);
 
     // 마이페이지 수정 api 요청
     const onSubmit = e => {
         e.preventDefault();
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-        dispatch(modifiedPost({ id, password, nickname, team, email, token }));
-        dispatch(logout());
-        history.push('/');
+        if (users) {
+            dispatch(modifiedPost({ id, password, nickname, team, email, token }));
+            dispatch(logout());
+            history.push('/');
+        }
+        if (admin) {
+            alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
+            dispatch(logout());
+            history.push('/notification');
+        }
     };
 
     useEffect(() => {
-        alert("마이페이지 정보 변경 시 재로그인 하셔야 합니다.");
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        if (users) {
+            alert("마이페이지 정보 변경 시 재로그인 하셔야 합니다.");
+        }
     }, []);
 
     // mypage 정보 저장

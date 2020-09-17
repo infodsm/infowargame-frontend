@@ -95,6 +95,7 @@ const AdminLoginForm = ({ history }) => {
                     return;
                 }
                 localStorage.setItem("user", JSON.stringify(result.data.token)); // localStorage에 토큰 저장
+                localStorage.setItem("admin", 'admin');
                 history.push('/notification');
             }
             else if (result.data.check === false) {
