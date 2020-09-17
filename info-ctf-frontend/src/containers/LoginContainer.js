@@ -30,7 +30,6 @@ const LoginContainer = ({ history }) => {
 
     // 로그인 요청
     const onSubmit = e => {
-        e.preventDefault();
         dispatch(loginPost({ id, password }));
     };
 
@@ -40,7 +39,7 @@ const LoginContainer = ({ history }) => {
             if (login.check === true || login.token) {
                 alert("로그인 성공");
                 localStorage.setItem("user", JSON.stringify(login.token)); // localStorage에 토큰 저장
-                history.push('/loginafter');    // 마이페이지로 이동
+                history.push('/notification');    // 공지로 이동
             }
         }
         if (login) {

@@ -84,12 +84,10 @@ const AdminLoginForm = ({ history }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(login);
         axios.post(("http://121.152.10.41:4000/api/admin/login"), {
             id: login.id,
             password: login.password,
         }).then(result => {
-            console.log(result);
             if (result.data.check === true) {   // 예외 처리
                 alert("로그인 성공!");
                 if (!result.data.token) {

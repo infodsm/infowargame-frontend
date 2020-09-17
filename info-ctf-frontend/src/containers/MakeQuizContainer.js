@@ -10,7 +10,7 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, id, point, quizname, contents, makequiz, error, uploadfile, file } = useSelector(({ makequiz, uploadfile }) => ({
+    const { category, id, point, quizname, contents, makequiz, error, file } = useSelector(({ makequiz, uploadfile }) => ({
         category: makequiz.category,
         id: makequiz.id,
         point: makequiz.point,
@@ -19,14 +19,10 @@ const MakeQuizContainer = ({ history }) => {
         makequiz: makequiz.makequiz,
         error: makequiz.error,
         file: uploadfile.file,
-        uploadfile: uploadfile.uploadfile,
     }));
 
     // 인풋 값 업데이트
     const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
-
-    // file 인풋 업데이트
-    const onChangeFile = useCallback(payload => dispatch(changeInput(payload)), [dispatch]);
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
@@ -48,7 +44,7 @@ const MakeQuizContainer = ({ history }) => {
         try {
             formdata.append("quizname", quizname);
             formdata.append("filetoadd", uploadFileData);
-            const result = await client.post(`http://121.152.10.41:4000/api/admin/fileadd`, formdata, { headers: { 'token': token } })
+            await client.post(`http://121.152.10.41:4000/api/admin/fileadd`, formdata, { headers: { 'token': token } })
         } catch (err) {
             alert("에러");
         }
@@ -77,7 +73,7 @@ const MakeQuizContainer = ({ history }) => {
             alert("오류발생");
             console.log(error);
         }
-    }, [history, makequiz]);
+    }, [history, makequiz, error]);
 
 
     return (

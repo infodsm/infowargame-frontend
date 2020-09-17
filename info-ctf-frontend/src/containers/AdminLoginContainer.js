@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { changeField, initialize, adminloginPost } from '../modules/adminlogin';
 import AdminLoginForm from '../components/auth/AdminLoginForm';
 
+// 해당 api를 위한 컨테이너는 사용되지 않음 (컴포넌트 단에서 api를 호출함)
 const AdminLoginContainer = ({ history }) => {
     const dispatch = useDispatch();
     const { id, password, adminlogin, } = useSelector(({ adminlogin }) => ({
