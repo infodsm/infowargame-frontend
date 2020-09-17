@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
-import ChallengesItem from '../components/table/ChallengesItem';
+import ChallengesContainer from '../containers/ChallengesContainer';
 
 /* 화면 전체를 채움 */
 const ChallengesPageBlock = styled.div`
@@ -49,153 +49,6 @@ overflow: auto;
 
 const ChallengesPage = () => {
 
-    const [DataArray, setDataArray] = useState([
-        {
-            category: "Forensics",
-            name: "포렌식문제",
-            num: "1",
-            point: 400,
-        },
-        {
-            category: "Forensics",
-            name: "포렌식문제2",
-            num: "2",
-            point: 500,
-        },
-        {
-            category: "Pwnable",
-            num: "3",
-            name: "포렌식문제2",
-            point: 600,
-        },
-        {
-            category: "Cryptography",
-            num: "4",
-            name: "포렌식문제3",
-            point: 700,
-        },
-        {
-            category: "ReverseEngineering",
-            num: "5",
-            name: "포렌식문제4",
-            point: 800,
-        },
-        {
-            category: "Webhacking",
-            num: "6",
-            name: "포렌식문제5",
-            point: 900
-        },
-        {
-            category: "MISC",
-            num: "7",
-            name: "포렌식문제6",
-            point: 100,
-        },
-        {
-            category: "Networking",
-            num: "8",
-            name: "포렌식문제7",
-            point: 400,
-        },
-        {
-            category: "Forensics",
-            name: "포렌식문제",
-            num: "1",
-            point: 400,
-        },
-        {
-            category: "Forensics",
-            name: "포렌식문제2",
-            num: "2",
-            point: 500,
-        },
-        {
-            category: "Pwnable",
-            num: "3",
-            name: "포렌식문제2",
-            point: 600,
-        },
-        {
-            category: "Cryptography",
-            num: "4",
-            name: "포렌식문제3",
-            point: 700,
-        },
-        {
-            category: "ReverseEngineering",
-            num: "5",
-            name: "포렌식문제4",
-            point: 800,
-        },
-        {
-            category: "Webhacking",
-            num: "6",
-            name: "포렌식문제5",
-            point: 900
-        },
-        {
-            category: "MISC",
-            num: "7",
-            name: "포렌식문제6",
-            point: 100,
-        },
-        {
-            category: "Networking",
-            num: "8",
-            name: "포렌식문제7",
-            point: 400,
-        },
-        {
-            category: "Forensics",
-            name: "포렌식문제",
-            num: "1",
-            point: 400,
-        },
-        {
-            category: "Forensics",
-            name: "포렌식문제2",
-            num: "2",
-            point: 500,
-        },
-        {
-            category: "Pwnable",
-            num: "3",
-            name: "포렌식문제2",
-            point: 600,
-        },
-        {
-            category: "Cryptography",
-            num: "4",
-            name: "포렌식문제3",
-            point: 700,
-        },
-        {
-            category: "ReverseEngineering",
-            num: "5",
-            name: "포렌식문제4",
-            point: 800,
-        },
-        {
-            category: "Webhacking",
-            num: "6",
-            name: "포렌식문제5",
-            point: 900
-        },
-        {
-            category: "MISC",
-            num: "7",
-            name: "포렌식문제6",
-            point: 100,
-        },
-        {
-            category: "Networking",
-            num: "8",
-            name: "포렌식문제7",
-            point: 400,
-        },
-    ]);
-
     return (
         <>
             <ChallengesPageBlock>
@@ -203,7 +56,7 @@ const ChallengesPage = () => {
                     <Header />
                 </HeaderBlock>
                 <ChallengesArea>
-                    <ChallengesItem data={DataArray} />
+                    <ChallengesContainer />
                 </ChallengesArea>
             </ChallengesPageBlock>
         </>
