@@ -62,7 +62,7 @@ const AdminRegisterContainer = ({ location, history }) => {
             if (error)
                 alert("오류발생");
         }
-    }, [idcheck, dispatch]);
+    }, [idcheck, dispatch, error]);
 
     // 어드민 회원가입 성공 여부 확인
     useEffect(() => {
