@@ -73,7 +73,11 @@ const ChallengesDiv = styled.div`
 `;
 
 
-const ChallengesItem = ({ data }) => {
+const ChallengesItem = ({ data, loading }) => {
+
+    if (loading) {
+        return <StyledList><h3 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩 중 입니다.</h3></StyledList>
+    }
 
     if (data === null) {
         return <StyledList><h1 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩실패</h1></StyledList>

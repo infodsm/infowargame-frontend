@@ -38,8 +38,8 @@ const AdminLoginContainer = ({ history }) => {
         if (adminlogin) {
             if (adminlogin.check === true) {
                 alert("로그인 성공");
-                localStorage.setItem("user", JSON.stringify(adminlogin.token)); // localStorage에 토큰 저장
-                history.push('/loginafter');    // 마이페이지로 이동
+                localStorage.setItem("admin", JSON.stringify(adminlogin.token)); // localStorage에 토큰 저장
+                history.push('/');    // 마이페이지로 이동
             }
         }
         if (adminlogin) {

@@ -26,9 +26,12 @@ function logoutSaga() {
     }
 }
 
+
+
 export function* loginpostSaga() {
     yield takeLatest(LOGIN_POST, loginPostSaga);
     yield takeLatest(LOGOUT, logoutSaga);
+
 }
 
 
@@ -64,7 +67,7 @@ const login = handleActions(
             ...state,
             login: null,
             logged: false,
-        })
+        }),
     },
     initialState,
 );

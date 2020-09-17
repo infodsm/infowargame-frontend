@@ -8,9 +8,10 @@ import ChallengesItem from '../components/table/ChallengesItem';
 const ChallengesContainer = () => {
 
     const dispatch = useDispatch();
-    const { showquizlist, error, } = useSelector(({ showquizlist }) => ({
+    const { showquizlist, error, loading } = useSelector(({ showquizlist, loading }) => ({
         showquizlist: showquizlist.showquizlist,
         error: showquizlist.error,
+        loading: loading['showquizlist/SHOW_QUIZLIST'],
     }));
 
 
@@ -20,7 +21,7 @@ const ChallengesContainer = () => {
     }, [dispatch]);
 
 
-    return <ChallengesItem data={showquizlist} />;
+    return <ChallengesItem data={showquizlist} loading={loading} />;
 };
 
 export default ChallengesContainer;

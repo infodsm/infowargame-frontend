@@ -3,7 +3,7 @@ import createRequestSagatwo from '../lib/createRequestSagatwo';
 import { takeLatest } from 'redux-saga/effects';
 import * as quizAPI from '../lib/api/quiz';
 
-const SHOW_QUIZLIST = 'showquizlist/SHOW_QUIZLIST'
+const SHOW_QUIZLIST = 'showquizlist/SHOW_QUIZLIST';
 const SHOW_QUIZLIST_SUCCESS = 'showquizlist/SHOW_QUIZLIST_SUCCESS';
 const SHOW_QUIZLIST_FAILURE = 'showquizlist/SHOW_QUIZLIST_FAILURE';
 
