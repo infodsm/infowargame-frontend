@@ -61,6 +61,7 @@ const ChallengesDiv = styled.div`
     background: #F0F8FF;
     border-radius: 5px;
     cursor: pointer;
+
     &:hover {
         background: #C1FF8F;
     }
@@ -68,46 +69,67 @@ const ChallengesDiv = styled.div`
         color: black;
     }
     font-family: 'Do Hyeon', sans-serif;
+    color: white;
 `;
 
-const categoryArr = ["Forensics", "Pwnable", "Cryptography", "ReverseEngineering", "Webhacking", "MISC", "Networking"]
 
 const ChallengesItem = ({ data }) => {
-    const filterArray = (category) => {
-        return data.filter(element => element.category === category);
+
+    if (data === null) {
+        return <StyledList><h1 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩실패</h1></StyledList>
     }
 
+    if (!data) {
+        console.log("error");
+        return null;
+    }
+
+
+    const filterArray = (category) => {
+        return data.filter(data => data.category === category);
+    }
     return (
-        <>
-            <StyledList>
-                {categoryArr.map(category => <ChallengeRow data={filterArray(category)} />)}
-                {/* <ChallengeRow data={filterArray("Forensics")} />
-                <ChallengeRow data={filterArray("Pwnable")} />
-                <ChallengeRow data={filterArray("ReverseEngineering")} />
-                <ChallengeRow data={filterArray("Cryptography")} />
-                <ChallengeRow data={filterArray("Webhacking")} />
-                <ChallengeRow data={filterArray("MISC")} />
-                <ChallengeRow data={filterArray("Networking")} /> */}
-            </StyledList>
-        </>
+        <StyledList>
+            <>
+                <p>Cryptography</p><ChallengeRow data={filterArray(1)}></ChallengeRow>
+                <br />
+                <p>Forensics</p><ChallengeRow data={filterArray(2)}></ChallengeRow>
+                <br />
+                <p>MISC </p><ChallengeRow data={filterArray(3)}></ChallengeRow>
+                <br />
+                <p>Networking </p><ChallengeRow data={filterArray(4)}></ChallengeRow>
+                <br />
+                <p>Pwnable</p><ChallengeRow data={filterArray(5)}></ChallengeRow>
+                <br />
+                <p>Reverse Engineering</p><ChallengeRow data={filterArray(6)}></ChallengeRow>
+                <br />
+                <p>Webhacking</p><ChallengeRow data={filterArray(7)}></ChallengeRow>
+            </>
+        </StyledList>
     );
 };
 
 const ChallengeRow = ({ data }) => {
-
     return (
         <div>
-            <p>{data[0].category}</p>
-            <ul>
+            <ul style={{ listStyle: 'none', float: 'left' }}>
                 {
                     data.map(d => {
-                        return <li><ChallengesDiv><p>{d.name} {d.point}</p></ChallengesDiv><br /></li>
+                        return (
+                            <>
+                                <li><ChallengesDiv><p>{d.name}<br />{d.point}</p></ChallengesDiv><br /></li>
+                            </>
+
+                        )
                     })
                 }
             </ul>
             <br />
+            <br />
+            <br />
         </div>
     );
 }
+
 
 export default ChallengesItem;
