@@ -44,7 +44,7 @@ const MakeQuizContainer = ({ history }) => {
         try {
             formdata.append("quizname", quizname);
             formdata.append("filetoadd", uploadFileData);
-            await client.post(`http://121.152.10.41:4000/api/admin/fileadd`, formdata, { headers: { 'token': token } })
+            await client.post(`/api/admin/fileadd`, formdata, { headers: { 'token': token } })
         } catch (err) {
             alert("에러");
         }
