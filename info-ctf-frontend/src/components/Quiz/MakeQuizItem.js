@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import Header from '../common/Header';
-import { uploadfilePost } from '../../modules/uploadfile';
-import { BsDownload } from "react-icons/bs";
 
 
 const MakeQuizArea = styled.div`
@@ -126,10 +122,10 @@ color: white;
 `;
 
 
-const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, file, fileAdd }) => {
+const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, fileDelete }) => {
+
 
     const onChangeFile = (e) => {
-        const { name } = e.target;
         ChangeFile(e.target.files[0]);
     };
 
@@ -141,7 +137,7 @@ const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onCha
     return (
         <>
             <MakeQuizArea>
-                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px', color: '#6E6E6E' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 :  Reverse Engineering / 7 : Webhacking ) </p>
+                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 :  Reverse Engineering / 7 : Webhacking ) </p>
                 <StyledShortInput name="category" value={category} placeholder="카테고리" onChange={onChange}></StyledShortInput>
                 <StyledShortInput name="id" value={id} placeholder="만든사람 ID" onChange={onChange}></StyledShortInput>
                 <StyledShortInput name="point" value={point} placeholder="점수" onChange={onChange}></StyledShortInput>
@@ -154,7 +150,7 @@ const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onCha
                 </MakeQuizContent>
                 <InputArea>
                     <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '54%' }}></StyledInput>
-                    <StyledButton style={{ marginRight: '76px' }}>파일삭제</StyledButton>
+                    <StyledButton onClick={fileDelete} style={{ marginRight: '76px' }}>파일삭제</StyledButton>
                 </InputArea>
                 <StyledInput type="text" placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>
                 <StyledButton style={{ marginRight: '75.5px' }} onClick={onSubmit}>만들기</StyledButton>

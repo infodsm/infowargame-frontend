@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback, } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInput, uploadfilePost } from '../modules/uploadfile';
 import { initialize, changeField, makequizPost } from '../modules/makequiz';
+import { deletefilePost } from '../modules/deletefile';
 import MakeQuizItem from '../components/Quiz/MakeQuizItem';
 import client from '../lib/api/client';
 
@@ -10,7 +10,7 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, id, point, quizname, contents, makequiz, error, file } = useSelector(({ makequiz, uploadfile }) => ({
+    const { category, id, point, quizname, contents, makequiz, error, file, deletefile, } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
         category: makequiz.category,
         id: makequiz.id,
         point: makequiz.point,
@@ -19,6 +19,7 @@ const MakeQuizContainer = ({ history }) => {
         makequiz: makequiz.makequiz,
         error: makequiz.error,
         file: uploadfile.file,
+        deletefile: deletefile.deletefile,
     }));
 
     // 인풋 값 업데이트
@@ -50,6 +51,20 @@ const MakeQuizContainer = ({ history }) => {
         }
     };
 
+    // 파일 삭제 api 요청
+    const fileDelete = e => {
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        if (admin) {
+            dispatch(deletefilePost({ quizname, token }));
+            setUploadFileData(null);
+        }
+        if (users) {
+            alert("어드민만 사용 가능한 기능입니다.");
+        }
+    };
+
     // 문제 만들기 api 요청
     const onSubmit = e => {
         e.preventDefault();
@@ -64,6 +79,19 @@ const MakeQuizContainer = ({ history }) => {
             alert("어드민만 사용 가능한 기능입니다.");
         }
     };
+
+    // 문제 삭제 성공/실패 확인
+    useEffect(() => {
+        if (deletefile) {
+            if (deletefile.check === true) {
+                alert("파일삭제완료, 제목을 바꾼 후 문제만들기를 요청해주세요. (그렇지 않을 시 오류가 발생합니다.)");
+            }
+        }
+        if (error) {
+            alert("오류발생");
+            console.log(error);
+        }
+    }, [deletefile, error]);
 
     // 문제 만들기 성공/실패 확인
     useEffect(() => {
@@ -96,6 +124,7 @@ const MakeQuizContainer = ({ history }) => {
             makequiz={makequiz}
             file={file}
             fileAdd={fileAdd}
+            fileDelete={fileDelete}
         />
     );
 };
