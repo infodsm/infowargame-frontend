@@ -16,6 +16,16 @@ const LoginContainer = ({ history }) => {
     // 인풋 값 업데이트
     const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
 
+    useEffect(() => {
+        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        if (token) {
+            history.push('/notification');
+        }
+        if (!token) {
+            history.push('/');
+        }
+    }, []);
+
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
         dispatch(initialize());
