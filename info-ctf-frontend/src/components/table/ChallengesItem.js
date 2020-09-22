@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledList = styled.div`
 position: relative;
@@ -121,7 +122,7 @@ const ChallengeRow = ({ data }) => {
                     data.map(d => {
                         return (
                             <>
-                                <li><ChallengesDiv><p>{d.name}<br />{d.point}</p></ChallengesDiv><br /></li>
+                                <li><ChallengesDiv><Link to={`/${d.category}/${d.num}`}><p>{d.name}<br />{d.point}</p></Link></ChallengesDiv><br /></li>
                             </>
 
                         )
