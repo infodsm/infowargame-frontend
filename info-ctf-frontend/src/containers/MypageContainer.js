@@ -41,7 +41,7 @@ const MypageContainer = ({ history, location }) => {
             alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
             history.goBack();
         }
-    }, []);
+    }, [dispatch, history]);
 
     // 마이페이지 수정 api 요청
     const onSubmit = e => {

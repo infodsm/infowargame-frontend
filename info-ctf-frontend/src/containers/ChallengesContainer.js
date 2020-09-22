@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showquizlistPost } from '../modules/showquizlist';
 import ChallengesItem from '../components/table/ChallengesItem';
@@ -8,9 +7,8 @@ import ChallengesItem from '../components/table/ChallengesItem';
 const ChallengesContainer = () => {
 
     const dispatch = useDispatch();
-    const { showquizlist, error, loading } = useSelector(({ showquizlist, loading }) => ({
+    const { showquizlist, loading } = useSelector(({ showquizlist, loading }) => ({
         showquizlist: showquizlist.showquizlist,
-        error: showquizlist.error,
         loading: loading['showquizlist/SHOW_QUIZLIST'],
     }));
 

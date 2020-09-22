@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import mypagemodified from '../../modules/mypagemodified';
 
 const LoginAfterArea = styled.div`
     padding: 2rem;
@@ -105,9 +103,7 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
                     <br />
                     <StyledInput type="text" name="team" placeholder={team} value={modifiedteam} onChange={onChangeInput} />
                     <br />
-                    <StyledInput type="text" name="password" placeholder="password" value={modifiedpassword} onChange={onChangeInput} />
-                    <br />
-                    <StyledInput type="text" name="score" placeholder={score} />
+                    <StyledInput type="readonly" name="score" value={score} />
                     <br />
                     <div className="ButtonArea">
                         <StyledButton onClick={onLogout} style={{ textDecoration: 'none', color: 'white' }}>log out</StyledButton>

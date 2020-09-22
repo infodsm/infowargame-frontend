@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Header from '../common/Header';
 import { Link } from 'react-router-dom';
-import AskCheckModal from './AskCheckModal';
+
 
 
 const AdminRegisterArea = styled.div`

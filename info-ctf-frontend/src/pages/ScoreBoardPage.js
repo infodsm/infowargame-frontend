@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from '../components/common/Responsive';
-import RankItem from '../components/table/RankItem';
+import RankContainer from '../containers/RankContainer';
 
 const HeaderBlock = styled.div`
     margin-top: 30px;
@@ -91,6 +91,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 225%;
+overflow: auto;
 `;
 
 
@@ -100,6 +101,7 @@ width: 80%;
 height: 700px;
 background: #000000;
 bottom: 240px;
+overflow: auto;
 
 p {
     position: absolute;
@@ -152,7 +154,7 @@ const ScoreBoardPage = () => {
                 </HeaderBlock>
                 <Spacer />
                 <RankArea >
-                    <RankItem />
+                    <RankContainer />
                 </RankArea>
             </ScoreBoardPageBlock>
         </>

@@ -46,21 +46,6 @@ const StyledInput = styled.input`
     color: white;
 `;
 
-const StyledIdInput = styled.input`
-    font-size: 2rem;
-    border: 2px solid #FFFFFF;
-    border-right: none;
-    box-sizing: border-box;
-    width: 90%;
-    height: 52px;
-    left: 642px;
-    top: 420px;
-    background: #000000;
-    border-radius: 3px;
-    color: white;
-    text-align: justify;
-`;
-
 const StyledShortInput = styled.input`
     font-size: 2rem;
     border: none;
@@ -79,26 +64,6 @@ const StyledShortInput = styled.input`
     margin-top: 30px;
 `;
 
-const StyledIdButton = styled.button`
-position: absolute;
-font-size: 2rem;
-border-right: 2px solid #FFFFFF;
-border-left: none;
-border-top: 2px solid #FFFFFF;
-border-bottom: 2px solid #FFFFFF;
-outline: none;
-box-sizing: border-box;
-width: 70px;
-height: 52px;
-right: 210px;
-background: #000000;
-border-radius: 3px;
-text-align: center;
-color: white;
-&:hover {
-    cursor: pointer;
-}
-`;
 
 const StyledButton = styled.button`
 position: absolute;

@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback } from 'react';
-import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { adminRegisterChangeField, adminRegisterInitialize, adminRegisterPost } from '../modules/adminregister';
