@@ -25,7 +25,7 @@ function App() {
       <Route component={NotificationPage} path="/notification" />
       <Route component={ChallengesPage} path="/challenges" />
       <Route component={UserPage} path="/user" />
-      <Route component={ShowQuiz} path="/:category/:num" />
+      <Route component={ShowQuiz} path="/quiz/:category/:num" />
       <Route component={AdminRegisterPage} path="/adminregister" />
       <Route component={AdminLoginPage} path="/adminlogin" />
       <Route component={FindPasswordPage} path="/findpassword" />

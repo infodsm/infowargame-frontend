@@ -122,7 +122,7 @@ const ChallengeRow = ({ data }) => {
                     data.map(d => {
                         return (
                             <>
-                                <li><ChallengesDiv><Link to={`/${d.category}/${d.num}`}><p>{d.name}<br />{d.point}</p></Link></ChallengesDiv><br /></li>
+                                <li><ChallengesDiv><Link to={`/quiz/${d.category}/${d.num}`}><p>{d.name}<br />{d.point}</p></Link></ChallengesDiv><br /></li>
                             </>
 
                         )
