@@ -1,8 +1,8 @@
 import client from './client';
 
 // user 검색
-export const usersearch = ({ column, srch, token }) => {
-    return client.get(`/api/user/search?column=${column}&srch=${srch}`, { headers: { 'token': token } });
+export const usersearch = ({ search, property, token }) => {
+    return client.post(`/api/account/search`, { search, property }, { headers: { 'Authentication': token } });
 }
 
 // api/user/search?${column}?${srch}

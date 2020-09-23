@@ -9,8 +9,8 @@ import { getEmail } from '../modules/getemail';
 
 const RegisterContainer = ({ location, history }) => {
     const dispatch = useDispatch();
-    const { userid, password, nickname, email, team, code, GetEmailCheck, register, idcheck, getemail } = useSelector(({ register, idcheck, getemail }) => ({
-        userid: register.userid,
+    const { id, password, nickname, email, team, code, GetEmailCheck, register, idcheck, getemail } = useSelector(({ register, idcheck, getemail }) => ({
+        id: register.id,
         password: register.password,
         nickname: register.nickname,
         email: register.email,
@@ -23,15 +23,14 @@ const RegisterContainer = ({ location, history }) => {
         getemail: getemail.getemail
     }));
 
-    var id = userid;
 
     // 아이디 중복 체크
     const idCheckSubmit = () => {
-        dispatch(idCheck({ userid }));
+        dispatch(idCheck({ id }));
     };
     // 이메일 인증 보내기
     const sendEmailSubmit = () => {
-        dispatch(sendEmail({ email, id }));
+        dispatch(sendEmail({ id, email }));
     };
     // 이메일 인증 받기
     const getEmailSubmit = () => {
@@ -83,7 +82,7 @@ const RegisterContainer = ({ location, history }) => {
         }
         if (getemail) {
             if (getemail.check === false)
-                alert("이메일 인증 실패");
+                alert("이미 있는 이메일입니다");
         }
     }, [getemail, dispatch]);
 
@@ -107,7 +106,7 @@ const RegisterContainer = ({ location, history }) => {
         sendEmailSubmit={sendEmailSubmit}
         getEmailSubmit={getEmailSubmit}
         onSubmit={onSubmit}
-        userid={userid}
+        id={id}
         password={password}
         nickname={nickname}
         email={email}

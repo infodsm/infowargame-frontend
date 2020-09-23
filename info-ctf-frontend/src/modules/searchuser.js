@@ -14,7 +14,7 @@ const USER_SEARCH_FAILURE = 'search/USER_SEARCH_FAILURE';
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({ key, value }));
 export const changeInput = createAction(CHANGE_INPUT, ({ key, value }) => ({ key, value }));
 export const initialize = createAction(INITIALIZE);
-export const userSearchPost = createAction(USER_SEARCH, ({ column, srch, token }) => ({ column, srch, token }));
+export const userSearchPost = createAction(USER_SEARCH, ({ search, property, token }) => ({ search, property, token }));
 
 // 사가 생성
 const searchsaga = createRequestSaga(USER_SEARCH, userAPI.usersearch);
@@ -24,9 +24,9 @@ export function* searchSaga() {
 }
 
 const initialState = {
-    column: 'id',
-    srch: '',
-    search: '',
+    search: 'id',
+    property: '',
+    searchuser: null,
 };
 
 const search = handleActions(
@@ -37,9 +37,9 @@ const search = handleActions(
             [key]: value, // 특정 key 값을 업데이트
         }),
         // 유저검색 성공
-        [USER_SEARCH_SUCCESS]: (state, { payload: search }) => ({
+        [USER_SEARCH_SUCCESS]: (state, { payload: searchuser }) => ({
             ...state,
-            search,
+            searchuser,
         }),
         // 유저검색 실패
         [USER_SEARCH_FAILURE]: (state, { payload: error }) => ({

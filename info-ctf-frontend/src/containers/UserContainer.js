@@ -1,16 +1,16 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, initialize, userSearchPost } from '../modules/search';
+import { changeField, initialize, userSearchPost } from '../modules/searchuser';
 import UserItem from '../components/table/UserItem';
 
 const UserContainer = () => {
     const [info, setInfo] = useState(null);
     const dispatch = useDispatch();
-    const { column, srch, search } = useSelector(({ search }) => ({
-        search: search.search,
-        column: search.column,
-        srch: search.srch,
-        error: search.error,
+    const { searchuser, property, search } = useSelector(({ searchuser }) => ({
+        searchuser: searchuser.searchuser,
+        search: searchuser.search,
+        property: searchuser.property,
+        error: searchuser.error,
     }));
 
     // 인풋 값 업데이트
@@ -36,28 +36,25 @@ const UserContainer = () => {
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (users) {
-            dispatch(userSearchPost({ column, srch, token }));
+            dispatch(userSearchPost({ search, property, token }));
         }
         if (admin) {
             alert("어드민은 유저검색이 되지 않습니다.");
         }
     };
 
-    // user 검색 성공 여부 확인
-    useEffect(() => {
-        if (search) {
 
+    // user 정보 성공 / 실패 처리
+    useEffect(() => {
+        if (searchuser) {
+            if (searchuser.check === true) {
+                setInfo(searchuser.contents);
+            }
         }
-    }, [search]);
-
-
-    // user 정보 저장
-    useEffect(() => {
-        setInfo(search.contents);
-    }, [search, info]);
+    }, [searchuser, info]);
 
     return (
-        <UserItem onChangeField={onChange} onSubmit={onSubmit} column={column} srch={srch} information={info} />
+        <UserItem onChangeField={onChange} onSubmit={onSubmit} search={search} property={property} information={info} />
     );
 };
 

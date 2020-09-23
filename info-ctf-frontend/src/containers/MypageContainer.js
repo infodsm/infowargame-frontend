@@ -70,7 +70,11 @@ const MypageContainer = ({ history, location }) => {
 
     // mypage 정보 저장
     useEffect(() => {
-        setMypage(myPage);
+        if (myPage) {
+            if (myPage.check === true) {
+                setMypage(myPage);
+            }
+        }
     }, [mypage, myPage]);
 
     // 언마운트 될 때 인풋 초기화

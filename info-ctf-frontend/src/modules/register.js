@@ -22,7 +22,7 @@ export function* registerpostSaga() {
 }
 
 const initialState = {
-    userid: '',
+    id: '',
     password: '',
     nickname: '',
     email: '',

@@ -1,18 +1,14 @@
-import qs from 'qs';
 import client from './client';
 
 // 아이디 중복 체크
-export const idcheck = ({ userid }) => {
-    const queryString = qs.stringify({
-        userid,
-    });
-    return client.get(`/api/auth/idcheck?${queryString}`);
+export const idcheck = ({ id }) => {
+    return client.get(`/api/auth/idcheck?id=${id}`);
 }
 
 // 이메일 인증 보내기
-export const sendemail = ({ email, id }) => {
+export const sendemail = ({ id, email }) => {
 
-    return client.post(`/api/auth/emailsend?email=${email}&id=${id}`, { email });
+    return client.post(`/api/auth/emailsend`, { id, email });
 }
 
 // 이메일 인증 받기
@@ -33,15 +29,15 @@ export const login = ({ id, password }) => {
 
 // 비밀번호 찾기
 export const findpassword = ({ id, email }) => {
-    return client.post(`api/auth/findpassword?id=${id}`, { email });
+    return client.post(`/api/auth/findpassword`, { id, email });
 }
 
 // 마이페이지
 export const mypage = ({ token }) => {
-    return client.get(`api/auth/mypage`, { headers: { 'token': token } });
+    return client.get(`/api/account/`, { headers: { 'Authentication': token } });
 }
 
 // 마이페이지 수정
 export const mypagemodified = ({ id, password, nickname, team, email, token }) => {
-    return client.post(`api/auth/changemyinfo`, { id, password, nickname, team, email }, { headers: { 'token': token } });
+    return client.post(`/api/account/change`, { id, password, nickname, team, email }, { headers: { 'Authentication': token } });
 }

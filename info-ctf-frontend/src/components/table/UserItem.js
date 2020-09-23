@@ -95,7 +95,7 @@ cursor: pointer;
 
 
 // 유저검색창
-const UserItem = ({ onSubmit, onChangeField, srch, column, information }) => {
+const UserItem = ({ onSubmit, onChangeField, property, search, information }) => {
 
 
     const onChange = e => {
@@ -112,13 +112,13 @@ const UserItem = ({ onSubmit, onChangeField, srch, column, information }) => {
     return (
         <>
             <p id="text1">Search Field</p>
-            <StyledSelect name="column" onChange={onChange} value={column}>
+            <StyledSelect name="search" onChange={onChange} value={search}>
                 <option value="id">ID</option>
-                <option value="name">NickName</option>
+                <option value="nickname">NickName</option>
                 <option value="email">Email</option>
                 <option value="team">Team</option>
             </StyledSelect>
-            <StyledInput name="srch" type="text" value={srch} onChange={onChangeInput} />
+            <StyledInput name="property" type="text" value={property} onChange={onChangeInput} />
             <StyledButton onClick={onSubmit}>search</StyledButton>
             <StyledTable>
                 <table>

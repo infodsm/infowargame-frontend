@@ -24,7 +24,7 @@ const LoginContainer = ({ history }) => {
         if (!token) {
             history.push('/');
         }
-    }, []);
+    }, [history]);
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {

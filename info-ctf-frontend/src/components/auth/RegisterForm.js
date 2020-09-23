@@ -78,7 +78,7 @@ color: white;
 `;
 
 
-const RegisterForm = ({ userid, password, nickname, email, team, code, onChangeField, idCheckSubmit, sendEmailSubmit, getEmailSubmit, onSubmit }) => {
+const RegisterForm = ({ id, password, nickname, email, team, code, onChangeField, idCheckSubmit, sendEmailSubmit, getEmailSubmit, onSubmit }) => {
 
     const [modal, setModal] = useState(false);
 
@@ -104,7 +104,7 @@ const RegisterForm = ({ userid, password, nickname, email, team, code, onChangeF
 
             <Header />
             <RegisterArea>
-                <StyledInput name="userid" placeholder="id" onChange={onChangeInput} value={userid} />
+                <StyledInput name="id" placeholder="id" onChange={onChangeInput} value={id} />
                 <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={idCheckSubmit}>중복확인</StyledButton>
                 <br />
                 <StyledInput name="password" type="password" placeholder="password" onChange={onChangeInput} value={password} />
