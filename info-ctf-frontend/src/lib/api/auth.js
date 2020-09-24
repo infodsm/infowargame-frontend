@@ -2,13 +2,11 @@ import client from './client';
 
 // 아이디 중복 체크
 export const idcheck = ({ id }) => {
-
     return client.get(`/api/auth/idcheck?id=${id}`);
 }
 
 // 이메일 인증 보내기
 export const sendemail = ({ id, email }) => {
-
     return client.post(`/api/auth/emailsend`, { id, email });
 }
 

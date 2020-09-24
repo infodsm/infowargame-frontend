@@ -27,7 +27,6 @@ const RegisterContainer = ({ location, history }) => {
     // 아이디 중복 체크
     const idCheckSubmit = () => {
         dispatch(idCheck({ id }));
-
     };
     // 이메일 인증 보내기
     const sendEmailSubmit = () => {

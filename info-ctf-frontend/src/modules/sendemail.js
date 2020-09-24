@@ -10,7 +10,7 @@ const SEND_EMAIL_UNLOAD = "sendemail/SEND_EMAIL_UNLOAD";
 
 export const sendEmail = createAction(SEND_EMAIL, ({ id, email }) => ({
     id,
-    email,
+    email
 }));
 export const sendEmailUnload = createAction(SEND_EMAIL_UNLOAD);
 
