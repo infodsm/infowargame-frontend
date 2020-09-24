@@ -12,7 +12,6 @@ export const sendemail = ({ id, email }) => {
 
 // 이메일 인증 받기
 export const getemail = ({ id, code }) => {
-
     return client.get(`/api/auth/emailcheck?id=${id}&code=${code}`);
 }
 

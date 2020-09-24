@@ -28,10 +28,12 @@ const RegisterContainer = ({ location, history }) => {
     const idCheckSubmit = () => {
         dispatch(idCheck({ id }));
     };
+
     // 이메일 인증 보내기
     const sendEmailSubmit = () => {
         dispatch(sendEmail({ id, email }));
     };
+
     // 이메일 인증 받기
     const getEmailSubmit = () => {
         dispatch(getEmail({ id, code }));
