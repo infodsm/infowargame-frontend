@@ -35,6 +35,7 @@ export const mypage = ({ token }) => {
     return client.get(`/api/account/`, { headers: { 'Authentication': token } });
 }
 
+
 // 마이페이지 수정
 export const mypagemodified = ({ id, password, nickname, team, email, token }) => {
     return client.post(`/api/account/change`, { id, password, nickname, team, email }, { headers: { 'Authentication': token } });
