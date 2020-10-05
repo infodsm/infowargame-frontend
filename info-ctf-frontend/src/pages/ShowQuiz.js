@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LoadQuizContainer from '../containers/LoadQuizContainer';
 import ShowQuizitem from '../components/Quiz/ShowQuizItem';
 
 /* 화면 전체를 채움 */
@@ -28,7 +29,7 @@ const ShowQuiz = () => {
     return (
         <>
             <ShowQuizBlock>
-                <ShowQuizitem data={sampledata} />
+                <LoadQuizContainer data={sampledata} />
             </ShowQuizBlock>
         </>
     );

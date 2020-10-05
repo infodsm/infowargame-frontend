@@ -104,17 +104,18 @@ color: white;
 `;
 
 
-const ShowQuizItem = ({ data }) => {
-    const { name, contents, score } = data;
+const ShowQuizItem = ({ loadquiz, data }) => {
+    console.log(loadquiz);
+    // const { name, contents, score } = data;
     return (
         <>
             <Header />
 
             <ShowQuizArea>
-                <h1>{name}</h1>
+                <h1>name</h1>
                 <hr />
                 <QuizContent>
-                    <p>{contents}</p>
+                    <p>contents</p>
                 </QuizContent>
                 <InputArea>
                     <StyledIdInput type="readonly" value="id"></StyledIdInput>
