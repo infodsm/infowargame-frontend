@@ -6,11 +6,12 @@ import LoginForm from '../components/auth/LoginForm';
 
 const LoginContainer = ({ history }) => {
     const dispatch = useDispatch();
-    const { id, password, login, logged, } = useSelector(({ login }) => ({
+    const { id, password, login, error, logged } = useSelector(({ login }) => ({
         id: login.id,
         password: login.password,
         login: login.login,
         logged: login.logged,
+        error: login.error,
     }));
 
     // 인풋 값 업데이트
@@ -46,20 +47,20 @@ const LoginContainer = ({ history }) => {
     // 로그인 성공 여부 확인
     useEffect(() => {
         if (login) {
-            if (login.check === true || login.token) {
+            if (login) {
                 alert("로그인 성공");
                 localStorage.setItem("user", JSON.stringify(login.token)); // localStorage에 토큰 저장
                 localStorage.setItem("users", 'users');
                 history.push('/notification');    // 공지로 이동
             }
         }
-        if (login) {
-            if (login.check === false || login.token === null || logged === false) {
+        if (error) {
+            if (error) {
                 alert("로그인 실패");   // 로그인 실패 처리
                 history.push('/');
             }
         }
-    }, [history, login, logged]);
+    }, [history, login, error, dispatch]);
 
     return <LoginForm
         onChangeField={onChange}

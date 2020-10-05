@@ -42,7 +42,7 @@ const initialState = {
     id: '',
     password: '',
     login: null,
-    loginError: null,
+    error: null,
     logged: false,
 };
 
@@ -57,12 +57,12 @@ const login = handleActions(
         [LOGIN_POST_SUCCESS]: (state, { payload: login }) => ({
             ...state,
             login,
-            loginError: null,
+            error: null,
             logged: true,
         }),
         [LOGIN_POST_FAILURE]: (state, { payload: error }) => ({
             ...state,
-            loginError: error,
+            error: error,
             logged: false,
         }),
         [LOGOUT]: state => ({

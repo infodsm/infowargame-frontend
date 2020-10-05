@@ -71,7 +71,7 @@ const MypageContainer = ({ history, location }) => {
     // mypage 정보 저장
     useEffect(() => {
         if (myPage) {
-            if (myPage.check === true) {
+            if (myPage) {
                 setMypage(myPage);
             }
         }

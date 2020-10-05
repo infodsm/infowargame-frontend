@@ -44,13 +44,7 @@ font-size: 2rem;
     text-align: center;
     color: white;
 
-    /* 브라우저 크기에 따라 가로 크기 변경 */
-    @media (max-width: 1024px) {
-        width: 768px;
-    }
-    @media (max-width: 768px) {
-        width: 100%;
-    }
+
 `;
 
 const StyledInput = styled.input`
@@ -66,7 +60,6 @@ const StyledInput = styled.input`
     border-radius: 3px;
     text-align: center;
     color: white;
-
 `;
 
 const StyledButton = styled.button`
@@ -84,13 +77,7 @@ text-align: center;
 color: grey;
 cursor: pointer;
 
-/* 브라우저 크기에 따라 가로 크기 변경 */
-@media (max-width: 1024px) {
-    width: 768px;
-}
-@media (max-width: 768px) {
-    width: 100%;
-}
+
 `;
 
 
@@ -112,13 +99,13 @@ const UserItem = ({ onSubmit, onChangeField, property, search, information }) =>
     return (
         <>
             <p id="text1">Search Field</p>
-            <StyledSelect name="search" onChange={onChange} value={search}>
+            <StyledSelect name="property" onChange={onChange} value={property}>
                 <option value="id">ID</option>
-                <option value="nickname">NickName</option>
+                <option value="name">NickName</option>
                 <option value="email">Email</option>
                 <option value="team">Team</option>
             </StyledSelect>
-            <StyledInput name="property" type="text" value={property} onChange={onChangeInput} />
+            <StyledInput name="search" type="text" value={search} onChange={onChangeInput} />
             <StyledButton onClick={onSubmit}>search</StyledButton>
             <StyledTable>
                 <table>
@@ -142,7 +129,7 @@ const UserRow = ({ information }) => {
 
     // information 값이 유효할 때 (렌더링 오류가 나지 않게 객체든 배열이든 꼭 이 유효성 검사를 해주어야 함)
     if (information === null) {
-        return <StyledTable><h1 style={{ textDecoration: 'none', color: 'white' }}>존재하지 않는 계정정보입니다</h1></StyledTable>
+        return null;
     }
 
     if (!information) {

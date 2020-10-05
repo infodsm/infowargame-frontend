@@ -30,7 +30,7 @@ const RankContainer = ({ history }) => {
 
     useEffect(() => {
         if (ranks) {
-            if (ranks.check === true) {
+            if (ranks) {
                 setMydata(ranks.mydata);
                 setRank(ranks.contents);
             }

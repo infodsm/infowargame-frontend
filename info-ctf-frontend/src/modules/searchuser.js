@@ -17,15 +17,15 @@ export const initialize = createAction(INITIALIZE);
 export const userSearchPost = createAction(USER_SEARCH, ({ search, property, token }) => ({ search, property, token }));
 
 // 사가 생성
-const searchsaga = createRequestSaga(USER_SEARCH, userAPI.usersearch);
+const searchsaga = createRequestSaga(USER_SEARCH, userAPI.searchuser);
 
 export function* searchSaga() {
     yield takeLatest(USER_SEARCH, searchsaga);
 }
 
 const initialState = {
-    search: 'id',
-    property: '',
+    search: '',
+    property: 'id',
     searchuser: null,
 };
 

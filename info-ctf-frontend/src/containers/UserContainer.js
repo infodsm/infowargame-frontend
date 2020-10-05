@@ -37,6 +37,7 @@ const UserContainer = () => {
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (users) {
             dispatch(userSearchPost({ search, property, token }));
+            console.log(userSearchPost);
         }
         if (admin) {
             alert("어드민은 유저검색이 되지 않습니다.");
@@ -47,7 +48,7 @@ const UserContainer = () => {
     // user 정보 성공 / 실패 처리
     useEffect(() => {
         if (searchuser) {
-            if (searchuser.check === true) {
+            if (searchuser) {
                 setInfo(searchuser.contents);
             }
         }

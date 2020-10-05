@@ -9,7 +9,7 @@ import { getEmail } from '../modules/getemail';
 
 const RegisterContainer = ({ location, history }) => {
     const dispatch = useDispatch();
-    const { id, password, nickname, email, team, code, GetEmailCheck, register, idcheck, getemail } = useSelector(({ register, idcheck, getemail }) => ({
+    const { id, password, nickname, email, team, code, GetEmailCheck, getemailerror, register, idcheck, error, getemail } = useSelector(({ register, idcheck, getemail }) => ({
         id: register.id,
         password: register.password,
         nickname: register.nickname,
@@ -20,12 +20,16 @@ const RegisterContainer = ({ location, history }) => {
         registerError: register.registerError,
         idcheck: idcheck.idcheck,
         GetEmailCheck: getemail.GetEmailCheck,
-        getemail: getemail.getemail
+        getemail: getemail.getemail,
+        error: idcheck.error,
+        getemailerror: getemail.error,
+
     }));
 
 
     // 아이디 중복 체크
     const idCheckSubmit = () => {
+        console.log(id);
         dispatch(idCheck({ id }));
     };
 
@@ -67,37 +71,31 @@ const RegisterContainer = ({ location, history }) => {
     // ID 중복 체크 성공여부 확인
     useEffect(() => {
         if (idcheck) {
-            if (idcheck.check === true)
-                alert('아이디가 사용 가능합니다.');
+            alert('아이디가 사용 가능합니다.');
         }
-        if (idcheck) {
-            if (idcheck.check === false)
-                alert("아이디가 사용 불가능합니다.");
+        if (error) {
+            alert("아이디가 사용 불가능합니다.");
         }
-    }, [idcheck, dispatch]);
+    }, [idcheck, error, dispatch]);
 
     // 이메일 인증 보내기 성공여부 확인
     useEffect(() => {
         if (getemail) {
-            if (getemail.check === true)
-                alert("이메일 인증 완료");
+            alert("이메일 인증 완료");
         }
-        if (getemail) {
-            if (getemail.check === false)
-                alert("이미 있는 이메일입니다");
+        if (getemailerror) {
+            alert("이미 있는 이메일입니다");
         }
-    }, [getemail, dispatch]);
+    }, [getemail, getemailerror, dispatch]);
 
     // 회원가입 성공여부 확인
     useEffect(() => {
         if (register) {
-            if (register.check === true) {
-                alert("회원가입이 완료되었습니다!");
-                history.push('/');
-            }
-            if (register.check === false) {
-                alert("회원가입 실패");
-            }
+            alert("회원가입이 완료되었습니다!");
+            history.push('/');
+        }
+        if (!register) {
+            alert("회원가입 실패");
         }
     }, [history, register]);
 

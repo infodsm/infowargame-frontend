@@ -8,7 +8,7 @@ const ID_CHECK_SUCCESS = 'idcheck/ID_CHECK_SUCCESS';
 const ID_CHECK_FAILURE = 'idcheck/ID_CHECK_FAILURE';
 const ID_UNLOAD = 'idcheck/ID_UNLOAD';
 
-export const idCheck = createAction(ID_CHECK, ({ userid }) => ({ userid }));
+export const idCheck = createAction(ID_CHECK, ({ id }) => ({ id }));
 export const idUnload = createAction(ID_UNLOAD);
 
 const idCheckSaga = createRequestSaga(ID_CHECK, authAPI.idcheck);
