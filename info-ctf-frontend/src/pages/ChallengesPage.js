@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import ChallengesContainer from '../containers/ChallengesContainer';
+import { Link } from 'react-router-dom';
 
 /* 화면 전체를 채움 */
 const ChallengesPageBlock = styled.div`
@@ -46,8 +47,31 @@ overflow: auto;
 }
 `;
 
+const StyledButton = styled.button`
+position: relative;
+font-size: 1rem;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+width: 109.5px;
+height: 51px;
+left: 1045px;
+background: #000000;
+border-radius: 3px;
+text-align: center;
+color: grey;
+cursor: pointer;
+color: white;
+text-decoration: none;
+p {
+    color: white;
+    margin-top: 10px;
+}
+`;
+
 
 const ChallengesPage = () => {
+
+    const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
 
     return (
         <>
@@ -56,6 +80,7 @@ const ChallengesPage = () => {
                     <Header />
                 </HeaderBlock>
                 <ChallengesArea>
+                    {admin ? <StyledButton><Link to="/makequiz"><p>문제 만들기</p></Link></StyledButton> : null}
                     <ChallengesContainer />
                 </ChallengesArea>
             </ChallengesPageBlock>

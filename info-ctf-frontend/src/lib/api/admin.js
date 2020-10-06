@@ -11,13 +11,13 @@ export const adminlogin = ({ id, password }) => {
 }
 
 // 문제 만들기 
-export const makequiz = ({ category, id, point, quizname, contents, token }) => {
-    return client.post(`api/admin/quizmake`, { category, contents, point, quizname, id }, { headers: { 'token': token } });
+export const makequiz = ({ category, contents, id, point, quizname, token }) => {
+    return client.post(`/api/admin/challenge/quizmake`, { category, contents, id, point, quizname }, { headers: { "Authentication": token } });
 }
 
-// 파일 업로드
+// 파일 업로드 (사용 x container 컴포넌트에서 요청함)
 export const uploadfile = ({ quizname, file, token }) => {
-    return client.post(`api/admin/fileadd`, { quizname, filetoadd: file }, { headers: { 'token': token } });
+    return client.post(`api/admin/fileadd/${quizname}`, { filetoadd: file }, { headers: { "Authentication": token } });
 }
 
 // 파일 삭제

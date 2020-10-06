@@ -12,6 +12,7 @@ const ChallengesContainer = () => {
         loading: loading['showquizlist/SHOW_QUIZLIST'],
     }));
 
+    const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
 
     // 페이지가 mount 될 때 문제목록 api 호출
     useEffect(() => {
@@ -19,7 +20,7 @@ const ChallengesContainer = () => {
     }, [dispatch]);
 
 
-    return <ChallengesItem data={showquizlist} loading={loading} />;
+    return <ChallengesItem data={showquizlist} loading={loading} admin={admin} />;
 };
 
 export default ChallengesContainer;

@@ -15,6 +15,7 @@ border-radius: 3px;
 text-align: center;
 color: white;
 left: -15px;
+margin-top: 50px;
 
 
 /* 브라우저 크기에 따라 가로 크기 변경 */
@@ -89,13 +90,13 @@ const ChallengesItem = ({ data, loading }) => {
         return null;
     }
 
-
     const filterArray = (category) => {
         return data.filter(data => data.category === category);
     }
     return (
-        <StyledList>
-            <>
+
+        <>
+            <StyledList>
                 <p>Cryptography</p><ChallengeRow data={filterArray(1)}></ChallengeRow>
                 <br />
                 <p>Forensics</p><ChallengeRow data={filterArray(2)}></ChallengeRow>
@@ -109,8 +110,8 @@ const ChallengesItem = ({ data, loading }) => {
                 <p>Reverse Engineering</p><ChallengeRow data={filterArray(6)}></ChallengeRow>
                 <br />
                 <p>Webhacking</p><ChallengeRow data={filterArray(7)}></ChallengeRow>
-            </>
-        </StyledList>
+            </StyledList>
+        </>
     );
 };
 

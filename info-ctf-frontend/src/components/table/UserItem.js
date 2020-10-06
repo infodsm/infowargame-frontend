@@ -76,8 +76,6 @@ border-radius: 3px;
 text-align: center;
 color: grey;
 cursor: pointer;
-
-
 `;
 
 

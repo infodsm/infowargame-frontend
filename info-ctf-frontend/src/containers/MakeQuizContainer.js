@@ -43,9 +43,8 @@ const MakeQuizContainer = ({ history }) => {
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         const formdata = new FormData();
         try {
-            formdata.append("quizname", quizname);
             formdata.append("filetoadd", uploadFileData);
-            await client.post(`/api/admin/fileadd`, formdata, { headers: { 'token': token } })
+            await client.post(`/api/admin/file/${quizname}`, formdata, { headers: { "Authentication": token } })
         } catch (err) {
             alert("에러");
         }
@@ -72,7 +71,7 @@ const MakeQuizContainer = ({ history }) => {
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (admin) {
-            dispatch(makequizPost({ category, id, point, quizname, contents, token }));
+            dispatch(makequizPost({ category, contents, id, point, quizname, token }));
             fileAdd(); // file 추가 api 요청
         }
         if (users) {
@@ -96,17 +95,13 @@ const MakeQuizContainer = ({ history }) => {
     // 문제 만들기 성공/실패 확인
     useEffect(() => {
         if (makequiz) {
-            if (makequiz.check === true) {
+            if (makequiz.status === 201) {
                 alert("문제 만들기 완료");
                 history.push('/challenges');
             }
-            if (makequiz.check === false) {
+            if (error.status === 404) {
                 alert("문제 만들기 실패");
             }
-        }
-        if (error) {
-            alert("오류발생");
-            console.log(error);
         }
     }, [history, makequiz, error]);
 
