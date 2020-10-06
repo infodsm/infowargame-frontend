@@ -43,8 +43,9 @@ const MakeQuizContainer = ({ history }) => {
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         const formdata = new FormData();
         try {
+            formdata.append("quizname", quizname);
             formdata.append("filetoadd", uploadFileData);
-            await client.post(`/api/admin/file/${quizname}`, formdata, { headers: { "Authentication": token } })
+            await client.post(`/api/admin/file`, formdata, { headers: { "Authentication": token } })
         } catch (err) {
             alert("에러");
         }
@@ -99,7 +100,7 @@ const MakeQuizContainer = ({ history }) => {
                 alert("문제 만들기 완료");
                 history.push('/challenges');
             }
-            if (error.status === 404) {
+            if (error) {
                 alert("문제 만들기 실패");
             }
         }
