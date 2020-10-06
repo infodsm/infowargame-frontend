@@ -87,7 +87,7 @@ color: white;
 `;
 
 
-const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, fileDelete }) => {
+const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, fileDelete, flag }) => {
 
 
     const onChangeFile = (e) => {
@@ -117,7 +117,7 @@ const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onCha
                     <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '54%' }}></StyledInput>
                     <StyledButton onClick={fileDelete} style={{ marginRight: '76px' }}>파일삭제</StyledButton>
                 </InputArea>
-                <StyledInput type="text" placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>
+                <StyledInput name="flag" type="text" value={flag} onChange={onChange} placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>
                 <StyledButton style={{ marginRight: '75.5px' }} onClick={onSubmit}>만들기</StyledButton>
             </MakeQuizArea>
         </>

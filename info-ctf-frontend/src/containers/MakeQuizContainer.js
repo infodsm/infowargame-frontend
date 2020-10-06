@@ -10,11 +10,12 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, id, point, quizname, contents, makequiz, error, file, deletefile, } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
+    const { category, id, point, quizname, contents, makequiz, error, file, deletefile, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
         category: makequiz.category,
         id: makequiz.id,
         point: makequiz.point,
         quizname: makequiz.quizname,
+        flag: makequiz.flag,
         contents: makequiz.contents,
         makequiz: makequiz.makequiz,
         error: makequiz.error,
@@ -71,7 +72,7 @@ const MakeQuizContainer = ({ history }) => {
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (admin) {
-            dispatch(makequizPost({ category, contents, id, point, quizname, token }));
+            dispatch(makequizPost({ category, contents, id, point, quizname, flag, token }));
             fileAdd(); // file 추가 api 요청
         }
         if (users) {
@@ -120,6 +121,7 @@ const MakeQuizContainer = ({ history }) => {
             file={file}
             fileAdd={fileAdd}
             fileDelete={fileDelete}
+            flag={flag}
         />
     );
 };
