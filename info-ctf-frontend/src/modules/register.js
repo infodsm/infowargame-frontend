@@ -29,7 +29,7 @@ const initialState = {
     team: '',
     code: '',
     register: null,
-    registerError: null,
+    error: null,
 };
 
 const register = handleActions(

@@ -27,6 +27,7 @@ const initialState = {
     code: '',
     adminregister: '',
     admin: false,
+    error: null,
 };
 
 const adminregister = handleActions(

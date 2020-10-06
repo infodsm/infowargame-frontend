@@ -3,13 +3,13 @@ import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initialize, registerPost } from '../modules/register';
 import RegisterForm from '../components/auth/RegisterForm';
-import { idCheck } from '../modules/idcheck';
+import { idCheck, idinitialize } from '../modules/idcheck';
 import { sendEmail } from '../modules/sendemail';
 import { getEmail } from '../modules/getemail';
 
 const RegisterContainer = ({ location, history }) => {
     const dispatch = useDispatch();
-    const { id, password, nickname, email, team, code, GetEmailCheck, getemailerror, register, idcheck, error, getemail } = useSelector(({ register, idcheck, getemail }) => ({
+    const { id, password, nickname, email, team, code, GetEmailCheck, getemailerror, register, registererror, idcheck, error, getemail } = useSelector(({ register, idcheck, getemail }) => ({
         id: register.id,
         password: register.password,
         nickname: register.nickname,
@@ -23,13 +23,13 @@ const RegisterContainer = ({ location, history }) => {
         getemail: getemail.getemail,
         error: idcheck.error,
         getemailerror: getemail.error,
+        registererror: register.error,
 
     }));
 
 
     // 아이디 중복 체크
     const idCheckSubmit = () => {
-        console.log(id);
         dispatch(idCheck({ id }));
     };
 
@@ -47,6 +47,9 @@ const RegisterContainer = ({ location, history }) => {
         e.preventDefault();
         if (GetEmailCheck === true) {
             dispatch(registerPost({ id, password, nickname, email, team }));
+        }
+        if ([id, password, nickname, email, team].includes('')) {
+            alert('빈 칸을 모두 입력하세요.');
         }
         else {
             alert("이메일 인증이 완료되지 않았습니다.");
@@ -72,9 +75,11 @@ const RegisterContainer = ({ location, history }) => {
     useEffect(() => {
         if (idcheck) {
             alert('아이디가 사용 가능합니다.');
+            dispatch(idinitialize());
         }
         if (error) {
             alert("아이디가 사용 불가능합니다.");
+            dispatch(idinitialize());
         }
     }, [idcheck, error, dispatch]);
 
@@ -94,10 +99,10 @@ const RegisterContainer = ({ location, history }) => {
             alert("회원가입이 완료되었습니다!");
             history.push('/');
         }
-        if (!register) {
+        if (registererror) {
             alert("회원가입 실패");
         }
-    }, [history, register]);
+    }, [register, registererror, history]);
 
 
     return <RegisterForm

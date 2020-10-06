@@ -88,7 +88,7 @@ const AdminLoginForm = ({ history }) => {
             id: login.id,
             password: login.password,
         }).then(result => {
-            if (result.data.check === true) {   // 예외 처리
+            if (result.status === 201) {   // 예외 처리
                 alert("로그인 성공!");
                 if (!result.data.token) {
                     alert("에러");
@@ -98,7 +98,7 @@ const AdminLoginForm = ({ history }) => {
                 localStorage.setItem("admin", 'admin');
                 history.push('/notification');
             }
-            else if (result.data.check === false) {
+            else if (result.status === 403) {
                 alert("로그인 실패");
                 return <Redirect to="/adminlogin" />
             }
