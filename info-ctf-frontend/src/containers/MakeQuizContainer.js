@@ -10,9 +10,8 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, id, point, quizname, contents, makequiz, error, file, deletefile, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
+    const { category, point, quizname, contents, makequiz, error, file, deletefile, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
         category: makequiz.category,
-        id: makequiz.id,
         point: makequiz.point,
         quizname: makequiz.quizname,
         flag: makequiz.flag,
@@ -72,7 +71,7 @@ const MakeQuizContainer = ({ history }) => {
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (admin) {
-            dispatch(makequizPost({ category, contents, id, point, quizname, flag, token }));
+            dispatch(makequizPost({ category, contents, point, quizname, flag, token }));
             fileAdd(); // file 추가 api 요청
         }
         if (users) {
@@ -96,7 +95,7 @@ const MakeQuizContainer = ({ history }) => {
     // 문제 만들기 성공/실패 확인
     useEffect(() => {
         if (makequiz) {
-            if (makequiz.status === 201) {
+            if (makequiz) {
                 alert("문제 만들기 완료");
                 history.push('/challenges');
             }
@@ -113,7 +112,6 @@ const MakeQuizContainer = ({ history }) => {
             ChangeFile={setUploadFileData}
             onSubmit={onSubmit}
             category={category}
-            id={id}
             point={point}
             quizname={quizname}
             contents={contents}

@@ -11,8 +11,8 @@ export const adminlogin = ({ id, password }) => {
 }
 
 // 문제 만들기 
-export const makequiz = ({ category, contents, id, point, quizname, flag, token }) => {
-    return client.post(`/api/admin/challenge/quizmake`, { category, contents, id, point, quizname, flag }, { headers: { "Authentication": token } });
+export const makequiz = ({ category, contents, point, quizname, flag, token }) => {
+    return client.post(`/api/admin/challenge/make`, { category, contents, point, quizname, flag }, { headers: { "Authentication": token } });
 }
 
 // 파일 업로드 (사용 x container 컴포넌트에서 요청함)

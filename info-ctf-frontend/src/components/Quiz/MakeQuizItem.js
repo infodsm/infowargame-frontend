@@ -87,7 +87,7 @@ color: white;
 `;
 
 
-const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, fileDelete, flag }) => {
+const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeField, ChangeFile, onSubmit, fileDelete, flag }) => {
 
 
     const onChangeFile = (e) => {
@@ -104,7 +104,6 @@ const MakeQuizItem = ({ category, id, point, quizname, contents, makequiz, onCha
             <MakeQuizArea>
                 <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 :  Reverse Engineering / 7 : Webhacking ) </p>
                 <StyledShortInput name="category" value={category} placeholder="카테고리" onChange={onChange}></StyledShortInput>
-                <StyledShortInput name="id" value={id} placeholder="만든사람 ID" onChange={onChange}></StyledShortInput>
                 <StyledShortInput name="point" value={point} placeholder="점수" onChange={onChange}></StyledShortInput>
                 <br />
                 <br />

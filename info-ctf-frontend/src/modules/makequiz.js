@@ -11,7 +11,7 @@ const MAKE_QUIZ_POST_FAILURE = 'makequiz/MAKE_QUIZ_POST_FAILURE';
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({ key, value }));
-export const makequizPost = createAction(MAKE_QUIZ_POST, ({ category, contents, id, point, quizname, flag, token }) => ({ category, contents, id, point, quizname, flag, token }));
+export const makequizPost = createAction(MAKE_QUIZ_POST, ({ category, contents, point, quizname, flag, token }) => ({ category, contents, point, quizname, flag, token }));
 
 // 사가 생성
 const makequizPostSaga = createRequestSaga(MAKE_QUIZ_POST, adminAPI.makequiz);
@@ -23,7 +23,6 @@ export function* makequizpostSaga() {
 
 const initialState = {
     category: '',
-    id: '',
     point: '',
     quizname: '',
     contents: '',
