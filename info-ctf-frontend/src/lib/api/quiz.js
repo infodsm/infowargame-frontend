@@ -6,4 +6,4 @@ export const showquizlist = () => {
 }
 
 // 문제 내용 불러오기
-export const loadquiz = quiz_code => client.get(`/api/challenge/lodequiz/${quiz_code}`);
+export const loadquiz = quiz_code => client.get(`/api/challenge/${quiz_code}`);
