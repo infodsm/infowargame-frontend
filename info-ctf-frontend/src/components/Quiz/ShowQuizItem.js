@@ -17,7 +17,7 @@ h1 {
 
 const QuizContent = styled.div`
 width: 100%;
-height: 50%;
+height: 65%;
 border: none;
 border-radius: 5px;
 p {
@@ -104,21 +104,61 @@ color: white;
 `;
 
 
-const ShowQuizItem = ({ loadquiz, data }) => {
-    console.log(loadquiz);
-    // const { name, contents, score } = data;
+const ShowQuizItem = ({ loadquiz, loading }) => {
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <ShowQuizArea>
+                    <QuizContent>
+                        <hr style={{ width: "1128px", marginRight: '100px' }} />
+                        <p>로딩중입니다.</p>
+                    </QuizContent>
+                    <InputArea>
+                        <StyledIdInput type="readonly"></StyledIdInput>
+                        <StyledIdButton><BsDownload /></StyledIdButton>
+                    </InputArea>
+                    <StyledInput type="readonly" value="Insert flag"></StyledInput>
+                    <StyledButton>제출</StyledButton>
+                </ShowQuizArea>
+            </>
+        );
+    }
+
+    if (loadquiz === null) {
+        return (
+            <>
+                <Header />
+                <ShowQuizArea>
+                    <QuizContent>
+                        <hr style={{ width: "1128px", marginRight: '100px' }} />
+                        <p>퀴즈가 존재하지 않습니다.</p>
+                    </QuizContent>
+                    <InputArea>
+                        <StyledIdInput type="readonly"></StyledIdInput>
+                        <StyledIdButton><BsDownload /></StyledIdButton>
+                    </InputArea>
+                    <StyledInput type="readonly" value="Insert flag"></StyledInput>
+                    <StyledButton>제출</StyledButton>
+                </ShowQuizArea>
+            </>
+        );
+    }
+
+    const { content, file } = loadquiz;
+
+
     return (
         <>
             <Header />
-
             <ShowQuizArea>
-                <h1>name</h1>
-                <hr />
                 <QuizContent>
-                    <p>contents</p>
+                    <hr style={{ width: "1128px", marginRight: '100px' }} />
+                    <p>{content}</p>
                 </QuizContent>
                 <InputArea>
-                    <StyledIdInput type="readonly" value="id"></StyledIdInput>
+                    <StyledIdInput type="readonly" value={file}></StyledIdInput>
                     <StyledIdButton><BsDownload /></StyledIdButton>
                 </InputArea>
                 <StyledInput type="readonly" value="Insert flag"></StyledInput>

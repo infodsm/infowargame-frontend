@@ -8,6 +8,7 @@ import { loadquizPost, initialize } from '../modules/loadquiz';
 
 
 const LoadQuizContainer = ({ match }) => {
+    const [quiz, setQuiz] = useState(null);
     const dispatch = useDispatch();
     const { num } = match.params;
     const { loadquiz, error, loading } = useSelector(({ loadquiz, loading }) => ({
@@ -29,6 +30,7 @@ const LoadQuizContainer = ({ match }) => {
     useEffect(() => {
         if (loadquiz) {
             console.log("요청성공");
+            console.log(loadquiz);
         }
         if (error) {
             console.log(error);
