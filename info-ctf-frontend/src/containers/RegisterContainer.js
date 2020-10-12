@@ -30,6 +30,7 @@ const RegisterContainer = ({ location, history }) => {
 
     // 아이디 중복 체크
     const idCheckSubmit = () => {
+        idinitialize();
         dispatch(idCheck({ id }));
     };
 
@@ -60,6 +61,7 @@ const RegisterContainer = ({ location, history }) => {
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
+        idinitialize();
         dispatch(initialize());
     }, [dispatch]);
 
