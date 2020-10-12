@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showquizlistPost } from '../modules/showquizlist';
 import ChallengesItem from '../components/table/ChallengesItem';
+import { quizinitialize } from '../modules/deletequiz';
 
 
 const ChallengesContainer = () => {
@@ -15,6 +16,7 @@ const ChallengesContainer = () => {
 
     // 페이지가 mount 될 때 문제목록 api 호출
     useEffect(() => {
+        dispatch(quizinitialize());
         dispatch(showquizlistPost());
     }, [dispatch]);
 

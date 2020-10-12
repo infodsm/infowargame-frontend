@@ -10,7 +10,7 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, point, quizname, contents, makequiz, error, file, deletefile, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
+    const { category, point, quizname, contents, makequiz, error, file, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
         category: makequiz.category,
         point: makequiz.point,
         quizname: makequiz.quizname,
@@ -19,7 +19,6 @@ const MakeQuizContainer = ({ history }) => {
         makequiz: makequiz.makequiz,
         error: makequiz.error,
         file: uploadfile.file,
-        deletefile: deletefile.deletefile,
     }));
 
     // 인풋 값 업데이트
@@ -79,19 +78,6 @@ const MakeQuizContainer = ({ history }) => {
             alert("어드민만 사용 가능한 기능입니다.");
         }
     };
-
-    // 문제 삭제 성공/실패 확인
-    useEffect(() => {
-        if (deletefile) {
-            if (deletefile.check === true) {
-                alert("파일삭제완료, 제목을 바꾼 후 문제만들기를 요청해주세요. (그렇지 않을 시 오류가 발생합니다.)");
-            }
-        }
-        if (error) {
-            alert("오류발생");
-            console.log(error);
-        }
-    }, [deletefile, error]);
 
     // 문제 만들기 성공/실패 확인
     useEffect(() => {

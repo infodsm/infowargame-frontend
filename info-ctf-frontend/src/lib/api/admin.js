@@ -21,8 +21,8 @@ export const uploadfile = ({ quizname, file, token }) => {
 }
 
 // 파일 삭제
-export const deletefile = ({ quizname, token }) => {
-    return client.post(`api/admin/filedelete`, { quizname }, { headers: { 'token': token } });
+export const deletefile = ({ quiz_num, token }) => {
+    return client.delete(`/api/admin/file/${quiz_num}`, { headers: { 'Authentication': token } });
 }
 
 // 퀴즈 삭제

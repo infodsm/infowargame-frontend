@@ -3,16 +3,17 @@ import ShowQuizItem from '../components/Quiz/ShowQuizItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { loadquizPost, initialize } from '../modules/loadquiz';
-import { deletequizPost } from '../modules/deletequiz';
+import { deletequizPost, quizinitialize } from '../modules/deletequiz';
+import { deletefilePost } from '../modules/deletefile';
 
 
 
 
-const LoadQuizContainer = ({ match }) => {
+const LoadQuizContainer = ({ match, history }) => {
     const dispatch = useDispatch();
     const { num } = match.params;
     var quiz_num = { num }.num;
-    const { loadquiz, deletequiz, deletequizerror, error, loading } = useSelector(({ loadquiz, deletequiz, loading }) => ({
+    const { loadquiz, deletequiz, deletequizerror, error, loading } = useSelector(({ loadquiz, deletequiz, deletefile, loading }) => ({
         loadquiz: loadquiz.loadquiz,
         error: loadquiz.error,
         deletequiz: deletequiz.deletequiz,
@@ -38,6 +39,7 @@ const LoadQuizContainer = ({ match }) => {
         const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
         if (admin) {
             console.log(quiz_num);
+            dispatch(deletefilePost({ quiz_num, token }));
             dispatch(deletequizPost({ quiz_num, token }));
         }
         if (users) {
@@ -55,6 +57,17 @@ const LoadQuizContainer = ({ match }) => {
             console.log("오류발생");
         }
     }, [loadquiz, error]);
+
+    useEffect(() => {
+        if (deletequiz) {
+            quizinitialize();
+            alert("문제 삭제 완료");
+            history.push('/challenges')
+        }
+        if (deletequizerror) {
+            console.log(deletequizerror);
+        }
+    }, [deletequiz, deletequizerror, history]);
 
     return <ShowQuizItem loadquiz={loadquiz} loading={loading} onSubmit={onSubmit} />;
 };
