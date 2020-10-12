@@ -113,8 +113,7 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
                     문제 내용
                 </MakeQuizContent>
                 <InputArea>
-                    <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '54%' }}></StyledInput>
-                    <StyledButton onClick={fileDelete} style={{ marginRight: '76px' }}>파일삭제</StyledButton>
+                    <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '80%' }}></StyledInput>
                 </InputArea>
                 <StyledInput name="flag" type="text" value={flag} onChange={onChange} placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>
                 <StyledButton style={{ marginRight: '75.5px' }} onClick={onSubmit}>만들기</StyledButton>
