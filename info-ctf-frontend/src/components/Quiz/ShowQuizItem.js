@@ -104,7 +104,9 @@ color: white;
 `;
 
 
-const ShowQuizItem = ({ loadquiz, loading }) => {
+const ShowQuizItem = ({ loadquiz, loading, onSubmit }) => {
+
+    const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
 
     if (loading) {
         return (
@@ -153,8 +155,9 @@ const ShowQuizItem = ({ loadquiz, loading }) => {
         <>
             <Header />
             <ShowQuizArea>
+                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '180px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
                 <QuizContent>
-                    <hr style={{ width: "1128px", marginRight: '100px' }} />
+                    <hr style={{ width: "1125px", marginRight: '100px' }} />
                     <p>{content}</p>
                 </QuizContent>
                 <InputArea>
