@@ -90,15 +90,14 @@ const LoadQuizContainer = ({ match, history }) => {
     useEffect(() => {
         if (downloadfile) {
             console.log("요청성공");
-            const url = window.URL.createObjectURL(new Blob([downloadfile]));
+            const url = window.URL.createObjectURL(new Blob([downloadfile.file], { type: 'application/octet-stream' }));
             const link = document.createElement("a");
             link.href = url;
             console.log(link);
-            link.setAttribute("download", "file.zip");
+            link.setAttribute("download", 'file');
             document.body.appendChild(link);
             link.click();
             window.URL.revokeObjectURL(url);
-            alert("파일이 다운로드되었습니다!");
         }
         if (downloadfileerror) {
             console.log(downloadfileerror);
