@@ -19,14 +19,15 @@ import deletefile, { deletefileSaga } from './deletefile';
 import rank, { ranksaga } from './rank';
 import loadquiz, { loadquizpostSaga } from './loadquiz';
 import deletequiz, { deletequizSaga } from './deletequiz';
+import downloadfile, { downloadfilepostSaga } from './downloadfile';
 
 
 
 
-const rootReducer = combineReducers({ register, login, loading, idcheck, sendemail, getemail, adminlogin, adminregister, findpassword, mypages, mypagemodified, searchuser, makequiz, uploadfile, showquizlist, deletefile, rank, loadquiz, deletequiz, });
+const rootReducer = combineReducers({ register, login, loading, idcheck, sendemail, getemail, adminlogin, adminregister, findpassword, mypages, mypagemodified, searchuser, makequiz, uploadfile, showquizlist, deletefile, rank, loadquiz, deletequiz, downloadfile, });
 
 export function* rootSaga() {
-    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(), adminloginpostSaga(), makequizpostSaga(), uploadfilepostSaga(), showquizlistpostSaga(), deletefileSaga(), ranksaga(), loadquizpostSaga(), deletequizSaga()]);
+    yield all([idcheckSaga(), sendemailSaga(), getemailSaga(), registerpostSaga(), loginpostSaga(), findpasswordpostSaga(), mypageSaga(), mypagemodifiedSaga(), searchSaga(), adminregistersaga(), adminloginpostSaga(), makequizpostSaga(), uploadfilepostSaga(), showquizlistpostSaga(), deletefileSaga(), ranksaga(), loadquizpostSaga(), deletequizSaga(), downloadfilepostSaga(),]);
 }
 
 export default rootReducer;
