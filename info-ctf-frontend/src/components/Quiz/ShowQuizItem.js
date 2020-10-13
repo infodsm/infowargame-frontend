@@ -104,7 +104,7 @@ color: white;
 `;
 
 
-const ShowQuizItem = ({ loadquiz, loading, onSubmit }) => {
+const ShowQuizItem = ({ loadquiz, loading, onSubmit, onDownload }) => {
 
     const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
 
@@ -162,7 +162,7 @@ const ShowQuizItem = ({ loadquiz, loading, onSubmit }) => {
                 </QuizContent>
                 <InputArea>
                     <StyledIdInput type="readonly" value={file}></StyledIdInput>
-                    <StyledIdButton><BsDownload /></StyledIdButton>
+                    <StyledIdButton onClick={onDownload}><BsDownload /></StyledIdButton>
                 </InputArea>
                 <StyledInput type="readonly" value="Insert flag"></StyledInput>
                 <StyledButton>제출</StyledButton>
