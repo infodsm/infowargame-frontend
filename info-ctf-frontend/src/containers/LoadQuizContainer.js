@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { loadquizPost, initialize } from '../modules/loadquiz';
 import { deletequizPost, quizinitialize } from '../modules/deletequiz';
 import { deletefilePost } from '../modules/deletefile';
-import { downloadfilePost, downloadinitialize } from '../modules/downloadfile';
+// import { downloadfilePost, downloadinitialize } from '../modules/downloadfile';
 // import { saveAs } from 'file-saver';
 
 
@@ -16,7 +16,7 @@ const LoadQuizContainer = ({ match, history }) => {
     const { num } = match.params;
     var quiz_num = { num }.num;
     // const fileSaver = require('file-saver');
-    const { loadquiz, deletequiz, deletequizerror, downloadfile, downloadfileerror, error, loading } = useSelector(({ loadquiz, deletequiz, deletefile, downloadfile, loading }) => ({
+    const { loadquiz, deletequiz, deletequizerror, error, loading } = useSelector(({ loadquiz, deletequiz, deletefile, downloadfile, loading }) => ({
         loadquiz: loadquiz.loadquiz,
         error: loadquiz.error,
         deletequiz: deletequiz.deletequiz,
@@ -28,11 +28,9 @@ const LoadQuizContainer = ({ match, history }) => {
 
     // 페이지가 마운트(처음 보여질 때)될 때 퀴즈목록 api 요청
     useEffect(() => {
-        dispatch(downloadinitialize());
         dispatch(loadquizPost(num));
 
         return () => {
-            dispatch(downloadinitialize());
             dispatch(initialize());
         };
     }, [dispatch, num]);
