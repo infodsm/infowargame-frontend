@@ -48,7 +48,7 @@ color: white;
 font-size: 20px;
 `;
 
-const NotificationPage = ({ data, history }) => {
+const NotificationPage = ({ data, history, location }) => {
 
     const [login, setLogin] = useState(null);
     const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const NotificationPage = ({ data, history }) => {
     const onLogout = () => {
         dispatch(logout());
         alert("로그아웃 성공");
-        history.push("/");
+        window.location.reload();
     };
 
     useEffect(() => {
