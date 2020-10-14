@@ -15,7 +15,7 @@ h1 {
 
 const MakeQuizContent = styled.textarea`
 width: 80%;
-height: 60%;
+height: 50%;
 border: none;
 border-radius: 5px;
 background: black;
@@ -103,6 +103,7 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
         <>
             <MakeQuizArea>
                 <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 :  Reverse Engineering / 7 : Webhacking ) </p>
+                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>*주의사항* : 파일을 첨부할 때는 꼭 zip 파일로 압축해서 넣어야 합니다. </p>
                 <StyledShortInput name="category" value={category} placeholder="카테고리" onChange={onChange}></StyledShortInput>
                 <StyledShortInput name="point" value={point} placeholder="점수" onChange={onChange}></StyledShortInput>
                 <br />

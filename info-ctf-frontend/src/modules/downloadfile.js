@@ -3,7 +3,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import createRequestSaga from '../lib/createRequestSaga';
 import { takeLatest } from 'redux-saga/effects';
-import { saveAs } from 'file-saver';
 import * as quizAPI from '../lib/api/quiz';
 
 const INITIALIZE = 'downloadfile/INITIALIZE';

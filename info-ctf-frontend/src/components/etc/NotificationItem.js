@@ -39,7 +39,7 @@ border: 2px solid #FFFFFF;
 box-sizing: border-box;
 width: 99.5px;
 height: 52px;
-left: 1302px;
+left: 1350px;
 top: 354px;
 background: #000000;
 border-radius: 3px;
