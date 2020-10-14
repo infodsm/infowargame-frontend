@@ -53,8 +53,25 @@ const LoadQuizContainer = ({ match, history }) => {
         }
     };
 
-    const onDownload = e => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+    const onDownload = quiz_code => {
+        let url = `http://121.152.10.41:4000/api/challenge/download/${quiz_code}`
+        return fetch(url, {
+            method: 'GET',
+            responseType: 'blob',
+        })
+            .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.setAttribute('download', 'download.zip');
+                // a.download = "filename.zip";
+                // document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+                a.click();
+                a.remove();  //afterwards we remove the element again
+            })
+        // 리덕스코드로 파일다운로드 처리가 잘 되지 않아 fetch로 수정, 다운로드가 되므로 리덕스 코드 주석 처리
+        /*const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         if (users) {
             dispatch(downloadfilePost(num));
@@ -65,6 +82,7 @@ const LoadQuizContainer = ({ match, history }) => {
         else {
             alert("로그인이 필요합니다.");
         }
+        */
     };
 
     useEffect(() => {
@@ -86,8 +104,8 @@ const LoadQuizContainer = ({ match, history }) => {
         }
     }, [deletequiz, deletequizerror, history]);
 
-
-    useEffect(() => {
+    // 리덕스코드로 파일다운로드 처리가 잘 되지 않아 fetch로 수정, 다운로드가 되므로 리덕스 코드 주석 처리
+    /*useEffect(() => {
         if (downloadfile) {
             console.log("요청성공");
             const url = window.URL.createObjectURL(new Blob([downloadfile]));
@@ -103,9 +121,9 @@ const LoadQuizContainer = ({ match, history }) => {
             console.log(downloadfileerror);
             console.log("오류발생");
         }
-    }, [downloadfile, downloadfileerror]);
+    }, [downloadfile, downloadfileerror]);*/
 
-    return <ShowQuizItem loadquiz={loadquiz} loading={loading} onSubmit={onSubmit} onDownload={onDownload} />;
+    return <ShowQuizItem loadquiz={loadquiz} loading={loading} onSubmit={onSubmit} onDownload={onDownload} quiz_code={quiz_num} />;
 };
 
 

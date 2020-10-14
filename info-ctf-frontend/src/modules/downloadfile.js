@@ -1,3 +1,5 @@
+// 리덕스코드로 파일다운로드 처리가 잘 되지 않아 fetch로 수정, 다운로드가 되므로 리덕스 코드 미사용 결정
+
 import { createAction, handleActions } from 'redux-actions';
 import createRequestSaga from '../lib/createRequestSaga';
 import { takeLatest } from 'redux-saga/effects';
