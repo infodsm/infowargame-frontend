@@ -90,11 +90,11 @@ const LoadQuizContainer = ({ match, history }) => {
     useEffect(() => {
         if (downloadfile) {
             console.log("요청성공");
-            const url = window.URL.createObjectURL(new Blob([downloadfile], { type: 'application/octet-stream' }));
+            const url = window.URL.createObjectURL(new Blob([downloadfile]));
             const link = document.createElement("a");
             link.href = url;
             console.log(link);
-            link.setAttribute("download", 'file');
+            link.setAttribute("download", 'file.zip');
             document.body.appendChild(link);
             link.click();
             window.URL.revokeObjectURL(url);
