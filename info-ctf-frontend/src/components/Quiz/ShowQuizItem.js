@@ -159,7 +159,8 @@ const ShowQuizItem = ({ loadquiz, loading, onSubmit, onDownload, quiz_code }) =>
         <>
             <Header />
             <ShowQuizArea>
-                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '180px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
+                <p style={{ fontSize: '18px', color: 'white', }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. </p>
+                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '216px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
                 <QuizContent>
                     <hr style={{ width: "1125px", marginRight: '100px' }} />
                     <p>{content}</p>
