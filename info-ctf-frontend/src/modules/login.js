@@ -28,15 +28,11 @@ function logoutSaga() {
     }
 }
 
-
-
 export function* loginpostSaga() {
     yield takeLatest(LOGIN_POST, loginPostSaga);
     yield takeLatest(LOGOUT, logoutSaga);
 
 }
-
-
 
 const initialState = {
     id: '',
