@@ -97,6 +97,7 @@ const ChallengesItem = ({ data, loading }) => {
 
         <>
             <StyledList>
+                <p style={{ fontSize: '18px', color: 'white' }}>*유의사항* : 한번 푼 문제는 다시 풀 수 없습니다. </p>
                 <p>Cryptography</p><ChallengeRow data={filterArray(1)}></ChallengeRow>
                 <br />
                 <p>Forensics</p><ChallengeRow data={filterArray(2)}></ChallengeRow>
