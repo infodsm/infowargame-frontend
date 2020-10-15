@@ -6,7 +6,7 @@ import { BsDownload } from "react-icons/bs";
 
 const ShowQuizArea = styled.div`
 width: 80%;
-height: 80%;
+height: 75%;
 margin-top: 70px;
 border-radius: 5px;
 border: none;
@@ -17,7 +17,7 @@ h1 {
 
 const QuizContent = styled.div`
 width: 100%;
-height: 65%;
+height: 58%;
 border: none;
 border-radius: 5px;
 p {
@@ -104,7 +104,16 @@ color: white;
 `;
 
 
-const ShowQuizItem = ({ loadquiz, loading, onSubmit, onDownload, quiz_code }) => {
+const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDownload, quiz_code, onCheckAnswer }) => {
+
+    const onChange = e => {
+        const { name } = e.target;
+        onChangeField({ key: name, value: e.target.value });
+    };
+
+    const checkAnswer = e => {
+        onCheckAnswer(quiz_code);
+    };
 
     const onClick = e => {
         onDownload(quiz_code);
@@ -169,8 +178,8 @@ const ShowQuizItem = ({ loadquiz, loading, onSubmit, onDownload, quiz_code }) =>
                     <StyledIdInput type="readonly" value={file}></StyledIdInput>
                     <StyledIdButton onClick={onClick}><BsDownload /></StyledIdButton>
                 </InputArea>
-                <StyledInput type="readonly" value="Insert flag"></StyledInput>
-                <StyledButton>제출</StyledButton>
+                <StyledInput name="flag" onChange={onChange} type="text" value={flag}></StyledInput>
+                <StyledButton onClick={checkAnswer}>제출</StyledButton>
             </ShowQuizArea>
         </>
     );
