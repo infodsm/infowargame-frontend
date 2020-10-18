@@ -13,3 +13,6 @@ export const downloadfile = quiz_code => client.get(`/api/challenge/download/${q
 
 // 문제 정답 체크
 export const checkanswer = ({ quiz_code, flag, token }) => client.post(`/api/challenge/answer/${quiz_code}`, { flag }, { headers: { "Authentication": token } });
+
+// 맞춘 문제 확인하기
+export const checkquiz = ({ token }) => client.get(`/api/challenge`, { headers: { "Authentication": token } })

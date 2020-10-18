@@ -75,7 +75,7 @@ const ChallengesDiv = styled.div`
 `;
 
 
-const ChallengesItem = ({ data, loading }) => {
+const ChallengesItem = ({ data, quiz, loading }) => {
 
     if (loading) {
         return <StyledList><h3 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩 중 입니다.</h3></StyledList>
@@ -93,6 +93,7 @@ const ChallengesItem = ({ data, loading }) => {
     const filterArray = (category) => {
         return data.filter(data => data.category === category);
     }
+
     return (
 
         <>
