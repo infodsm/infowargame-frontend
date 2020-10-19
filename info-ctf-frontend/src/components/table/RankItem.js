@@ -85,7 +85,6 @@ const RankRow = ({ ranks }) => {
 // 검색결과 리턴된 배열의 내용을 보여주는 부분
 const RankList = ({ ranks }) => {
     const { name, score, rank } = ranks;
-
     return (
         <>
 
