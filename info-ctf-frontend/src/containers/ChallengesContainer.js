@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showquizlistPost } from '../modules/showquizlist';
 import ChallengesItem from '../components/table/ChallengesItem';
@@ -7,7 +7,7 @@ import { initialize, quizPost } from '../modules/quiz';
 
 
 const ChallengesContainer = () => {
-
+    const [quizlist, setQuizList] = useState(null);
     const dispatch = useDispatch();
     const { showquizlist, quiz, loading } = useSelector(({ showquizlist, quiz, loading }) => ({
         showquizlist: showquizlist.showquizlist,
@@ -27,8 +27,15 @@ const ChallengesContainer = () => {
         }
     }, [dispatch]);
 
+    useEffect(() => {
+        if (quiz) {
+            setQuizList(quiz.contents);
+            console.log(quizlist);
+        }
+    }, [quizlist, quiz])
 
-    return <ChallengesItem data={showquizlist} quiz={quiz} loading={loading} />;
+
+    return <ChallengesItem data={showquizlist} quiz={quizlist} loading={loading} />;
 };
 
 export default ChallengesContainer;
