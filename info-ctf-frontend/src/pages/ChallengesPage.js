@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import ChallengesContainer from '../containers/ChallengesContainer';
@@ -72,6 +72,7 @@ p {
 const ChallengesPage = () => {
 
     const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+
 
     return (
         <>
