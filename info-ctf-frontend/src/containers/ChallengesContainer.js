@@ -32,8 +32,7 @@ const ChallengesContainer = () => {
             setQuizList(quiz.contents);
             console.log(quizlist);
         }
-    }, [quizlist, quiz])
-
+    }, [quizlist, quiz]);
 
     return <ChallengesItem data={showquizlist} quiz={quizlist} loading={loading} />;
 };

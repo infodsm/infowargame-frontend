@@ -74,6 +74,8 @@ const ChallengesDiv = styled.div`
     }
     font-family: 'Do Hyeon', sans-serif;
     color: white;
+    
+    background-color: ${props => props.color || "#F0F8FF"};
 `;
 
 const StyledButton = styled.button`
@@ -176,12 +178,20 @@ const ChallengeRow = ({ data }) => {
                 <ul style={{ listStyle: 'none', float: 'left' }}>
                     {
                         data.map(d => {
-                            return (
-                                <>
-                                    <li><ChallengesDiv><Link to={`/quiz/${d.category}/${d.num}`}><p style={{ fontSize: '18px' }}>{d.name}<br />{d.point}<br />문제 번호: {d.num}</p></Link></ChallengesDiv><br /></li>
-                                </>
+                            if (d.correct === true)
+                                return (
+                                    <>
+                                        <li><ChallengesDiv color="red"><Link to={`/quiz/${d.category}/${d.num}`}><p style={{ fontSize: '18px' }}>{d.name}<br />{d.point}<br />문제 번호: {d.num}</p></Link></ChallengesDiv><br /></li>
+                                    </>
 
-                            )
+                                )
+                            else
+                                return (
+                                    <>
+                                        <li><ChallengesDiv><Link to={`/quiz/${d.category}/${d.num}`}><p style={{ fontSize: '18px' }}>{d.name}<br />{d.point}<br />문제 번호: {d.num}</p></Link></ChallengesDiv><br /></li>
+                                    </>
+
+                                )
                         })
                     }
                 </ul>
