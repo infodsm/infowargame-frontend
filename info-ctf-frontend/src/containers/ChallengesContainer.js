@@ -32,7 +32,7 @@ const ChallengesContainer = ({ history }) => {
         }
         if (!token) {
             alert("로그인하지 않으면 문제들을 볼 수 없습니다.");
-            history.goBack();
+            history.push("/login");
         }
         return () => {
             dispatch(quizinitialize());

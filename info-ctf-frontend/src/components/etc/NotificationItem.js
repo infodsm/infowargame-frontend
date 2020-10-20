@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../modules/login';
 import { Link } from 'react-router-dom';
-import { getCookie } from '../../lib/cookie';
+import { getCookie, deleteCookie } from '../../lib/cookie';
 
 const NotificationPageSpanBox = styled.div`
 width: 80%;
@@ -56,6 +56,7 @@ const NotificationPage = ({ data, history, location }) => {
 
     const onLogout = () => {
         dispatch(logout());
+        deleteCookie('user');
         alert("로그아웃 성공");
         window.location.reload();
     };

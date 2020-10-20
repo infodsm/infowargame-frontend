@@ -42,6 +42,10 @@ const MypageContainer = ({ history, location }) => {
             alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
             history.goBack();
         }
+        if (!users && !admin) {
+            alert("로그인해야 사용가능한 기능입니다.");
+            history.push("/login");
+        }
     }, [dispatch, history]);
 
     // 마이페이지 수정 api 요청

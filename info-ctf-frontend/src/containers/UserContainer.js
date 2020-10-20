@@ -2,9 +2,10 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initialize, userSearchPost } from '../modules/searchuser';
 import UserItem from '../components/table/UserItem';
+import { withRouter } from 'react-router-dom';
 import { getCookie } from '../lib/cookie';
 
-const UserContainer = () => {
+const UserContainer = ({ history }) => {
     const [info, setInfo] = useState(null);
     const dispatch = useDispatch();
     const { searchuser, property, search } = useSelector(({ searchuser }) => ({
@@ -40,8 +41,13 @@ const UserContainer = () => {
             dispatch(userSearchPost({ search, property, token }));
         }
         if (admin) {
-            alert("어드민은 유저검색이 되지 않습니다.");
+            dispatch(userSearchPost({ search, property, token }));
         }
+        if (!users && !admin) {
+            alert("로그인해야 사용가능한 기능입니다.");
+            history.push("/login");
+        }
+
     };
 
 
@@ -59,4 +65,4 @@ const UserContainer = () => {
     );
 };
 
-export default UserContainer;
+export default withRouter(UserContainer);

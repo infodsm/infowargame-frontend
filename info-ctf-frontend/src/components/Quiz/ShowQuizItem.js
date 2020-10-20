@@ -4,83 +4,75 @@ import Header from '../common/Header';
 import { BsDownload } from "react-icons/bs";
 
 
-const ShowQuizArea = styled.div`
-width: 80%;
-height: 75%;
-margin-top: 70px;
-border-radius: 5px;
-border: none;
-h1 {
+const ShowQuizitemBox = styled.div`
+width: 100%;
+height: 100%;
+margin-bottom: -0px;
+background: #00000;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+span {
+    font-size: 50px;
     color: white;
+    margin-top: 25px;
+}
+
+/* 브라우저 크기에 따라 가로 크기 변경 */
+@media (max-width: 1024px) {
+    width: 768px;
+}
+@media (max-width: 768px) {
+    width: 100%;
 }
 `;
 
 const QuizContent = styled.div`
-width: 100%;
-height: 58%;
+position: absolute;
+width: 90%;
+height: 80%;
+right: 100px;
+left: 100px;
 border: none;
 border-radius: 5px;
+
 p {
     color: white;
     font-size: 30px;
 }
 `;
 
-const InputArea = styled.div`
-width: 100%;
-border: none;
-padding-bottom: 10px;
-`;
 
 const StyledInput = styled.input`
+    position: absolute;
     font-size: 2rem;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
-    width: 965px;
+    width: 925px;
     height: 52px;
-    left: 642px;
-    top: 420px;
     background: #000000;
     border-radius: 3px;
-    text-align: justify;
-    color: white;
-`;
-
-const StyledIdInput = styled.input`
-    font-size: 2rem;
-    border: 2px solid #FFFFFF;
     border-right: none;
-    box-sizing: border-box;
-    width: 90%;
-    height: 52px;
-    left: 642px;
-    top: 420px;
-    background: #000000;
-    border-radius: 3px;
-    color: white;
     text-align: justify;
+    color: white;
+
+    /* 브라우저 크기에 따라 가로 크기 변경 */
+    @media (max-width: 1024px) {
+        width: 768px;
+    }
+    @media (max-width: 1000px) {
+        width: 50%;
+    }
+    @media (max-width: 900px) {
+        width: 40%;
+    }
+    @media (max-width: 768px) {
+    width: 10%;
+    }
 `;
 
-const StyledIdButton = styled.button`
-position: absolute;
-font-size: 2rem;
-border-right: 2px solid #FFFFFF;
-border-left: none;
-border-top: 2px solid #FFFFFF;
-border-bottom: 2px solid #FFFFFF;
-outline: none;
-box-sizing: border-box;
-width: 70px;
-height: 52px;
-right: 210px;
-background: #000000;
-border-radius: 3px;
-text-align: center;
-color: white;
-&:hover {
-    cursor: pointer;
-}
-`;
 
 const StyledButton = styled.button`
 position: absolute;
@@ -101,6 +93,28 @@ color: white;
 &:hover {
     cursor: pointer;
 }
+`;
+
+const ShowQuizContent = styled.textarea`
+position: absolute;
+width: 82%;
+height: 50%;
+border: none;
+border-radius: 5px;
+background: black;
+color: white;
+resize: none;
+left: 100px;
+top: 130px;
+font-size: 25px;
+
+    /* 브라우저 크기에 따라 가로 크기 변경 */
+    @media (max-width: 1024px) {
+        width: 768px;
+    }
+    @media (max-width: 768px) {
+    width: 100%;
+    }
 `;
 
 
@@ -125,18 +139,16 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
         return (
             <>
                 <Header />
-                <ShowQuizArea>
+                <ShowQuizitemBox>
                     <QuizContent>
-                        <hr style={{ width: "1128px", marginRight: '100px' }} />
-                        <p>로딩중입니다.</p>
+                        <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
+                        <ShowQuizContent>로딩중입니다.</ShowQuizContent>
+                        <StyledInput style={{ top: '450px', left: '100px' }} type="readonly"></StyledInput>
+                        <StyledButton style={{ top: '450px' }}><BsDownload /></StyledButton>
+                        <StyledInput style={{ top: '520px', left: '100px' }}></StyledInput>
+                        <StyledButton style={{ top: '520px' }}>제출</StyledButton>
                     </QuizContent>
-                    <InputArea>
-                        <StyledIdInput type="readonly"></StyledIdInput>
-                        <StyledIdButton><BsDownload /></StyledIdButton>
-                    </InputArea>
-                    <StyledInput type="readonly" value="Insert flag"></StyledInput>
-                    <StyledButton>제출</StyledButton>
-                </ShowQuizArea>
+                </ShowQuizitemBox>
             </>
         );
     }
@@ -145,18 +157,17 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
         return (
             <>
                 <Header />
-                <ShowQuizArea>
+                <br />
+                <ShowQuizitemBox>
                     <QuizContent>
-                        <hr style={{ width: "1128px", marginRight: '100px' }} />
-                        <p>퀴즈가 존재하지 않습니다.</p>
+                        <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
+                        <ShowQuizContent>퀴즈가 존재하지 않습니다.</ShowQuizContent>
+                        <StyledInput style={{ top: '450px', left: '100px' }}></StyledInput>
+                        <StyledButton style={{ top: '450px' }}><BsDownload /></StyledButton>
+                        <StyledInput style={{ top: '520px', left: '100px' }}></StyledInput>
+                        <StyledButton style={{ top: '520px' }}>제출</StyledButton>
                     </QuizContent>
-                    <InputArea>
-                        <StyledIdInput type="readonly"></StyledIdInput>
-                        <StyledIdButton><BsDownload /></StyledIdButton>
-                    </InputArea>
-                    <StyledInput type="readonly" value="Insert flag"></StyledInput>
-                    <StyledButton>제출</StyledButton>
-                </ShowQuizArea>
+                </ShowQuizitemBox>
             </>
         );
     }
@@ -167,20 +178,18 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
     return (
         <>
             <Header />
-            <ShowQuizArea>
-                <p style={{ fontSize: '18px', color: 'white', }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. </p>
-                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '216px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
-                <QuizContent>
-                    <hr style={{ width: "1125px", marginRight: '100px' }} />
-                    <p>{content}</p>
+            <ShowQuizitemBox>
+                <p style={{ position: 'relative', fontSize: '18px', color: 'white', right: '350px', bottom: '220px' }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. </p>
+                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '196px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
+                <QuizContent style={{ whiteSpace: 'pre' }}>
+                    <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
+                    <ShowQuizContent>{content}</ShowQuizContent>
+                    <StyledInput style={{ top: '450px', left: '100px' }} type="readonly" value={file}></StyledInput>
+                    <StyledButton style={{ top: '450px' }} onClick={onClick}><BsDownload /></StyledButton>
+                    <StyledInput style={{ top: '520px', left: '100px' }} name="flag" onChange={onChange} type="text" value={flag} ></StyledInput>
+                    <StyledButton style={{ top: '520px' }} onClick={checkAnswer}>제출</StyledButton>
                 </QuizContent>
-                <InputArea>
-                    <StyledIdInput type="readonly" value={file}></StyledIdInput>
-                    <StyledIdButton onClick={onClick}><BsDownload /></StyledIdButton>
-                </InputArea>
-                <StyledInput name="flag" onChange={onChange} type="text" value={flag}></StyledInput>
-                <StyledButton onClick={checkAnswer}>제출</StyledButton>
-            </ShowQuizArea>
+            </ShowQuizitemBox>
         </>
     );
 };

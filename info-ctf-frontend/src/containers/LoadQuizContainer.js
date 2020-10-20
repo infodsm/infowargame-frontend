@@ -47,11 +47,10 @@ const LoadQuizContainer = ({ match, history }) => {
     // 문제 삭제 api 요청
     const onSubmit = e => {
         e.preventDefault();
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = getCookie("user");
         if (admin) {
-            console.log(quiz_num);
             dispatch(deletefilePost({ quiz_num, token }));
             dispatch(deletequizPost({ quiz_num, token }));
         }
@@ -115,14 +114,14 @@ const LoadQuizContainer = ({ match, history }) => {
 
     useEffect(() => {
         if (deletequiz) {
-            quizinitialize();
             alert("문제 삭제 완료");
-            history.push('/challenges')
+            history.push('/challenges');
+            dispatch(quizinitialize());
         }
         if (deletequizerror) {
             console.log(deletequizerror);
         }
-    }, [deletequiz, deletequizerror, history]);
+    }, [dispatch, deletequiz, deletequizerror, history]);
 
     useEffect(() => {
         if (checkanswer) {
