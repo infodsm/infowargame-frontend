@@ -1,4 +1,4 @@
-import { variance } from "../../../../../../../AppData/Local/Microsoft/TypeScript/4.0/node_modules/@babel/types/lib/index";
+
 
 // 쿠키 저장하기
 var setCookie = function (name, value, exp) {

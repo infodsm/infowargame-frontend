@@ -143,7 +143,7 @@ const ChallengesItem = ({ data, quiz, loading }) => {
             {token ? <StyledButton onClick={onRemoveClick}>맞춘문제 보기</StyledButton> : null}
             <StyledList>
                 <p style={{ fontSize: '18px', color: 'white' }}>*유의사항* : 한번 푼 문제는 다시 풀 수 없습니다. </p>
-                <p>Cryptography</p><ChallengeRow data={filterArray(1)}></ChallengeRow>
+                <p>Cryptography</p><ChallengeRow key={filterArray(1).num} data={filterArray(1)}></ChallengeRow>
                 <br />
                 <p>Forensics</p><ChallengeRow data={filterArray(2)}></ChallengeRow>
                 <br />

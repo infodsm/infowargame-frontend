@@ -37,7 +37,6 @@ const ChallengesContainer = () => {
     useEffect(() => {
         if (quiz) {
             setQuizList(quiz.contents);
-            console.log(quizlist);
         }
     }, [quizlist, quiz]);
 

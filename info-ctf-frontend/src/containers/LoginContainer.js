@@ -7,11 +7,10 @@ import { setCookie, getCookie } from '../lib/cookie';
 
 const LoginContainer = ({ history }) => {
     const dispatch = useDispatch();
-    const { id, password, login, error, logged } = useSelector(({ login }) => ({
+    const { id, password, login, error } = useSelector(({ login }) => ({
         id: login.id,
         password: login.password,
         login: login.login,
-        logged: login.logged,
         error: login.error,
     }));
 

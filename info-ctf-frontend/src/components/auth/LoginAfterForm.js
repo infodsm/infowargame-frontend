@@ -95,7 +95,7 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
             {/* 로딩 중이 아니고, mypage 데이터가 존재할 때만 보여줌 */}
             {!loading && mypage && (
                 <LoginAfterArea>
-                    <StyledInput type="readonly" name="id" placeholder={id} value={modifiedid} onChange={onChangeInput} />
+                    <StyledInput type="readonly" name="id" placeholder={id} defaultValue={modifiedid} onChange={onChangeInput} />
                     <br />
                     <StyledInput type="text" name="email" placeholder={email} value={modifiedemail} onChange={onChangeInput} />
                     <br />
@@ -103,7 +103,7 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
                     <br />
                     <StyledInput type="text" name="team" placeholder={team} value={modifiedteam} onChange={onChangeInput} />
                     <br />
-                    <StyledInput type="readonly" name="score" value={score} />
+                    <StyledInput type="readonly" name="score" defaultValue={score} />
                     <br />
                     <div className="ButtonArea">
                         <StyledButton onClick={onLogout} style={{ textDecoration: 'none', color: 'white' }}>log out</StyledButton>

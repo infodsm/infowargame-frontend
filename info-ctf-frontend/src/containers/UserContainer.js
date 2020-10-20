@@ -38,7 +38,6 @@ const UserContainer = () => {
         const token = getCookie('user');
         if (users) {
             dispatch(userSearchPost({ search, property, token }));
-            console.log(userSearchPost);
         }
         if (admin) {
             alert("어드민은 유저검색이 되지 않습니다.");
