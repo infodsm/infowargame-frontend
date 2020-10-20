@@ -19,8 +19,10 @@ function App() {
 
   useEffect(() => {
     console.log('%c잠깐만!!', 'color: red; font-size: 55px; font-weight: bold;');
-    console.log('%c이 기능은 쓰지 마세요 ^^. 누군가 CTF INFO 사이트를 뜯어보려 하거나 해킹을 하려고 하는 행동은 절대로 안됩니다.', 'font-size: 20px;');
+    console.log('%c개발자 도구 기능은 쓰지 마세요 ^^. 누군가 CTF INFO 사이트를 뜯어보려 하거나 해킹을 하려고 하는 행동은 절대로 안됩니다.', 'font-size: 20px;');
+    console.log('%c만약 이 경고를 무시하시고 뭣 같은 짓을 하시면 고소미를 드실 수 있으니 주의해 주세요.', 'font-size: 20px;');
     console.log('%c-정보보안 동아리 INFO-', 'font-size: 20px;');
+
   }, []);
 
   return (

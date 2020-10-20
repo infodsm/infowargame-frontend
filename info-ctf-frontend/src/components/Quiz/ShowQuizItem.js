@@ -183,7 +183,7 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
                 {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '196px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
                 <QuizContent style={{ whiteSpace: 'pre' }}>
                     <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
-                    <ShowQuizContent>{content}</ShowQuizContent>
+                    <ShowQuizContent disabled>{content}</ShowQuizContent>
                     <StyledInput style={{ top: '450px', left: '100px' }} type="readonly" value={file}></StyledInput>
                     <StyledButton style={{ top: '450px' }} onClick={onClick}><BsDownload /></StyledButton>
                     <StyledInput style={{ top: '520px', left: '100px' }} name="flag" onChange={onChange} type="text" value={flag} ></StyledInput>

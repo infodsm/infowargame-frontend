@@ -18,16 +18,14 @@ justify-content: center;
 align-items: center;
 `;
 
-const data = {
-    contents: "여러분이 서버를 가지고 놀면 서버가 아야해요 ㅠㅠ",
-};
+
 
 const NotificationPage = () => {
     return (
 
         <NotificationPageBlock>
             <Header />
-            <NotificationItem data={data} />
+            <NotificationItem />
         </NotificationPageBlock>
     );
 };
