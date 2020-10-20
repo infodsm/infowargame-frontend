@@ -5,6 +5,7 @@ import UserContainer from '../containers/UserContainer';
 
 /* 화면 전체를 채움 */
 const UserPageBlock = styled.div`
+height: 100%;
 position: absolute;
 left: 0;
 top: 0;
@@ -16,11 +17,21 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
+/* 브라우저 크기에 따라 가로 크기 변경 */
+@media (max-width: 1024px) {
+    width: 768px;
+    height: 100%
+}
+@media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+}
 `;
 
 const UserPageArea = styled.div`
 width: 80%;
-height: 75%;
+height: 100%;
 background: #000000;
 
 p {
@@ -35,14 +46,6 @@ p {
 
 #text1 {
     margin-left: 50px;
-}
-
-/* 브라우저 크기에 따라 가로 크기 변경 */
-@media (max-width: 1024px) {
-    width: 768px;
-}
-@media (max-width: 768px) {
-    width: 100%;
 }
 
 `;

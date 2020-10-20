@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledTable = styled.div`
-position: relative;
-font-size: 2rem;
-border: 2px solid #FFFFFF;
-box-sizing: border-box;
-width: 1105.5px;
-height: 442px;
-left: 50px;
-top: 80px;
-background: #000000;
-border-radius: 3px;
-text-align: center;
-color: white;
+const UserItemnBox = styled.div`
+width: 100%;
+margin-left: -10px;
+height: 100%;
+margin-bottom: -0px;
+background: #00000;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+span {
+    font-size: 50px;
+    color: white;
+    margin-top: 25px;
+}
 
 /* 브라우저 크기에 따라 가로 크기 변경 */
 @media (max-width: 1024px) {
@@ -22,6 +25,23 @@ color: white;
 @media (max-width: 768px) {
     width: 100%;
 }
+`;
+
+const StyledTable = styled.div`
+position: relative;
+font-size: 2rem;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+width: 1110.5px;
+height: 430px;
+margin-left: 43px;
+margin-top: 140px;
+bottom: 20px;
+background: #000000;
+border-radius: 3px;
+text-align: center;
+color: white;
+
 
 table {
     width: 100%;
@@ -30,36 +50,38 @@ table {
 `;
 
 const StyledSelect = styled.select`
-font-size: 2rem;
+    position: relative;
+    font-size: 2rem;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
-    position: absolute;
     width: 340px;
     height: 50px;
-    left: 12.4rem;
-    top: 170px;
-    margin-top: 50px;
+    margin-right: 730px;
+    top: 120px;
     background: #000000;
     border-radius: 3px;
     text-align: center;
     color: white;
 
-
+    
 `;
 
 const StyledInput = styled.input`
-    position: absolute;
+    position: relative;
     font-size: 2rem;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     width: 250px;
     height: 50px;
     right: 345px;
-    top: 224px;
+    top: 69px;
+    left: 330px;
+    margin-bottom: -160px;
     background: #000000;
     border-radius: 3px;
     text-align: center;
     color: white;
+
 `;
 
 const StyledButton = styled.button`
@@ -69,13 +91,14 @@ border: 2px solid #FFFFFF;
 box-sizing: border-box;
 width: 109.5px;
 height: 51px;
-left: 1045px;
-top: 47px;
+top: 106px;
+left: 520px;
 background: #000000;
 border-radius: 3px;
 text-align: center;
 color: grey;
 cursor: pointer;
+
 `;
 
 
@@ -96,28 +119,30 @@ const UserItem = ({ onSubmit, onChangeField, property, search, information }) =>
 
     return (
         <>
-            <p id="text1">Search Field</p>
-            <StyledSelect name="property" onChange={onChange} value={property}>
-                <option value="id">ID</option>
-                <option value="name">NickName</option>
-                <option value="email">Email</option>
-                <option value="team">Team</option>
-            </StyledSelect>
-            <StyledInput name="search" type="text" value={search} onChange={onChangeInput} />
-            <StyledButton onClick={onSubmit}>search</StyledButton>
-            <StyledTable>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>-name-</th>
-                            <th>-team-</th>
-                            <th>-score-</th>
-                            <th>-rank-</th>
-                        </tr>
-                    </thead>
-                    <UserRow information={information} />
-                </table>
-            </StyledTable>
+            <UserItemnBox>
+                <StyledSelect name="property" onChange={onChange} value={property}>
+                    <option value="id">ID</option>
+                    <option value="name">NickName</option>
+                    <option value="email">Email</option>
+                    <option value="team">Team</option>
+                </StyledSelect>
+                <StyledInput name="search" type="text" value={search} onChange={onChangeInput} />
+            &nbsp;
+            <StyledButton style={{ marginTop: '50px' }} onClick={onSubmit}>search</StyledButton>
+                <StyledTable>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>-name-</th>
+                                <th>-team-</th>
+                                <th>-score-</th>
+                                <th>-rank-</th>
+                            </tr>
+                        </thead>
+                        <UserRow information={information} />
+                    </table>
+                </StyledTable>
+            </UserItemnBox>
         </>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
@@ -16,6 +16,13 @@ import MakeQuizPage from './pages/MakeQuizPage';
 
 
 function App() {
+
+  useEffect(() => {
+    console.log('%c잠깐만!!', 'color: red; font-size: 55px; font-weight: bold;');
+    console.log('%c이 기능은 쓰지 마세요 ^^. 누군가 CTF INFO 사이트를 뜯어보려 하거나 해킹을 하려고 하는 행동은 절대로 안됩니다.', 'font-size: 20px;');
+    console.log('%c-정보보안 동아리 INFO-', 'font-size: 20px;');
+  }, []);
+
   return (
     <>
       <Route component={LoginPage} path={["/", "/login"]} exact />

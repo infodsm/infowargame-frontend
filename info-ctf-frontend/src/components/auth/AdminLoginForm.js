@@ -6,7 +6,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 
 const AdminLoginArea = styled.div`
     padding: 2rem;
-    width: 600px;
+    width: 100%;
     background: #000000;
     border-radius: 2px;
     height: 700px;
