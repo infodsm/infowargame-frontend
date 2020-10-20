@@ -38,7 +38,7 @@ const ChallengesContainer = ({ history }) => {
             dispatch(quizinitialize());
             initialize();
         }
-    }, [dispatch]);
+    }, [dispatch, history]);
 
     useEffect(() => {
         if (quiz) {
