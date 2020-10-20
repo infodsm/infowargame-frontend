@@ -4,6 +4,7 @@ import { showquizlistPost } from '../modules/showquizlist';
 import ChallengesItem from '../components/table/ChallengesItem';
 import { quizinitialize } from '../modules/deletequiz';
 import { initialize, quizPost } from '../modules/quiz';
+import { getCookie } from '../lib/cookie';
 
 
 const ChallengesContainer = () => {
@@ -17,10 +18,16 @@ const ChallengesContainer = () => {
 
     // 페이지가 mount 될 때 문제목록 api 호출
     useEffect(() => {
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
+        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+        const token = getCookie("user");
         dispatch(showquizlistPost());
-        dispatch(quizPost({ token }));
-
+        if (users) {
+            dispatch(quizPost({ token }));
+        }
+        if (admin) {
+            dispatch(quizPost({ token }));
+        }
         return () => {
             dispatch(quizinitialize());
             initialize();

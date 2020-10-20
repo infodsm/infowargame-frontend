@@ -1,6 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import createRequestSaga from '../lib/createRequestSaga';
 import { takeLatest } from 'redux-saga/effects';
+import { deleteCookie } from '../lib/cookie';
 import * as authAPI from '../lib/api/auth';
 
 const CHANGE_FIELD = 'login/CHANGE_FIELD';
@@ -20,9 +21,9 @@ const loginPostSaga = createRequestSaga(LOGIN_POST, authAPI.login);
 
 function logoutSaga() {
     try {
-        localStorage.removeItem('user'); // localStorage에서 user(token 값)를 제거
         localStorage.removeItem('admin'); // localStroage에서 admin을 제거
         localStorage.removeItem('users'); // localStorage에서 users를 제거
+        deleteCookie('user');
     } catch (e) {
         console.log(e);
     }

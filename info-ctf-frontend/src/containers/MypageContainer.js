@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { mypagees } from '../modules/mypages';
 import { logout } from '../modules/login';
 import { changeField, initialize, modifiedPost } from '../modules/mypagemodified';
+import { getCookie } from '../lib/cookie';
 
 
 const MypageContainer = ({ history, location }) => {
@@ -22,7 +23,7 @@ const MypageContainer = ({ history, location }) => {
         loading: loading['mypages/MYPAGE'],
     }));
 
-    // 로그아웃 (로컬스토리지에서 토큰을 삭제 후 로그인 페이지로 이동)
+    // 로그아웃 (토큰을 삭제 후 로그인 페이지로 이동)
     const onLogout = () => {
         dispatch(logout());
         alert("로그아웃 성공");
@@ -31,9 +32,9 @@ const MypageContainer = ({ history, location }) => {
 
     // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
     useEffect(() => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem("users") : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (users) {
             dispatch(mypagees({ token }));
         }
@@ -46,9 +47,9 @@ const MypageContainer = ({ history, location }) => {
     // 마이페이지 수정 api 요청
     const onSubmit = e => {
         e.preventDefault();
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (users) {
             dispatch(modifiedPost({ id, password, nickname, team, email, token }));
             dispatch(logout());
@@ -62,7 +63,7 @@ const MypageContainer = ({ history, location }) => {
     };
 
     useEffect(() => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         if (users) {
             alert("마이페이지 정보 변경 시 재로그인 하셔야 합니다.");
         }

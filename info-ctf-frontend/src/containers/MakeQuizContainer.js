@@ -5,6 +5,7 @@ import { initialize, changeField, makequizPost } from '../modules/makequiz';
 import { deletefilePost } from '../modules/deletefile';
 import MakeQuizItem from '../components/Quiz/MakeQuizItem';
 import client from '../lib/api/client';
+import { getCookie } from '../lib/cookie';
 
 const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
@@ -39,7 +40,7 @@ const MakeQuizContainer = ({ history }) => {
     // 파일 추가 API 요청
     const fileAdd = async e => {
         if (!uploadFileData) return;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         const formdata = new FormData();
         try {
             formdata.append("quizname", quizname);
@@ -54,7 +55,7 @@ const MakeQuizContainer = ({ history }) => {
     const fileDelete = e => {
         const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (admin) {
             dispatch(deletefilePost({ quizname, token }));
             setUploadFileData(null);
@@ -69,7 +70,7 @@ const MakeQuizContainer = ({ history }) => {
         e.preventDefault();
         const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (admin) {
             dispatch(makequizPost({ category, contents, point, quizname, flag, token }));
             fileAdd(); // file 추가 api 요청

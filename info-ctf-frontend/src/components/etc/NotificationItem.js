@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../modules/login';
 import { Link } from 'react-router-dom';
+import { getCookie } from '../../lib/cookie';
 
 const NotificationPageSpanBox = styled.div`
 width: 80%;
@@ -60,7 +61,7 @@ const NotificationPage = ({ data, history, location }) => {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (token === null) {
             setLogin(false);
         }

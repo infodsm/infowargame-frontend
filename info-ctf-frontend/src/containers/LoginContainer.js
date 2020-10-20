@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initialize, loginPost } from '../modules/login';
 import LoginForm from '../components/auth/LoginForm';
+import { setCookie, getCookie } from '../lib/cookie';
 
 const LoginContainer = ({ history }) => {
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const LoginContainer = ({ history }) => {
     const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
 
     useEffect(() => {
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie('user');
         if (token) {
             history.push('/notification');
         }
@@ -49,7 +50,7 @@ const LoginContainer = ({ history }) => {
         if (login) {
             if (login) {
                 alert("로그인 성공");
-                localStorage.setItem("user", JSON.stringify(login.token)); // localStorage에 토큰 저장
+                setCookie('user', login.token);
                 localStorage.setItem("users", 'users');
                 history.push('/notification');    // 공지로 이동
             }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { setCookie } from '../../lib/cookie';
 import { withRouter, Redirect } from 'react-router-dom';
 
 const AdminLoginArea = styled.div`
@@ -94,7 +95,7 @@ const AdminLoginForm = ({ history }) => {
                     alert("에러");
                     return;
                 }
-                localStorage.setItem("user", JSON.stringify(result.data.token)); // localStorage에 토큰 저장
+                setCookie("user", result.data.token);
                 localStorage.setItem("admin", 'admin');
                 history.push('/notification');
             }

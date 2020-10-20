@@ -3,6 +3,7 @@ import RankItem from '../components/table/RankItem';
 import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { rankGet } from '../modules/rank';
+import { getCookie } from '../lib/cookie';
 
 
 const RankContainer = ({ history }) => {
@@ -15,10 +16,10 @@ const RankContainer = ({ history }) => {
         loading: loading['rank/RANK'],
     }));
 
-    // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
+    // 페이지가 마운트(처음 보여질 때)될 때 순위 api 요청
     useEffect(() => {
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const token = getCookie("user");
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         if (users) {
             dispatch(rankGet({ token }));

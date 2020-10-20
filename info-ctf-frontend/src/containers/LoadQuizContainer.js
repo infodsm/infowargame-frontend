@@ -6,6 +6,7 @@ import { loadquizPost, initialize } from '../modules/loadquiz';
 import { deletequizPost, quizinitialize } from '../modules/deletequiz';
 import { deletefilePost } from '../modules/deletefile';
 import { changeField, checkanswerinitialize, checkanswerPost } from '../modules/checkanswer';
+import { getCookie } from '../lib/cookie';
 // import { downloadfilePost, downloadinitialize } from '../modules/downloadfile';
 // import { saveAs } from 'file-saver';
 
@@ -48,7 +49,7 @@ const LoadQuizContainer = ({ match, history }) => {
         e.preventDefault();
         const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (admin) {
             console.log(quiz_num);
             dispatch(deletefilePost({ quiz_num, token }));
@@ -95,7 +96,7 @@ const LoadQuizContainer = ({ match, history }) => {
     const onCheckAnswer = (quiz_code) => {
         const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie("user");
         if (admin) {
             dispatch(checkanswerPost({ quiz_code, flag, token }));
         }

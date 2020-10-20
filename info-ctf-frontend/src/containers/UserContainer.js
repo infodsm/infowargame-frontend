@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initialize, userSearchPost } from '../modules/searchuser';
 import UserItem from '../components/table/UserItem';
+import { getCookie } from '../lib/cookie';
 
 const UserContainer = () => {
     const [info, setInfo] = useState(null);
@@ -32,9 +33,9 @@ const UserContainer = () => {
     // user 검색 api 요청
     const onSubmit = e => {
         e.preventDefault();
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
-        const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+        const token = getCookie('user');
         if (users) {
             dispatch(userSearchPost({ search, property, token }));
             console.log(userSearchPost);
