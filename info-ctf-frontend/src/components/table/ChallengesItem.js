@@ -178,10 +178,10 @@ const ChallengeRow = ({ data }) => {
                 <ul style={{ listStyle: 'none', float: 'left' }}>
                     {
                         data.map(d => {
-                            if (d.correct === true)
+                            if (d.correct === 1)
                                 return (
                                     <>
-                                        <li><ChallengesDiv color="red"><Link to={`/quiz/${d.category}/${d.num}`}><p style={{ fontSize: '18px' }}>{d.name}<br />{d.point}<br />문제 번호: {d.num}</p></Link></ChallengesDiv><br /></li>
+                                        <li><ChallengesDiv color="#C1FF8F"><Link to={`/quiz/${d.category}/${d.num}`}><p style={{ fontSize: '18px' }}>{d.name}<br />{d.point}<br />문제 번호: {d.num}</p></Link></ChallengesDiv><br /></li>
                                     </>
 
                                 )

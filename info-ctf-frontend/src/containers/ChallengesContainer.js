@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showquizlistPost } from '../modules/showquizlist';
 import ChallengesItem from '../components/table/ChallengesItem';
+import { withRouter } from 'react-router-dom';
 import { quizinitialize } from '../modules/deletequiz';
 import { initialize, quizPost } from '../modules/quiz';
 import { getCookie } from '../lib/cookie';
 
 
-const ChallengesContainer = () => {
+const ChallengesContainer = ({ history }) => {
     const [quizlist, setQuizList] = useState(null);
     const dispatch = useDispatch();
     const { showquizlist, quiz, loading } = useSelector(({ showquizlist, quiz, loading }) => ({
@@ -21,12 +22,17 @@ const ChallengesContainer = () => {
         const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
         const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = getCookie("user");
-        dispatch(showquizlistPost());
         if (users) {
+            dispatch(showquizlistPost({ token }));
             dispatch(quizPost({ token }));
         }
         if (admin) {
+            dispatch(showquizlistPost({ token }));
             dispatch(quizPost({ token }));
+        }
+        if (!token) {
+            alert("로그인하지 않으면 문제들을 볼 수 없습니다.");
+            history.goBack();
         }
         return () => {
             dispatch(quizinitialize());
@@ -43,4 +49,4 @@ const ChallengesContainer = () => {
     return <ChallengesItem data={showquizlist} quiz={quizlist} loading={loading} />;
 };
 
-export default ChallengesContainer;
+export default withRouter(ChallengesContainer);

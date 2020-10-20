@@ -56,7 +56,6 @@ const MypageContainer = ({ history, location }) => {
             history.push('/');
         }
         if (admin) {
-            alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
             dispatch(logout());
             history.push('/notification');
         }
