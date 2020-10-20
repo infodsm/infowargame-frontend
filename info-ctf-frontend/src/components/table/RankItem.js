@@ -75,9 +75,14 @@ const RankRow = ({ ranks }) => {
                     <th>-score-</th>
                 </tr>
             </thead>
-            {ranks.map(rank =>
-                (<RankList key={rank.rank} ranks={rank} />
-                ))}
+            {ranks.map(rank => {
+                return (
+                    <>
+                        <RankList key={rank.rank} ranks={rank} />
+                    </>
+                )
+            })}
+
         </>
     );
 }
