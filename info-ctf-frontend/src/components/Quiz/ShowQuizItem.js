@@ -133,7 +133,7 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
         onDownload(quiz_code);
     };
 
-    const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+    const admin = localStorage.getItem("admin") ? localStorage.getItem("admin") : null;
 
     if (loading) {
         return (
@@ -180,7 +180,7 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
             <Header />
             <ShowQuizitemBox>
                 <p style={{ position: 'relative', fontSize: '18px', color: 'white', right: '350px', bottom: '220px' }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. </p>
-                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '196px', borderBottom: 'none' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
+                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '200px', borderBottom: 'none', zIndex: '1' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
                 <QuizContent style={{ whiteSpace: 'pre' }}>
                     <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
                     <ShowQuizContent disabled>{content}</ShowQuizContent>

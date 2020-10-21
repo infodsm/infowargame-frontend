@@ -3,3 +3,27 @@
 [1020/092751.260:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)
 [1020/120510.509:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)
 [1020/144626.691:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)
+[1021/092943.514:WARNING:process_reader_win.cc(160)] Thread 13488 should be suspended, but previous_suspend_count is 0
+[1021/092943.515:WARNING:process_reader_win.cc(160)] Thread 10204 should be suspended, but previous_suspend_count is 0
+[1021/092943.515:WARNING:process_reader_win.cc(160)] Thread 11600 should be suspended, but previous_suspend_count is 0
+[1021/092943.515:WARNING:process_reader_win.cc(160)] Thread 18352 should be suspended, but previous_suspend_count is 0
+[1021/092943.515:WARNING:process_reader_win.cc(160)] Thread 10976 should be suspended, but previous_suspend_count is 0
+[1021/092943.515:WARNING:process_reader_win.cc(160)] Thread 16456 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 7220 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 16608 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 14100 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 1616 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 16060 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 18056 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 9120 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 9412 should be suspended, but previous_suspend_count is 0
+[1021/092943.516:WARNING:process_reader_win.cc(160)] Thread 12376 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 8908 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 16256 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 6120 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 9064 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 17992 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 15328 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 13192 should be suspended, but previous_suspend_count is 0
+[1021/092943.517:WARNING:process_reader_win.cc(160)] Thread 6504 should be suspended, but previous_suspend_count is 0
+[1021/092944.521:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\ì „ì„¸í›ˆ\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\64ebdee1-341c-43c7-a395-f504fb97d914: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)

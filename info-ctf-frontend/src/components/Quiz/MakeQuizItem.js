@@ -108,8 +108,7 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
                 <StyledShortInput name="point" value={point} placeholder="점수" onChange={onChange}></StyledShortInput>
                 <br />
                 <br />
-                <StyledInput name="quizname" placeholder="문제제목" value={quizname} onChange={onChange} style={{ border: 'none', outline: 'none', borderBottom: '2px solid #FFFFFF', boxSizing: 'border-box', marginLeft: '100px', width: '70.5%', }}></StyledInput>
-                <StyledButton style={{ marginRight: '85.5px', border: 'none', borderBottom: '2px solid #FFFFFF', color: 'red' }}>문제삭제</StyledButton>
+                <StyledInput name="quizname" placeholder="문제제목" value={quizname} onChange={onChange} style={{ border: 'none', outline: 'none', borderBottom: '2px solid #FFFFFF', boxSizing: 'border-box', marginLeft: '100px', width: '80%', }}></StyledInput>
                 <MakeQuizContent name="contents" value={contents} onChange={onChange}>
                     문제 내용
                 </MakeQuizContent>

@@ -49,7 +49,7 @@ const LoginContainer = ({ history }) => {
         if (login) {
             if (login) {
                 alert("로그인 성공");
-                setCookie('user', login.token);
+                setCookie('user', login.token, 1);
                 localStorage.setItem("users", 'users');
                 history.push('/notification');    // 공지로 이동
             }
