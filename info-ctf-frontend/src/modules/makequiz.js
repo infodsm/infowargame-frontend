@@ -22,7 +22,7 @@ export function* makequizpostSaga() {
 }
 
 const initialState = {
-    category: '',
+    category: '1',
     point: '',
     quizname: '',
     contents: '',

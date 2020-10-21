@@ -82,6 +82,11 @@ const RegisterForm = ({ id, password, nickname, email, team, code, onChangeField
 
     const [modal, setModal] = useState(false);
 
+    const onClick = () => {
+        sendEmailSubmit();
+        onRemoveClick();
+    }
+
     const onRemoveClick = () => {
         setModal(true);
     };
@@ -112,8 +117,7 @@ const RegisterForm = ({ id, password, nickname, email, team, code, onChangeField
                 <StyledInput name="nickname" placeholder="nickname" onChange={onChangeInput} value={nickname} />
                 <br />
                 <StyledInput name="email" placeholder="email" onChange={onChangeInput} value={email} />
-                <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={sendEmailSubmit}>이메일확인</StyledButton>
-                <StyledButton style={{ marginLeft: '950px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={onRemoveClick}>코드입력</StyledButton>
+                <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={onClick}>이메일확인</StyledButton>
                 <StyledInput name="team" placeholder="team" style={{ marginTop: '20px' }} onChange={onChangeInput} value={team} />
                 <br />
                 <div className="ButtonArea">

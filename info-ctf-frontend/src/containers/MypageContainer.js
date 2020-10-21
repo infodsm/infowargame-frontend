@@ -65,13 +65,6 @@ const MypageContainer = ({ history, location }) => {
         }
     };
 
-    useEffect(() => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
-        if (users) {
-            alert("마이페이지 정보 변경 시 재로그인 하셔야 합니다.");
-        }
-    }, []);
-
     // mypage 정보 저장
     useEffect(() => {
         if (myPage) {

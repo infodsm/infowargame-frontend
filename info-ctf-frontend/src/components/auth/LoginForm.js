@@ -13,7 +13,7 @@ const LoginArea = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-right: 40px;
     .ButtonArea {
         width: 604.5px;
     }

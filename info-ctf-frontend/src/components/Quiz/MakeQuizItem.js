@@ -32,12 +32,26 @@ border: none;
 padding-bottom: 10px;
 `;
 
+const StyledSelect = styled.select`
+    position: relative;
+    font-size: 2rem;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    width: 250px;
+    height: 50px;
+    left: 100px;
+    background: #000000;
+    border-radius: 3px;
+    text-align: center;
+    color: white;
+`;
+
 const StyledInput = styled.input`
     font-size: 2rem;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     width: 965px;
-    height: 52px;
+    height: 60px;
     left: 642px;
     top: 420px;
     background: #000000;
@@ -75,8 +89,8 @@ border-left: 2px solid #FFFFFF;
 outline: none;
 box-sizing: border-box;
 width: 150px;
-height: 52px;
-right: 210px;
+height: 60px;
+right: 220px;
 background: #000000;
 border-radius: 3px;
 text-align: center;
@@ -102,9 +116,17 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
     return (
         <>
             <MakeQuizArea>
-                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 :  Reverse Engineering / 7 : Webhacking ) </p>
+                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 : Reverse Engineering / 7 : Webhacking ) </p>
                 <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>*주의사항* : 파일을 첨부할 때는 꼭 zip 파일로 압축해서 넣어야 합니다. </p>
-                <StyledShortInput name="category" value={category} placeholder="카테고리" onChange={onChange}></StyledShortInput>
+                <StyledSelect name="category" onChange={onChange} value={category}>
+                    <option value="1">Cryptography</option>
+                    <option value="2">Forensics</option>
+                    <option value="3">MISC</option>
+                    <option value="4">Networking</option>
+                    <option value="5">Pwnable</option>
+                    <option value="6">Reverse Engineering</option>
+                    <option value="7">Webhacking</option>
+                </StyledSelect>
                 <StyledShortInput name="point" value={point} placeholder="점수" onChange={onChange}></StyledShortInput>
                 <br />
                 <br />

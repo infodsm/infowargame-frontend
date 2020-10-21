@@ -35,18 +35,17 @@ span {
 const StyledButton = styled.button`
 position: absolute;
 margin-top: -300px;
-font-size: 2rem;
 border: 2px solid #FFFFFF;
 box-sizing: border-box;
-width: 99.5px;
+width: 76px;
 height: 52px;
-left: 1350px;
+left: 1330px;
 top: 354px;
 background: #000000;
 border-radius: 3px;
 text-align: center;
 color: white;
-font-size: 20px;
+font-size: 15px;
 `;
 
 const NotificationPage = ({ data, history, location }) => {

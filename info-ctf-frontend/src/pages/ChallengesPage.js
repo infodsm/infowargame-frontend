@@ -18,7 +18,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 height: 380%;
-overflow: auto;
 `;
 
 const HeaderBlock = styled.div`
@@ -121,7 +120,7 @@ const ChallengesPage = () => {
     return (
         <>
             <ChallengesPageBlock>
-                <HeaderBlock>
+                <HeaderBlock style={{ marginTop: '65px' }}>
                     <Header />
                 </HeaderBlock>
                 <ChallengesArea>
