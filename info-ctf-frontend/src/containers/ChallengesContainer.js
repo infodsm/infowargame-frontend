@@ -31,7 +31,7 @@ const ChallengesContainer = ({ history }) => {
             dispatch(quizPost({ token }));
         }
         if (!token) {
-            alert("로그인하지 않으면 문제들을 볼 수 없습니다.");
+            alert("로그인해야 사용가능한 기능입니다.");
             history.push("/login");
         }
         return () => {
