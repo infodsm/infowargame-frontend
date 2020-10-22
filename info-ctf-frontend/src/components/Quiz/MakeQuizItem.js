@@ -116,7 +116,6 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
     return (
         <>
             <MakeQuizArea>
-                <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>문제 카테고리 : ( 1 : Cryptography / 2 : Forensics / 3 : MISC / 4 : Networking / 5 : Pwnable / 6 : Reverse Engineering / 7 : Webhacking ) </p>
                 <p style={{ fontSize: '18px', color: 'white', marginLeft: '110px' }}>*주의사항* : 파일을 첨부할 때는 꼭 zip 파일로 압축해서 넣어야 합니다. </p>
                 <StyledSelect name="category" onChange={onChange} value={category}>
                     <option value="1">Cryptography</option>
