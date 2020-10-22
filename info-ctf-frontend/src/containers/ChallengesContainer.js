@@ -7,7 +7,6 @@ import { quizinitialize } from '../modules/deletequiz';
 import { initialize, quizPost } from '../modules/quiz';
 import { getCookie } from '../lib/cookie';
 
-
 const ChallengesContainer = ({ history }) => {
     const [quizlist, setQuizList] = useState(null);
     const dispatch = useDispatch();
