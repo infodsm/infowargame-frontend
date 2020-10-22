@@ -1,5 +1,5 @@
 # infowargame-frontend
-인포워게임의 프론트엔드입니다. 오류 수정을 위한 핫픽스 브랜치입니다.
+인포워게임의 프론트엔드입니다. 현재 API 연동작업 완료하였습니다.
 ## 기술스택
 React.js, Styled-Component, React-Redux, Redux-saga, Axios
 ## API 명세
