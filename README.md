@@ -1,6 +1,6 @@
 # infowargame-frontend
-인포워게임의 프론트엔드입니다. 현재 API 연동작업 완료하였습니다.
-기능구현 완료 후 오류 수정을 위해 hotfix branch와 master branch로 분류하였습니다.
+- 인포워게임의 프론트엔드입니다. 현재 API 연동작업 완료하였습니다.
+- 기능구현 완료 후 오류 수정을 위해 hotfix branch와 master branch로 분류하였습니다.
 ## 기술스택
 React.js, Styled-Component, React-Redux, Redux-saga, Axios
 ## API 명세
