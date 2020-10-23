@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import QuizModal from '../common/QuizModal';
 
 const StyledList = styled.div`
 position: relative;
@@ -78,46 +77,8 @@ const ChallengesDiv = styled.div`
     background-color: ${props => props.color || "#F0F8FF"};
 `;
 
-const StyledButton = styled.button`
-position: relative;
-font-size: 13px;
-border: 2px solid #FFFFFF;
-box-sizing: border-box;
-width: 109.5px;
-height: 51px;
-margin-top: 150px;
-background: #000000;
-border-radius: 3px;
-text-align: center;
-color: grey;
-cursor: pointer;
-color: white;
-text-decoration: none;
-outline: 0;
-p {
-    color: white;
-    margin-top: 10px;
-}
-`;
-
 
 const ChallengesItem = ({ data, quiz, loading }) => {
-
-    const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-
-    const [modal, setModal] = useState(false);
-
-    const onRemoveClick = () => {
-        setModal(true);
-    };
-
-    const onCancel = () => {
-        setModal(false);
-    };
-
-    const onConfirm = () => {
-        setModal(false);
-    };
 
     if (loading) {
         return <StyledList><h3 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩 중 입니다.</h3></StyledList>
@@ -140,7 +101,6 @@ const ChallengesItem = ({ data, quiz, loading }) => {
     return (
 
         <>
-            {token ? <StyledButton onClick={onRemoveClick}>맞춘문제 보기</StyledButton> : null}
             <StyledList>
                 <p style={{ fontSize: '18px', color: 'white' }}>*유의사항* : 한번 푼 문제는 다시 풀 수 없습니다. </p>
                 <p>Cryptography</p><ChallengeRow key={filterArray(1).num} data={filterArray(1)}></ChallengeRow>
@@ -157,15 +117,6 @@ const ChallengesItem = ({ data, quiz, loading }) => {
                 <br />
                 <p>Webhacking</p><ChallengeRow data={filterArray(7)}></ChallengeRow>
             </StyledList>
-            <div className="ModalArea">
-                <QuizModal
-                    classNmae="modal"
-                    visible={modal}
-                    onConfirm={onConfirm}
-                    onCancel={onCancel}
-                    quiz={quiz}
-                />
-            </div>
         </>
     );
 };
