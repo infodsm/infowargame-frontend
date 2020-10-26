@@ -21,6 +21,8 @@ const HeaderBlock = styled.div`
         line-height: 52px;
         color: white;
         margin-bottom: 800px;
+        font-family: 'Do Hyeon', sans-serif;
+        color: white;
     }
 
     .notice {

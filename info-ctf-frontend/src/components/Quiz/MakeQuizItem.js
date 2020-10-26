@@ -91,9 +91,9 @@ border-bottom: 2px solid #FFFFFF;
 border-left: 2px solid #FFFFFF;
 outline: none;
 box-sizing: border-box;
-width: 150px;
+width: 130px;
 height: 60px;
-right: 220px;
+right: 240px;
 background: #000000;
 border-radius: 3px;
 text-align: center;
@@ -137,10 +137,10 @@ const MakeQuizItem = ({ category, point, quizname, contents, makequiz, onChangeF
                     문제 내용
                 </MakeQuizContent>
                 <InputArea>
-                    <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '80%' }}></StyledInput>
+                    <StyledInput name="file" type="file" onChange={onChangeFile} style={{ marginLeft: '100px', width: '77.5%' }}></StyledInput>
                 </InputArea>
-                <StyledInput name="flag" type="text" value={flag} onChange={onChange} placeholder="insert flag" style={{ marginLeft: '100px', width: '67%' }}></StyledInput>
-                <StyledButton style={{ marginRight: '75.5px' }} onClick={onSubmit}>만들기</StyledButton>
+                <StyledInput name="flag" type="text" value={flag} onChange={onChange} placeholder="insert flag" style={{ marginLeft: '100px', width: '70%' }}></StyledInput>
+                <StyledButton style={{ marginRight: '86px' }} onClick={onSubmit}>만들기</StyledButton>
             </MakeQuizArea>
         </>
     );
