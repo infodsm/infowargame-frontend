@@ -25,6 +25,9 @@ span {
 @media (max-width: 768px) {
     width: 100%;
 }
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;  
 `;
 
 const StyledTable = styled.div`
@@ -47,6 +50,9 @@ table {
     width: 100%;
     font-size: 24px;
 }
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;
 `;
 
 const StyledSelect = styled.select`

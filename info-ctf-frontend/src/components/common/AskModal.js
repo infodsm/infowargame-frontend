@@ -33,6 +33,9 @@ const AskModalBlock = styled.div`
         display: flex;
         justify-content: flex-end;
     }
+
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;  
 `;
 
 const StyledInput = styled.input`

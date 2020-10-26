@@ -16,6 +16,8 @@ const AdminRegisterArea = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 50px;
+    margin-top: 50px;
 
     .ButtonArea {
         width: 604.5px;
@@ -50,6 +52,8 @@ const AdminRegisterArea = styled.div`
     h1 {
         color: white;
     }
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;   
 `;
 
 const StyledInput = styled.input`

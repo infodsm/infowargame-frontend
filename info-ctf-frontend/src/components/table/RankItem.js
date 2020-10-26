@@ -28,6 +28,9 @@ table {
     width: 100%;
     font-size: 14.2px;
 }
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;  
 `;
 
 
@@ -35,14 +38,12 @@ table {
 const RankItem = ({ ranks, mydata, loading }) => {
 
     if (loading) {
-        return <StyledTable><h3 style={{ textDecoration: 'none', color: 'white' }}>랭킹 로딩 중 입니다.</h3></StyledTable>
+        return <StyledTable><h3 style={{ fontFamily: 'Do Hyeon', color: 'white' }}>랭킹 로딩 중 입니다.</h3></StyledTable>
     }
 
     return (
         <>
-            <p style={{ marginLeft: '500px' }}>
-                Top 50 Users
-            </p>
+            <p style={{ marginLeft: '500px' }}>Top 50 Users</p>
             <StyledTable>
                 <table>
                     <br />
@@ -59,7 +60,7 @@ const RankRow = ({ ranks }) => {
 
     // rank 값이 유효할 때 (렌더링 오류가 나지 않게 객체든 배열이든 꼭 이 유효성 검사를 해주어야 함)
     if (ranks === null) {
-        return <StyledTable><h3 style={{ textDecoration: 'none', color: 'white', marginRight: '110px' }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h3></StyledTable>
+        return <StyledTable><h3 style={{ color: 'white', marginRight: '110px' }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h3></StyledTable>
     }
 
     if (!ranks) {
