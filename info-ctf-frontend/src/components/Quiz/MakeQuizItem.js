@@ -11,6 +11,9 @@ border: none;
 h1 {
     color: white;
 }
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;  
 `;
 
 const MakeQuizContent = styled.textarea`

@@ -27,6 +27,9 @@ span {
 @media (max-width: 768px) {
     width: 100%;
 }
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;  
 `;
 
 const QuizContent = styled.div`

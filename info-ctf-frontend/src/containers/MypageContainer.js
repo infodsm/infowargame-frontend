@@ -40,7 +40,7 @@ const MypageContainer = ({ history, location }) => {
         }
         if (admin) {
             alert("어드민은 마이페이지 정보가 표시되지 않습니다.");
-            history.goBack();
+            history.push("/login");
         }
         if (!users && !admin) {
             alert("로그인해야 사용가능한 기능입니다.");
