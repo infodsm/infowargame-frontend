@@ -72,51 +72,6 @@ const ChallengesPage = () => {
 
     const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
 
-    /* const dummy = [
-         {
-             "num": 1,
-             "category": 1,
-             "makeid": "tpgns0223",
-             "name": "첫 테스트",
-             "point": 100,
-             "check": "correct",
-         },
-         {
-             "num": 2,
-             "category": 2,
-             "makeid": "tpgns0223",
-             "name": "2번째 테스트",
-             "point": 100,
-             "check": false,
-         },
-         {
-             "num": 3,
-             "category": 3,
-             "makeid": "tpgns0223",
-             "name": "3번째 테스트",
-             "point": 100,
-             "check": "correct",
-         },
-         {
-             "num": 42,
-             "category": 1,
-             "makeid": "admin1",
-             "name": "테스트용 ",
-             "point": 100,
-             "check": false,
-         },
-         {
-             "num": 42,
-             "category": 4,
-             "makeid": "admin1",
-             "name": "테스트용 더미 ",
-             "point": 400,
-             "check": "correct",
-         }
-     ]
-     */
-
-
     return (
         <>
             <ChallengesPageBlock>
