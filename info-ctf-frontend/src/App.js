@@ -13,6 +13,7 @@ import AdminRegisterPage from './pages/AdminRegisterPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import FindPasswordPage from './pages/FindPasswordPage';
 import MakeQuizPage from './pages/MakeQuizPage';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -28,6 +29,9 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>INFO WARGAME</title>
+      </Helmet>
       <Route component={LoginPage} path={["/", "/login"]} exact />
       <Route component={LoginAfterPage} path="/loginafter" />
       <Route component={RegisterPage} path="/register" />

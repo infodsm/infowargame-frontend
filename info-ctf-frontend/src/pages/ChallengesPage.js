@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/common/Header';
 import ChallengesContainer from '../containers/ChallengesContainer';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const ChallengesPageBlock = styled.div`
@@ -74,6 +75,9 @@ const ChallengesPage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>퀴즈목록 - INFO WARGAME</title>
+            </Helmet>
             <ChallengesPageBlock>
                 <HeaderBlock style={{ marginTop: '-135px' }}>
                     <Header />

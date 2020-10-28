@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import NotificationItem from '../components/etc/NotificationItem';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const NotificationPageBlock = styled.div`
@@ -22,11 +23,15 @@ align-items: center;
 
 const NotificationPage = () => {
     return (
-
-        <NotificationPageBlock>
-            <Header />
-            <NotificationItem />
-        </NotificationPageBlock>
+        <>
+            <Helmet>
+                <title>INFO WARGAME</title>
+            </Helmet>
+            <NotificationPageBlock>
+                <Header />
+                <NotificationItem />
+            </NotificationPageBlock>
+        </>
     );
 };
 

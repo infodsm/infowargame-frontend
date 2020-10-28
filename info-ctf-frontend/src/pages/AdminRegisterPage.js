@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AdminRegisterContainer from '../containers/AdminRegisterContainer';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const AdminRegisterPageBlock = styled.div`
@@ -21,6 +22,9 @@ const AdminRegisterPage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>어드민 회원가입 - INFO WARGAME</title>
+            </Helmet>
             <AdminRegisterPageBlock>
                 <AdminRegisterContainer />
             </AdminRegisterPageBlock>

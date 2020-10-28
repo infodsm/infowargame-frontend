@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import UserContainer from '../containers/UserContainer';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const UserPageBlock = styled.div`
@@ -54,6 +55,9 @@ p {
 const UserPage = () => {
     return (
         <>
+            <Helmet>
+                <title>유저 검색 - INFO WARGAME</title>
+            </Helmet>
             <UserPageBlock>
                 <Header />
                 <UserPageArea>

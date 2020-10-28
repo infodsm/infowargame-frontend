@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import LoginContainer from '../containers/LoginContainer';
+import { Helmet } from 'react-helmet-async';
 
 
 /* 화면 전체를 채움 */
@@ -23,6 +24,9 @@ align-items: center;
 const LoginPage = () => {
     return (
         <>
+            <Helmet>
+                <title>로그인 - INFO WARGAME</title>
+            </Helmet>
             <LoginPageBlock>
                 <Header />
                 <LoginContainer />

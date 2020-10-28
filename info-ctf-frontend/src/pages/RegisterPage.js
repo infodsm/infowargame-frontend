@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import RegisterContainer from '../containers/RegisterContainer';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const RegisterPageBlock = styled.div`
@@ -21,6 +22,9 @@ const RegisterPage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>회원가입 - INFO WARGAME</title>
+            </Helmet>
             <RegisterPageBlock>
                 <RegisterContainer />
             </RegisterPageBlock>

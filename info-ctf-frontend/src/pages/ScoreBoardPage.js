@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from '../components/common/Responsive';
 import RankContainer from '../containers/RankContainer';
+import { Helmet } from 'react-helmet-async';
 
 const HeaderBlock = styled.div`
     margin-top: 30px;
@@ -132,6 +133,9 @@ p {
 const ScoreBoardPage = () => {
     return (
         <>
+            <Helmet>
+                <title>랭킹 - INFO WARGAME</title>
+            </Helmet>
             <ScoreBoardPageBlock>
                 <HeaderBlock>
                     <Rectangle />

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import FindPasswordContainer from '../containers/FindPasswordContainer';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const FindPasswordPageBlock = styled.div`
@@ -22,11 +23,15 @@ align-items: center;
 
 const FindPasswordPage = () => {
     return (
-
-        <FindPasswordPageBlock>
-            <Header />
-            <FindPasswordContainer />
-        </FindPasswordPageBlock>
+        <>
+            <Helmet>
+                <title>비밀번호찾기 - INFO WARGAME</title>
+            </Helmet>
+            <FindPasswordPageBlock>
+                <Header />
+                <FindPasswordContainer />
+            </FindPasswordPageBlock>
+        </>
     );
 };
 

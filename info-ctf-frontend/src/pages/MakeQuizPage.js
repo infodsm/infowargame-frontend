@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/common/Header';
 import MakeQuizContainer from '../containers/MakeQuizContainer';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const MakeQuizPageBlock = styled.div`
@@ -23,11 +24,15 @@ height: 160%;
 
 const MakeQuizPage = () => {
     return (
-
-        <MakeQuizPageBlock>
-            <Header />
-            <MakeQuizContainer />
-        </MakeQuizPageBlock>
+        <>
+            <Helmet>
+                <title>퀴즈 만들기 - INFO WARGAME</title>
+            </Helmet>
+            <MakeQuizPageBlock>
+                <Header />
+                <MakeQuizContainer />
+            </MakeQuizPageBlock>
+        </>
     );
 };
 

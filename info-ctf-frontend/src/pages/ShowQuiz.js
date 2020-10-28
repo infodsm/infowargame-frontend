@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LoadQuizContainer from '../containers/LoadQuizContainer';
+import { Helmet } from 'react-helmet-async';
 
 
 /* 화면 전체를 채움 */
@@ -22,6 +23,9 @@ const ShowQuiz = () => {
 
     return (
         <>
+            <Helmet>
+                <title>문제 풀기 - INFO WARGAME</title>
+            </Helmet>
             <ShowQuizBlock>
                 <LoadQuizContainer />
             </ShowQuizBlock>

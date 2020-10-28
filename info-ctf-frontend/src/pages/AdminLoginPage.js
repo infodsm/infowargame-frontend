@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AdminLoginForm from '../components/auth/AdminLoginForm';
 import Header from '../components/common/Header';
+import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const AdminLoginPageBlock = styled.div`
@@ -22,6 +23,9 @@ const AdminLoginPage = ({ history }) => {
 
     return (
         <>
+            <Helmet>
+                <title>어드민 로그인 - INFO WARGAME</title>
+            </Helmet>
             <AdminLoginPageBlock>
                 <Header />
                 <AdminLoginForm history={history} />
