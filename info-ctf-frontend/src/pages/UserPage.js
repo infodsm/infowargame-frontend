@@ -32,7 +32,7 @@ align-items: center;
 
 const UserPageArea = styled.div`
 width: 80%;
-height: 100%;
+height: 80%;
 background: #000000;
 
 p {

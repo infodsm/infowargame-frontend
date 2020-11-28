@@ -49,6 +49,8 @@ border-radius: 3px;
 text-align: center;
 color: white;
 font-size: 15px;
+cursor: pointer;
+z-index: 0;
 `;
 
 const NotificationPage = ({ data, history, location }) => {
@@ -75,13 +77,14 @@ const NotificationPage = ({ data, history, location }) => {
 
     return (
         <NotificationPageSpanBox>
-            {login ? <StyledButton onClick={onLogout}>로그아웃</StyledButton> : <Link to="login"><StyledButton style={{ textDecoration: 'none' }}>로그인</StyledButton></Link>}
+            {login ? <StyledButton onClick={onLogout}>로그아웃</StyledButton> : <Link to="login"><StyledButton style={{ textDecoration: 'none', zIndex: 0 }}>로그인</StyledButton></Link>}
             <span>INFO CTF에 오신 것을 환영합니다!</span>
             <span style={{ fontSize: '40px' }}>-사이트를 이용하기 전 유의해야 할 사항-</span>
             <br />
             <span style={{ fontSize: '24px' }}>* 여러분이 서버를 가지고 놀면 서버가 아야해요 ㅠㅠ</span>
             <br />
             <span style={{ fontSize: '24px' }}>* 가끔 로그아웃 버튼을 눌러도 로그아웃 버튼이 로그인버튼으로 바뀌지 않는다면, <br />&nbsp;&nbsp;당황하지 마시고 한 번 더 로그아웃 버튼을 눌러주시면 정상적으로 바뀝니다.</span>
+            <span style={{ fontSize: '24px' }}>* (로그인, 로그아웃 버튼은 버튼의 아래쪽을 클릭해주세요!)</span>
             <span style={{ fontSize: '14px', color: 'black' }}>사이트 개발자: 전세훈, 김호준</span>
         </NotificationPageSpanBox>
     );

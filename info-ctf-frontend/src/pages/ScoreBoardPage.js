@@ -138,7 +138,7 @@ const ScoreBoardPage = () => {
             </Helmet>
             <ScoreBoardPageBlock>
                 <HeaderBlock>
-                    <Rectangle />
+
                     <Wrapper>
                         <li className="notice">
                             <Link to="/notification" style={{ textDecoration: 'none', color: '#FF89FF' }}  >

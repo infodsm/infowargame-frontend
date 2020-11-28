@@ -6,10 +6,9 @@ import Responsive from './Responsive';
 
 const HeaderBlock = styled.div`
     margin-top: 30px;
-    position: relative;
     width: 90%;
-    background: #white;
-
+    z-index: 1;
+    
 
     li {
         list-style: none;
@@ -23,6 +22,11 @@ const HeaderBlock = styled.div`
         margin-top: 20px;
         font-family: 'Do Hyeon', sans-serif;
         color: white;
+    }
+
+    .li:hover {
+        cursor: pointer;
+        background-color: white;
     }
 
     .notice {
@@ -70,7 +74,7 @@ height: 4rem;
 `;
 
 const Rectangle = styled.div`
-position: relative;
+position: absolute;
 width: 1300px;
 height: 5px;
 left: 30px;
@@ -84,7 +88,6 @@ const Header = () => {
     return (
         <>
             <HeaderBlock>
-                <Rectangle />
                 <Wrapper>
                     <li className="notice">
                         <Link to="/notification" style={{ textDecoration: 'none', color: '#FF89FF' }}  >

@@ -18,14 +18,15 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 400%;
+overflow: auto;
 `;
 
 const HeaderBlock = styled.div`
-margin-bottom: 2710px;
-background: ;
-width: 99%;
-margin-left: 139px;
+position: absolute;
+background: black;
+width: 95%;
+margin-left: 129px;
+top: 20px;
 `;
 
 const ChallengesArea = styled.div`
@@ -78,8 +79,9 @@ const ChallengesPage = () => {
             <Helmet>
                 <title>퀴즈목록 - INFO WARGAME</title>
             </Helmet>
+
             <ChallengesPageBlock>
-                <HeaderBlock style={{ marginTop: '-135px' }}>
+                <HeaderBlock>
                     <Header />
                 </HeaderBlock>
                 <ChallengesArea>
