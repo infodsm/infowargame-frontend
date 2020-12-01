@@ -41,7 +41,7 @@ overflow: auto;
 
 /* 브라우저 크기에 따라 가로 크기 변경 */
 @media (max-width: 1024px) {
-    width: 768px;
+    width: 100%;
 }
 @media (max-width: 768px) {
     width: 100%;
