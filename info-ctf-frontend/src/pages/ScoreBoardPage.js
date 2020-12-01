@@ -93,10 +93,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 225%;
 overflow: auto;
 `;
-
 
 const RankArea = styled.div`
 position: relative;
@@ -118,14 +116,6 @@ p {
 
 #text1 {
     margin-left: 50px;
-}
-
-/* 브라우저 크기에 따라 가로 크기 변경 */
-@media (max-width: 1024px) {
-    width: 768px;
-}
-@media (max-width: 768px) {
-    width: 100%;
 }
 `;
 
