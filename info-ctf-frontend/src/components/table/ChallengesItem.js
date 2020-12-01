@@ -18,10 +18,6 @@ left: -15px;
 margin-top: -0px;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cd8a45e67dad808b7537985d8f0b39fe40f0ee56
 ul {
     display:flex;
     flex-direction: row;

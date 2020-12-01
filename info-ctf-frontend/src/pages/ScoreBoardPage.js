@@ -95,36 +95,20 @@ justify-content: center;
 align-items: center;
 overflow: auto;
 
-<<<<<<< HEAD
 font-family: 'Do Hyeon', sans-serif;
 color: white; 
 
 h2 {
     color: white;
 }
-=======
-const RankArea = styled.div`
-position: relative;
-width: 80%;
-height: 700px;
-background: #000000;
-bottom: 240px;
-overflow: auto;
 
-p {
-    position: absolute;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 43px;
-    color: white;
+/* 브라우저 크기에 따라 가로 크기 변경 */
+@media (max-width: 1024px) {
+    width: 100%;
 }
-
-#text1 {
-    margin-left: 50px;
+@media (max-width: 768px) {
+    width: 100%;
 }
->>>>>>> cd8a45e67dad808b7537985d8f0b39fe40f0ee56
 `;
 
 
