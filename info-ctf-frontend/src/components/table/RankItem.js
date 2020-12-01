@@ -1,6 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
+<<<<<<< HEAD
+=======
+const StyledTable = styled.div`
+position: relative;
+font-size: 2rem;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+width: 1105.5px;
+height: 442px;
+left: 50px;
+top: 50px;
+background: #000000;
+border: none;
+border-radius: 3px;
+text-align: center;
+color: white;
+
+
+table {
+    width: 100%;
+    font-size: 14.2px;
+}
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;  
+`;
+>>>>>>> cd8a45e67dad808b7537985d8f0b39fe40f0ee56
 
 
 
