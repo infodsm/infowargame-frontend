@@ -6,7 +6,7 @@ import RankContainer from '../containers/RankContainer';
 import { Helmet } from 'react-helmet-async';
 
 const HeaderBlock = styled.div`
-    margin-top: 30px;
+    margin-top: 400px;
     position: relative;
     width: 90%;
     background: #white;
@@ -93,41 +93,16 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 225%;
-overflow: auto;
-`;
-
-
-const RankArea = styled.div`
-position: relative;
-width: 80%;
-height: 700px;
-background: #000000;
-bottom: 240px;
 overflow: auto;
 
-p {
-    position: absolute;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 43px;
+font-family: 'Do Hyeon', sans-serif;
+color: white; 
+
+h2 {
     color: white;
 }
-
-#text1 {
-    margin-left: 50px;
-}
-
-/* 브라우저 크기에 따라 가로 크기 변경 */
-@media (max-width: 1024px) {
-    width: 768px;
-}
-@media (max-width: 768px) {
-    width: 100%;
-}
 `;
+
 
 
 const ScoreBoardPage = () => {
@@ -138,7 +113,6 @@ const ScoreBoardPage = () => {
             </Helmet>
             <ScoreBoardPageBlock>
                 <HeaderBlock>
-
                     <Wrapper>
                         <li className="notice">
                             <Link to="/notification" style={{ textDecoration: 'none', color: '#FF89FF' }}  >
@@ -159,9 +133,7 @@ const ScoreBoardPage = () => {
                     </Wrapper>
                 </HeaderBlock>
                 <Spacer />
-                <RankArea >
-                    <RankContainer />
-                </RankArea>
+                <RankContainer />
             </ScoreBoardPageBlock>
         </>
     );

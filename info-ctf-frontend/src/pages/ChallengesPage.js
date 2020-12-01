@@ -31,7 +31,7 @@ top: 20px;
 
 const ChallengesArea = styled.div`
 position: absolute;
-width: 80%;
+width: 100%;
 height: 2520px; 
 background: #000000;
 bottom: 240px;

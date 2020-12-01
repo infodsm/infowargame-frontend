@@ -1,55 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledTable = styled.div`
-position: relative;
-font-size: 2rem;
-border: 2px solid #FFFFFF;
-box-sizing: border-box;
-width: 1105.5px;
-height: 442px;
-left: 50px;
-top: 50px;
-background: #000000;
-border: none;
-border-radius: 3px;
-text-align: center;
-color: white;
-
-/* 브라우저 크기에 따라 가로 크기 변경 */
-@media (max-width: 1024px) {
-    width: 768px;
-}
-@media (max-width: 768px) {
-    width: 100%;
-}
-
-table {
-    width: 100%;
-    font-size: 14.2px;
-}
-
-font-family: 'Do Hyeon', sans-serif;
-color: white;  
-`;
 
 
 
 const RankItem = ({ ranks, mydata, loading }) => {
 
     if (loading) {
-        return <StyledTable><h3 style={{ fontFamily: 'Do Hyeon', color: 'white' }}>랭킹 로딩 중 입니다.</h3></StyledTable>
+        return <h1 style={{ fontFamily: 'Do Hyeon', color: 'white' }}>랭킹 로딩 중 입니다.</h1>
     }
 
     return (
         <>
-            <p style={{ marginLeft: '500px' }}>Top 50 Users</p>
-            <StyledTable>
-                <table>
-                    <br />
-                    <RankRow ranks={ranks} />
-                </table>
-            </StyledTable>
+            <h2 style={{ marginLeft: '0px' }}>Top 50 Users</h2>
+            <table>
+                <br />
+                <RankRow ranks={ranks} />
+            </table>
+
 
         </>
     );
@@ -60,7 +28,7 @@ const RankRow = ({ ranks }) => {
 
     // rank 값이 유효할 때 (렌더링 오류가 나지 않게 객체든 배열이든 꼭 이 유효성 검사를 해주어야 함)
     if (ranks === null) {
-        return <StyledTable><h3 style={{ color: 'white', marginRight: '110px' }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h3></StyledTable>
+        return <h1 style={{ color: 'white', }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h1>
     }
 
     if (!ranks) {
