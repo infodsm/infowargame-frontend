@@ -17,6 +17,7 @@ span {
     color: white;
     margin-top: 25px;
 }
+<<<<<<< HEAD
 
 /* 브라우저 크기에 따라 가로 크기 변경 */
 @media (max-width: 1024px) {
@@ -25,6 +26,15 @@ span {
 @media (max-width: 768px) {
     width: 100%;
 }
+=======
+    /* 브라우저 크기에 따라 가로 크기 변경 */
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+>>>>>>> 1ccb9f9093abd7cf2e230053fadb25dc6ecb8a7e
 
 font-family: 'Do Hyeon', sans-serif;
 color: white;  
