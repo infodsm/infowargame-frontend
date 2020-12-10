@@ -27,6 +27,7 @@ resize: none;
 margin-left: 100px;
 margin-top: 50px;
 font-size: 25px;
+border: 1px solid white;
 `;
 
 const InputArea = styled.div`

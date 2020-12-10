@@ -4,15 +4,15 @@ import styled from 'styled-components';
 const LoginAfterArea = styled.div`
     padding: 2rem;
     width: 560px;
-    background: #000000;
+    background: black;
     border-radius: 2px;
-    height: 700px;
-    margin-top: 100px;
+    height: 500px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 25px;
 
     .ButtonArea {
         width: 604.5px;
@@ -33,11 +33,7 @@ const LoginAfterArea = styled.div`
 
     /* 브라우저 크기에 따라 가로 크기 변경 */
     @media (max-width: 1024px) {
-<<<<<<< HEAD
-        100%;
-=======
         width: 100%;
->>>>>>> 1ccb9f9093abd7cf2e230053fadb25dc6ecb8a7e
     }
     @media (max-width: 768px) {
         width: 100%;
@@ -103,15 +99,14 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
             {/* 로딩 중이 아니고, mypage 데이터가 존재할 때만 보여줌 */}
             {!loading && mypage && (
                 <LoginAfterArea>
-                    <StyledInput type="text" name="id" placeholder={id} defaultValue={modifiedid} onChange={onChangeInput} />
-                    <br />
-                    <StyledInput type="text" name="email" placeholder={email} value={modifiedemail} onChange={onChangeInput} />
-                    <br />
-                    <StyledInput type="text" name="nickname" placeholder={nickname} value={modifiednickname} onChange={onChangeInput} />
-                    <br />
-                    <StyledInput type="text" name="team" placeholder={team} value={modifiedteam} onChange={onChangeInput} />
-                    <br />
-                    <StyledInput name="score" defaultValue={score} readOnly />
+                    ID<StyledInput type="text" name="id" placeholder={id} defaultValue={modifiedid} onChange={onChangeInput} />
+                    E-Mail<StyledInput type="text" name="email" placeholder={email} value={modifiedemail} onChange={onChangeInput} />
+            
+                    Nickname<StyledInput type="text" name="nickname" placeholder={nickname} value={modifiednickname} onChange={onChangeInput} />
+               
+                    Team<StyledInput type="text" name="team" placeholder={team} value={modifiedteam} onChange={onChangeInput} />
+                 
+                    점수<StyledInput name="score" defaultValue={score} readOnly />
                     <br />
                     <div className="ButtonArea">
                         <StyledButton onClick={onLogout} style={{ textDecoration: 'none', color: 'white' }}>log out</StyledButton>

@@ -16,7 +16,7 @@ const RegisterArea = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 25px;
 
     .ButtonArea {
         width: 604.5px;

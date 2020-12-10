@@ -30,6 +30,3 @@ var deleteCookie = function (name) {
 export { setCookie, getCookie, deleteCookie };
 
 
-// 출처: https://thereclub.tistory.com/59 [강남부자]
-
-

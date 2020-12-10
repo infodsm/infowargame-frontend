@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 
 /* 화면 전체를 채움 */
 const ChallengesPageBlock = styled.div`
+width: 100%;
 position: absolute;
 left: 0;
 top: 0;
@@ -22,16 +23,16 @@ overflow: auto;
 `;
 
 const HeaderBlock = styled.div`
-position: absolute;
+width: 80%;
 background: black;
-width: 95%;
-margin-left: 129px;
+position: absolute;
+left: 210px;
 top: 20px;
 `;
 
 const ChallengesArea = styled.div`
 position: absolute;
-width: 100%;
+width: 90%;
 height: 2520px; 
 background: #000000;
 bottom: 240px;
@@ -55,7 +56,7 @@ border: 2px solid #FFFFFF;
 box-sizing: border-box;
 width: 109.5px;
 height: 51px;
-left: 1045px;
+left: 1200px;
 background: #000000;
 border-radius: 3px;
 text-align: center;

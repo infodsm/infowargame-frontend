@@ -1,23 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const RankBox = styled.div`
+width: 80%;
+height: 100%;
+background: #000000;
+
+
+table {
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+font-family: 'Do Hyeon', sans-serif;
+color: white;
+`;
+
 
 
 
 const RankItem = ({ ranks, mydata, loading }) => {
 
     if (loading) {
-        return <h1 style={{ fontFamily: 'Do Hyeon', color: 'white' }}>랭킹 로딩 중 입니다.</h1>
-    }
+        return (
+            <RankBox>
+            <h1 style={{ fontFamily: 'Do Hyeon', color: 'white', marginLeft: '500px',marginTop: '250px'}}>랭킹 로딩 중 입니다.</h1>
+            </RankBox>
+        );
+}
 
     return (
         <>
-            <h2 style={{ marginLeft: '0px' }}>Top 50 Users</h2>
-            <table>
-                <br />
-                <RankRow ranks={ranks} />
-            </table>
-
+            <RankBox>
+                <table>
+                    <colgroup>
+                        <col width="18%" />
+                        <col width="20%" />
+                        <col width="20%" />
+                    </colgroup>
+                    <RankRow ranks={ranks} />
+                </table>
+            </RankBox>
 
         </>
     );
@@ -28,7 +53,11 @@ const RankRow = ({ ranks }) => {
 
     // rank 값이 유효할 때 (렌더링 오류가 나지 않게 객체든 배열이든 꼭 이 유효성 검사를 해주어야 함)
     if (ranks === null) {
-        return <h1 style={{ color: 'white', }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h1>
+        return (
+            <RankBox>
+            <h1 style={{ color: 'white', marginLeft: '220px', marginTop: '200px' }}>랭킹이 존재하지 않습니다. <br /> 로그인해야 랭킹이 보입니다.</h1>
+            </RankBox>
+        );
     }
 
     if (!ranks) {
@@ -51,7 +80,6 @@ const RankRow = ({ ranks }) => {
                     </>
                 )
             })}
-
         </>
     );
 }

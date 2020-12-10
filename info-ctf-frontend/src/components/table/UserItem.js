@@ -85,6 +85,9 @@ const StyledSelect = styled.select`
     border-radius: 3px;
     text-align: center;
     color: white;
+
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
 `;
 
 const StyledInput = styled.input`
@@ -101,6 +104,9 @@ const StyledInput = styled.input`
     background: #000000;
     border-radius: 3px;
     text-align: center;
+    color: white;
+
+    font-family: 'Do Hyeon', sans-serif;
     color: white;
 
 `;
