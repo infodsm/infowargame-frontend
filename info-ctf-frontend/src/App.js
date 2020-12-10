@@ -32,7 +32,7 @@ function App() {
       <Helmet>
         <title>INFO WARGAME</title>
       </Helmet>
-      <Route component={LoginPage} path={["/", "/login"]} exact />
+      <Route component={LoginPage} path="/" exact/>
       <Route component={LoginAfterPage} path="/loginafter" />
       <Route component={RegisterPage} path="/register" />
       <Route component={ScoreBoardPage} path="/scoreboard" />
@@ -47,5 +47,7 @@ function App() {
     </>
   );
 }
+
+// <Route component={LoginPage} path={["/", "/notification"]} exact />
 
 export default App;
