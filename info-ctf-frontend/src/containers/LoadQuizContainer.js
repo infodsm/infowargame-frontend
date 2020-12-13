@@ -60,7 +60,7 @@ const LoadQuizContainer = ({ match, history }) => {
     };
 
     const onDownload = quiz_code => {
-        let url = `http://121.152.10.41:4000/api/challenge/download/${quiz_code}`
+        let url = `http://211.35.225.252:4000/api/challenge/download/${quiz_code}`
         return fetch(url, {
             method: 'GET',
             responseType: 'blob',

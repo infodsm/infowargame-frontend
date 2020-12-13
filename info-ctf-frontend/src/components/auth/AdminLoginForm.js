@@ -87,7 +87,7 @@ const AdminLoginForm = ({ history }) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        axios.post(("http://121.152.10.41:4000/api/admin/login"), {
+        axios.post(("http://211.35.225.252:4000/api/admin/login"), {
             id: login.id,
             password: login.password,
         }).then(result => {
