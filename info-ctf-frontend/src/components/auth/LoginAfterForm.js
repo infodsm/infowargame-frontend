@@ -112,7 +112,6 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
         setModal(false);
     };
 
-
     const { id, nickname, email, score, team } = mypage;
 
     return (
