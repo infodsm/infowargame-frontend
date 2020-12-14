@@ -72,7 +72,6 @@ text-align: center;
 color: white;
 `;
 
-
 const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, modifiedid, modifiedpassword, modifiednickname, modifiedemail, modifiedteam, sendEmailSubmit, getEmailSubmit }) => {
 
     const [modal, setModal] = useState(false);

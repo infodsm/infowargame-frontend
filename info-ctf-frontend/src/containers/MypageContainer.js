@@ -10,6 +10,7 @@ import { getEmail, getemailinitialize } from '../modules/getemail';
 import { getCookie } from '../lib/cookie';
 
 
+
 const MypageContainer = ({ history, location }) => {
     const [mypage, setMypage] = useState({});
     const dispatch = useDispatch();
