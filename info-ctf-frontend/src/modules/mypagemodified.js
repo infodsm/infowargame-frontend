@@ -14,6 +14,7 @@ export const initialize = createAction(INITIALIZE);
 export const modifiedPost = createAction(MODIFIED_POST, ({ token, id, password, nickname, team, email }) => ({ token, id, password, nickname, team, email, }));
 
 
+
 // 사가 생성
 const mypageModifiedSaga = createRequestSaga(MODIFIED_POST, authAPI.mypagemodified);
 

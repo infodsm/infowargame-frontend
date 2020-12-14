@@ -8,6 +8,7 @@ const GET_EMAIL_SUCCESS = 'getemail/GET_EMAIL_SUCCESS';
 const GET_EMAIL_FAILURE = 'getemail/GET_EMAIL_FAILURE';
 const GET_EMAIL_INITIALIZE = 'getemail/GET_EMAIL_INITIALIZE';
 
+
 export const getEmail = createAction(GET_EMAIL, ({ id, code }) => ({
     id,
     code,

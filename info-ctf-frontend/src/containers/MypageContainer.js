@@ -40,6 +40,7 @@ const MypageContainer = ({ history, location }) => {
         dispatch(initialize());
     }, [dispatch]);
 
+
     // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
     useEffect(() => {
         const users = localStorage.getItem("users") ? localStorage.getItem("users") : null;
@@ -56,7 +57,7 @@ const MypageContainer = ({ history, location }) => {
 
     // 이메일 인증 보내기
     const sendEmailSubmit = () => {
-         dispatch(sendEmail({ id, email }));
+        dispatch(sendEmail({ id, email }));
     };
 
     // 이메일 인증 받기
@@ -64,15 +65,15 @@ const MypageContainer = ({ history, location }) => {
         dispatch(getEmail({ id, code }));
     };
 
-     // 이메일 인증 보내기 성공여부 확인
+    // 이메일 인증 보내기 성공여부 확인
     useEffect(() => {
         if (getemail) {
             alert("이메일 인증 완료");
         }
         if (getemailerror) {
-             alert("이미 있는 이메일입니다");
-         }
-     }, [getemail, getemailerror, dispatch]);
+            alert("이미 있는 이메일입니다");
+        }
+    }, [getemail, getemailerror, dispatch]);
 
     // 마이페이지 수정 api 요청
     const onSubmit = e => {
@@ -82,10 +83,10 @@ const MypageContainer = ({ history, location }) => {
         const token = getCookie("user");
         if (users) {
             if ([email].includes('') || getemail) {
-            dispatch(modifiedPost({ id, password, nickname, team, email, token }));
-            dispatch(getemailinitialize());
-            dispatch(logout());
-            history.push('/');
+                dispatch(modifiedPost({ id, password, nickname, team, email, token }));
+                dispatch(getemailinitialize());
+                dispatch(logout());
+                history.push('/');
             }
             else if (![email].includes('')) {
                 alert("이메일 인증을 먼저 해주세요");
@@ -117,7 +118,7 @@ const MypageContainer = ({ history, location }) => {
     const onChangeField = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
 
     return (
-        <LoginAfterForm loading={loading} mypage={mypage} onLogout={onLogout} onSubmit={onSubmit} onChangeField={onChangeField} modifiedid={id} modifiedemail={email} modifiednickname={nickname} code={code} modifiedteam={team} modifiedpassword={password} sendEmailSubmit={sendEmailSubmit} getEmailSubmit={getEmailSubmit}/>
+        <LoginAfterForm loading={loading} mypage={mypage} onLogout={onLogout} onSubmit={onSubmit} onChangeField={onChangeField} modifiedid={id} modifiedemail={email} modifiednickname={nickname} code={code} modifiedteam={team} modifiedpassword={password} sendEmailSubmit={sendEmailSubmit} getEmailSubmit={getEmailSubmit} />
     );
 };
 

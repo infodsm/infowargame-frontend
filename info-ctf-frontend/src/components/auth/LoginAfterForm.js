@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AskCheckModal from './AskCheckModal';
 
@@ -95,10 +95,10 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
         onChangeField({ key: name, value: e.target.value });
     };
 
-     const onClick = () => {
-        sendEmailSubmit({id, email});
+    const onClick = () => {
+        sendEmailSubmit({ id, email });
         onRemoveClick();
-    } 
+    }
 
     const onRemoveClick = () => {
         setModal(true);
@@ -111,6 +111,7 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
     const onConfirm = () => {
         setModal(false);
     };
+
 
     const { id, nickname, email, score, team } = mypage;
 
@@ -135,15 +136,15 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
                         <StyledButton onClick={onSubmit} style={{ textDecoration: 'none', color: 'white' }}>submit</StyledButton>
                     </div>
                     <div className="ModalArea">
-                    <AskCheckModal
-                        classNmae="modal"
-                        visible={modal}
-                        onConfirm={onConfirm}
-                        onCancel={onCancel}
-                        onChange={onChangeInput}
-                        onClick={getEmailSubmit}
-                         />
-                </div>
+                        <AskCheckModal
+                            classNmae="modal"
+                            visible={modal}
+                            onConfirm={onConfirm}
+                            onCancel={onCancel}
+                            onChange={onChangeInput}
+                            onClick={getEmailSubmit}
+                        />
+                    </div>
                 </LoginAfterArea>
             )}
         </>
