@@ -40,7 +40,6 @@ const MypageContainer = ({ history, location }) => {
         dispatch(initialize());
     }, [dispatch]);
 
-
     // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
     useEffect(() => {
         const users = localStorage.getItem("users") ? localStorage.getItem("users") : null;
