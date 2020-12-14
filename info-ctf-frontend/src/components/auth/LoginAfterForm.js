@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import AskCheckModal from './AskCheckModal';
 
 const LoginAfterArea = styled.div`
     padding: 2rem;
     width: 560px;
     background: black;
     border-radius: 2px;
-    height: 500px;
-    margin-top: 150px;
+    height: 550px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +73,9 @@ color: white;
 `;
 
 
-const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, modifiedid, modifiedpassword, modifiednickname, modifiedemail, modifiedteam }) => {
+const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, modifiedid, modifiedpassword, modifiednickname, modifiedemail, modifiedteam, sendEmailSubmit, getEmailSubmit }) => {
+
+    const [modal, setModal] = useState(false);
 
     if (loading) {
         return <LoginAfterArea><h1 style={{ textDecoration: 'none', color: 'white' }}>로딩 중 입니다.</h1></LoginAfterArea>
@@ -92,6 +95,23 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
         onChangeField({ key: name, value: e.target.value });
     };
 
+     const onClick = () => {
+        sendEmailSubmit({id, email});
+        onRemoveClick();
+    } 
+
+    const onRemoveClick = () => {
+        setModal(true);
+    };
+
+    const onCancel = () => {
+        setModal(false);
+    };
+
+    const onConfirm = () => {
+        setModal(false);
+    };
+
     const { id, nickname, email, score, team } = mypage;
 
     return (
@@ -99,13 +119,14 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
             {/* 로딩 중이 아니고, mypage 데이터가 존재할 때만 보여줌 */}
             {!loading && mypage && (
                 <LoginAfterArea>
-                    ID<StyledInput type="text" name="id" placeholder={id} defaultValue={modifiedid} onChange={onChangeInput} />
+                    <p>* 이메일 확인을 할때는 아이디와 이메일을 입력해주세요</p>
+                    ID<StyledInput type="text" name="id" placeholder={id} value={modifiedid} onChange={onChangeInput} />
                     E-Mail<StyledInput type="text" name="email" placeholder={email} value={modifiedemail} onChange={onChangeInput} />
-            
+                    <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={onClick}>이메일확인</StyledButton>
                     Nickname<StyledInput type="text" name="nickname" placeholder={nickname} value={modifiednickname} onChange={onChangeInput} />
-               
+
                     Team<StyledInput type="text" name="team" placeholder={team} value={modifiedteam} onChange={onChangeInput} />
-                 
+
                     점수<StyledInput name="score" defaultValue={score} readOnly />
                     <br />
                     <div className="ButtonArea">
@@ -113,6 +134,16 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
                             &nbsp;
                         <StyledButton onClick={onSubmit} style={{ textDecoration: 'none', color: 'white' }}>submit</StyledButton>
                     </div>
+                    <div className="ModalArea">
+                    <AskCheckModal
+                        classNmae="modal"
+                        visible={modal}
+                        onConfirm={onConfirm}
+                        onCancel={onCancel}
+                        onChange={onChangeInput}
+                        onClick={getEmailSubmit}
+                         />
+                </div>
                 </LoginAfterArea>
             )}
         </>

@@ -27,6 +27,7 @@ const initialState = {
     password: '',
     nickname: '',
     team: '',
+    code: '',
     email: '',
     error: null,
 };
