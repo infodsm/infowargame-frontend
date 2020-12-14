@@ -45,7 +45,7 @@ const UserContainer = ({ history }) => {
         }
         if (!users && !admin) {
             alert("로그인해야 사용가능한 기능입니다.");
-            history.push("/login");
+            history.push("/");
         }
 
     };

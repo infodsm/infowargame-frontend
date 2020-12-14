@@ -37,6 +37,7 @@ const LoadQuizContainer = ({ match, history }) => {
     // 페이지가 마운트(처음 보여질 때)될 때 퀴즈목록 api 요청
     useEffect(() => {
         dispatch(loadquizPost(num));
+        dispatch(checkanswerinitialize());
 
         return () => {
             dispatch(initialize());
@@ -99,9 +100,11 @@ const LoadQuizContainer = ({ match, history }) => {
         const token = getCookie("user");
         if (admin) {
             dispatch(checkanswerPost({ quiz_code, flag, token }));
+            dispatch(checkanswerinitialize());
         }
         if (users) {
             dispatch(checkanswerPost({ quiz_code, flag, token }));
+            dispatch(checkanswerinitialize());
         }
     };
 
@@ -131,7 +134,6 @@ const LoadQuizContainer = ({ match, history }) => {
         }
         if (checkanswererror) {
             alert("오답입니다.");
-            window.location.reload();
         }
     }, [checkanswer, checkanswererror, history]);
 
