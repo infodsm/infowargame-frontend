@@ -77,15 +77,20 @@ text-align: center;
 color: white;
 `;
 
-const AdminLoginForm = ({ history }) => {
-
-    const [login, setLogin] = useState({ id: '', password: '' });
+const AdminLoginForm = ({ id, password, onChangeField, onSubmit, history }) => {
 
     const onChange = e => {
-        setLogin({ ...login, [e.target.name]: e.target.value });
-    };
+        const { name } = e.target;
+        onChangeField({ key: name, value: e.target.value });
+    }
 
-    const onSubmit = e => {
+    // const [login, setLogin] = useState({ id: '', password: '' });
+
+    /* const onChange = e => {
+        setLogin({ ...login, [e.target.name]: e.target.value });
+    }; */
+
+    /* const onSubmit = e => {
         e.preventDefault();
         axios.post(("http://211.35.225.252:4000/api/admin/login"), {
             id: login.id,
@@ -107,14 +112,15 @@ const AdminLoginForm = ({ history }) => {
             }
         })
     }
+    */
 
     return (
         <>
             <AdminLoginArea>
                 <h1>어드민 로그인</h1>
-                <StyledInput name="id" onChange={onChange} placeholder="id" />
+                <StyledInput name="id" onChange={onChange} value={id} placeholder="id" />
                 <br />
-                <StyledInput type="password" name="password" onChange={onChange} placeholder="password" />
+                <StyledInput type="password" name="password" onChange={onChange} value={password} placeholder="password" />
                 <br />
                 <div className="ButtonArea">
                     <StyledButton><Link to="/adminregister" style={{ textDecoration: 'none', color: 'white' }}>sign in</Link></StyledButton>

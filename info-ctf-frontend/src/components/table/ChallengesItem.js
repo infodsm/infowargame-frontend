@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -44,6 +44,19 @@ p {
     color: white;
 }
 
+button {
+    background: black;
+    border-radius: 3px;
+    color: white;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    border: 2px solid green;
+}
+
 `;
 
 
@@ -69,8 +82,33 @@ const ChallengesDiv = styled.div`
     background-color: ${props => props.color || "#F0F8FF"};
 `;
 
+const StyledButton = styled.button`
+position: relative;
+font-size: 1rem;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+width: 109.5px;
+height: 51px;
+left: 1200px;
+background: #000000;
+border-radius: 3px;
+text-align: center;
+color: grey;
+cursor: pointer;
+color: white;
+text-decoration: none;
+p {
+    color: white;
+    margin-top: 10px;
+}
+`;
 
-const ChallengesItem = ({ data, quiz, loading }) => {
+
+const ChallengesItem = ({ data, quiz, loading, admin }) => {
+
+    useEffect(() => {
+        console.log(admin);
+    });
 
     if (loading) {
         return <StyledList><h3 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩 중 입니다.</h3></StyledList>
@@ -89,11 +127,10 @@ const ChallengesItem = ({ data, quiz, loading }) => {
         return data.filter(data => data.category === category);
     }
 
-
     return (
-
         <>
             <StyledList>
+                {admin ? <button><Link to="/makequiz" style={{ textDecoration: 'none', color: 'white' }}>문제 만들기</Link></button> : null }
                 <p style={{ fontSize: '18px', color: 'white' }}>*유의사항* : 한번 푼 문제는 다시 풀 수 없습니다. </p>
                 <p>Cryptography</p><ChallengeRow key={filterArray(1).num} data={filterArray(1)}></ChallengeRow>
                 <br />

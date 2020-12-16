@@ -6,10 +6,10 @@ import * as adminAPI from '../lib/api/admin';
 const CHANGE_FIELD = 'adminlogin/CHANGE_FIELD';
 const INITIALIZE = 'adminlogin/INITIALIZE';
 const ADMIN_LOGIN_POST = 'adminlogin/ADMIN_LOGIN_POST';
-const ADMIN_LOGIN_SUCCESS = 'adminlogin/ADMIN_LOGIN_SUCCESS';
-const ADMIN_LOGIN_FAILURE = 'adminlogin/ADMIN_LOGIN_FAILURE';
+const ADMIN_LOGIN_POST_SUCCESS = 'adminlogin/ADMIN_LOGIN_POST_SUCCESS';
+const ADMIN_LOGIN_POST_FAILURE = 'adminlogin/ADMIN_LOGIN_POST_FAILURE';
 
-export const initialize = createAction(INITIALIZE);
+export const admininitialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({ key, value }));
 export const adminloginPost = createAction(ADMIN_LOGIN_POST, ({ id, password }) => ({ id, password }));
 
@@ -23,8 +23,9 @@ export function* adminloginpostSaga() {
 const initialState = {
     id: '',
     password: '',
-    adminlogin: '',
+    adminlogin: null,
     error: null,
+    admin: false,
 };
 
 const adminlogin = handleActions(
@@ -34,13 +35,16 @@ const adminlogin = handleActions(
             ...state,
             [key]: value, // 특정 값을 업데이트
         }),
-        [ADMIN_LOGIN_SUCCESS]: (state, { payload: adminlogin }) => ({
+        [ADMIN_LOGIN_POST_SUCCESS]: (state, { payload: adminlogin }) => ({
             ...state,
             adminlogin,
+            error: null,
+            admin: true,
         }),
-        [ADMIN_LOGIN_FAILURE]: (state, { payload: error }) => ({
+        [ADMIN_LOGIN_POST_FAILURE]: (state, { payload: error }) => ({
             ...state,
             error,
+            admin: false,
         }),
     },
     initialState,

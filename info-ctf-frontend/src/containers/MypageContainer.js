@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { mypagees } from '../modules/mypages';
 import { logout } from '../modules/login';
+import { admininitialize } from '../modules/adminlogin';
 import { changeField, initialize, modifiedPost } from '../modules/mypagemodified';
 import { sendEmail } from '../modules/sendemail';
 import { getEmail, getemailinitialize } from '../modules/getemail';
@@ -32,6 +33,7 @@ const MypageContainer = ({ history, location }) => {
     // 로그아웃 (토큰을 삭제 후 로그인 페이지로 이동)
     const onLogout = () => {
         dispatch(logout());
+        dispatch(admininitialize());
         alert("로그아웃 성공");
         history.push("/");
     };
@@ -42,13 +44,11 @@ const MypageContainer = ({ history, location }) => {
 
     // 페이지가 마운트(처음 보여질 때)될 때 마이페이지 api 요청
     useEffect(() => {
-        const users = localStorage.getItem("users") ? localStorage.getItem("users") : null;
-        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = getCookie("user");
-        if (users) {
+        if (token) {
             dispatch(mypagees({ token }));
         }
-        if (!users && !admin) {
+        if (!token) {
             alert("로그인해야 사용가능한 기능입니다.");
             history.push("/");
         }

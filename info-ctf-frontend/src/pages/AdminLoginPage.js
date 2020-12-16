@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AdminLoginForm from '../components/auth/AdminLoginForm';
+import AdminLoginContainer from '../containers/AdminLoginContainer';
 import Header from '../components/common/Header';
 import { Helmet } from 'react-helmet-async';
 
@@ -28,7 +29,7 @@ const AdminLoginPage = ({ history }) => {
             </Helmet>
             <AdminLoginPageBlock>
                 <Header />
-                <AdminLoginForm history={history} />
+                <AdminLoginContainer />
             </AdminLoginPageBlock>
         </>
     );
