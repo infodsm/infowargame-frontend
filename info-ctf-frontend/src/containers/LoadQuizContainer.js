@@ -18,7 +18,7 @@ const LoadQuizContainer = ({ match, history }) => {
     const { num } = match.params;
     var quiz_num = { num }.num;
     // const fileSaver = require('file-saver');
-    const { loadquiz, deletequiz, deletequizerror, checkanswer, checkanswererror, flag, error, loading } = useSelector(({ loadquiz, deletequiz, deletefile, downloadfile, loading, checkanswer }) => ({
+    const { loadquiz, deletequiz, deletequizerror, checkanswer, checkanswererror, flag, error, loading, admin } = useSelector(({ loadquiz, deletequiz, deletefile, downloadfile, loading, checkanswer, adminlogin }) => ({
         loadquiz: loadquiz.loadquiz,
         error: loadquiz.error,
         deletequiz: deletequiz.deletequiz,
@@ -28,6 +28,7 @@ const LoadQuizContainer = ({ match, history }) => {
         checkanswer: checkanswer.checkanswer,
         checkanswererror: checkanswer.error,
         flag: checkanswer.flag,
+        admin: adminlogin.admin,
         loading: loading['loadquiz/LOAD_QUIZ'],
     }));
 
@@ -156,7 +157,7 @@ const LoadQuizContainer = ({ match, history }) => {
         }
     }, [downloadfile, downloadfileerror]);*/
 
-    return <ShowQuizItem loadquiz={loadquiz} loading={loading} flag={flag} onChangeField={onChange} onSubmit={onSubmit} onDownload={onDownload} quiz_code={quiz_num} onCheckAnswer={onCheckAnswer} />;
+    return <ShowQuizItem  admin={admin} loadquiz={loadquiz} loading={loading} flag={flag} onChangeField={onChange} onSubmit={onSubmit} onDownload={onDownload} quiz_code={quiz_num} onCheckAnswer={onCheckAnswer} />;
 };
 
 

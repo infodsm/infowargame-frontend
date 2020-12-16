@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../common/Header';
+import { Link } from 'react-router-dom';
 import { BsDownload } from "react-icons/bs";
 
 
@@ -113,7 +114,7 @@ font-size: 25px;
 `;
 
 
-const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDownload, quiz_code, onCheckAnswer }) => {
+const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDownload, quiz_code, onCheckAnswer, admin }) => {
 
     const onChange = e => {
         const { name } = e.target;
@@ -132,8 +133,6 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
             onDownload(quiz_code);
         }
     };
-
-    const admin = localStorage.getItem("admin") ? localStorage.getItem("admin") : null;
 
     if (loading) {
         return (
@@ -180,7 +179,7 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
             <Header />
             <ShowQuizitemBox>
                 <p style={{ position: 'relative', fontSize: '16px', color: 'white', right: '270px', bottom: '220px' }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. <br /> *유의사항* 파일 용량이 클 경우 다운로드에 시간이 걸릴 수도 있습니다.</p>
-                {admin ? <StyledButton style={{ border: 'none', color: 'red', top: '199px', borderBottom: 'none', zIndex: '1' }} onClick={onSubmit}>문제삭제</StyledButton> : null}
+                {admin ? alert("문제삭제 버튼 만들예정") : null }
                 <QuizContent style={{ whiteSpace: 'pre' }}>
                     <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
                     <ShowQuizContent disabled>{content}</ShowQuizContent>

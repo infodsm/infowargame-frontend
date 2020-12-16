@@ -106,9 +106,6 @@ p {
 
 const ChallengesItem = ({ data, quiz, loading, admin }) => {
 
-    useEffect(() => {
-        console.log(admin);
-    });
 
     if (loading) {
         return <StyledList><h3 style={{ textDecoration: 'none', color: 'white' }}>문제목록 로딩 중 입니다.</h3></StyledList>
