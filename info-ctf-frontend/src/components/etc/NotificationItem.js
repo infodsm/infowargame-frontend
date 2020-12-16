@@ -72,7 +72,7 @@ const NotificationPage = ({ data, history, location }) => {
             <span>INFO CTF에 오신 것을 환영합니다!</span>
             <span style={{ fontSize: '40px' }}>-사이트를 이용하기 전 유의해야 할 사항-</span>
             <span style={{ fontSize: '24px' }}>* 여러분이 서버를 가지고 놀면 서버가 아야해요 ㅠㅠ</span>
-            <span style={{ fontSize: '24px' }}>* 로그아웃은 MyPage에서 해야 합니다!</span>
+            <span style={{ fontSize: '24px' }}>* 페이지에서 나가기전 로그아웃을 꼭! MyPage에서 해주세요!</span>
             <span style={{ fontSize: '24px' }}>* 사이트를 해하려고 하는 행위는 절.대.로 하지말아주세요.</span>
             <span style={{ fontSize: '24px' }}>* ex) 해킹, 디도스 공격 등등...</span>
             <span style={{ fontSize: '14px', color: 'black' }}>사이트 개발자: 전세훈, 김호준</span>
