@@ -33,8 +33,6 @@ const ChallengesContainer = ({ history }) => {
         return () => {
             dispatch(quizinitialize());
             initialize();
-            console.log(showquizlist);
-            console.log(admin);
         }
     }, [dispatch, history]);
 

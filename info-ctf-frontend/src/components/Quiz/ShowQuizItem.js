@@ -179,7 +179,7 @@ const ShowQuizItem = ({ loadquiz, flag, loading, onChangeField, onSubmit, onDown
             <Header />
             <ShowQuizitemBox>
                 <p style={{ position: 'relative', fontSize: '16px', color: 'white', right: '270px', bottom: '220px' }}>*유의사항* : 파일은 모두 zip 형식으로 다운로드됩니다. <br /> *유의사항* 파일 용량이 클 경우 다운로드에 시간이 걸릴 수도 있습니다.</p>
-                {admin ? alert("문제삭제 버튼 만들예정") : null }
+                {admin ? alert("문제삭제 구현 예정") : null }
                 <QuizContent style={{ whiteSpace: 'pre' }}>
                     <hr style={{ width: "1125px", marginRight: '150px', marginTop: '100px' }} />
                     <ShowQuizContent disabled>{content}</ShowQuizContent>

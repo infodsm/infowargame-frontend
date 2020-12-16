@@ -50,11 +50,13 @@ const LoadQuizContainer = ({ match, history }) => {
     const onSubmit = e => {
         e.preventDefault();
         const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
-        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+
         const token = getCookie("user");
         if (admin) {
-            dispatch(deletefilePost({ quiz_num, token }));
-            dispatch(deletequizPost({ quiz_num, token }));
+            if (token) {
+                dispatch(deletefilePost({ quiz_num, token }));
+                dispatch(deletequizPost({ quiz_num, token }));
+            }
         }
         if (users) {
             alert("어드민만 사용 가능한 기능입니다.");
@@ -157,7 +159,7 @@ const LoadQuizContainer = ({ match, history }) => {
         }
     }, [downloadfile, downloadfileerror]);*/
 
-    return <ShowQuizItem  admin={admin} loadquiz={loadquiz} loading={loading} flag={flag} onChangeField={onChange} onSubmit={onSubmit} onDownload={onDownload} quiz_code={quiz_num} onCheckAnswer={onCheckAnswer} />;
+    return <ShowQuizItem admin={admin} loadquiz={loadquiz} loading={loading} flag={flag} onChangeField={onChange} onSubmit={onSubmit} onDownload={onDownload} quiz_code={quiz_num} onCheckAnswer={onCheckAnswer} />;
 };
 
 

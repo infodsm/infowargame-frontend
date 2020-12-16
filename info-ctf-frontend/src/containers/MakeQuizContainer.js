@@ -11,7 +11,7 @@ const MakeQuizContainer = ({ history }) => {
     const [uploadFileData, setUploadFileData] = useState(null);
 
     const dispatch = useDispatch();
-    const { category, point, quizname, contents, makequiz, error, file, flag } = useSelector(({ makequiz, uploadfile, deletefile, }) => ({
+    const { category, point, quizname, contents, makequiz, error, file, flag, admin } = useSelector(({ makequiz, uploadfile, deletefile, adminlogin }) => ({
         category: makequiz.category,
         point: makequiz.point,
         quizname: makequiz.quizname,
@@ -20,10 +20,21 @@ const MakeQuizContainer = ({ history }) => {
         makequiz: makequiz.makequiz,
         error: makequiz.error,
         file: uploadfile.file,
+        admin: adminlogin.admin,
     }));
 
     // 인풋 값 업데이트
     const onChange = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
+
+
+    // 어드민만 접근 가능하게 하기
+    useEffect(() => {
+        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
+        if (!admin) {
+            alert("어드민 전용 페이지입니다.");
+            history.push("/notification");
+        }
+    },[]); 
 
     // 컴포넌트가 맨 처음 렌더링 될 때 인풋 초기화
     useEffect(() => {
@@ -53,14 +64,13 @@ const MakeQuizContainer = ({ history }) => {
 
     // 파일 삭제 api 요청
     const fileDelete = e => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
-        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+    
         const token = getCookie("user");
         if (admin) {
-            dispatch(deletefilePost({ quizname, token }));
-            setUploadFileData(null);
+                dispatch(deletefilePost({ quizname, token }));
+                setUploadFileData(null);
         }
-        if (users) {
+        else {
             alert("어드민만 사용 가능한 기능입니다.");
         }
     };
@@ -69,14 +79,15 @@ const MakeQuizContainer = ({ history }) => {
     const onSubmit = e => {
         e.preventDefault();
         const users = localStorage.getItem("users") ? localStorage.getItem('user') : null;
-        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
         const token = getCookie("user");
         if (admin) {
-            dispatch(makequizPost({ category, contents, point, quizname, flag, token }));
-            fileAdd(); // file 추가 api 요청
+                if (token) {
+                dispatch(makequizPost({ category, contents, point, quizname, flag, token }));
+                fileAdd(); // file 추가 api 요청
+                }
         }
         if (users) {
-            alert("어드민만 사용 가능한 기능입니다.");
+                alert("어드민만 사용가능한 기능입니다.");
         }
     };
 
