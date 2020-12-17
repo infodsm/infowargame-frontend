@@ -120,7 +120,7 @@ const LoginAfterForm = ({ loading, mypage, onLogout, onChangeField, onSubmit, mo
             {!loading && mypage && (
                 <LoginAfterArea>
                     <p>* 이메일 확인을 할때는 아이디와 이메일을 입력해주세요</p>
-                    ID<StyledInput type="text" name="id" placeholder={id} value={modifiedid} onChange={onChangeInput} />
+                    ID<StyledInput type="text" name="id" value={id} onChange={onChangeInput} readOnly/>
                     E-Mail<StyledInput type="text" name="email" placeholder={email} value={modifiedemail} onChange={onChangeInput} />
                     <StyledButton style={{ marginLeft: '720px', marginTop: '-52px', width: '100px', fontSize: '16px' }} onClick={onClick}>이메일확인</StyledButton>
                     Nickname<StyledInput type="text" name="nickname" placeholder={nickname} value={modifiednickname} onChange={onChangeInput} />

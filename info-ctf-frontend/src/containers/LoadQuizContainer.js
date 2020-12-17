@@ -98,14 +98,9 @@ const LoadQuizContainer = ({ match, history }) => {
 
     // 문제 정답 체크
     const onCheckAnswer = (quiz_code) => {
-        const users = localStorage.getItem("users") ? localStorage.getItem('users') : null;
-        const admin = localStorage.getItem("admin") ? localStorage.getItem('admin') : null;
+
         const token = getCookie("user");
-        if (admin) {
-            dispatch(checkanswerPost({ quiz_code, flag, token }));
-            dispatch(checkanswerinitialize());
-        }
-        if (users) {
+        if (token) {
             dispatch(checkanswerPost({ quiz_code, flag, token }));
             dispatch(checkanswerinitialize());
         }

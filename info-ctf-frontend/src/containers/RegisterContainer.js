@@ -5,7 +5,7 @@ import { changeField, initialize, registerPost } from '../modules/register';
 import RegisterForm from '../components/auth/RegisterForm';
 import { idCheck, idinitialize } from '../modules/idcheck';
 import { sendEmail } from '../modules/sendemail';
-import { getEmail } from '../modules/getemail';
+import { getEmail, getemailinitialize } from '../modules/getemail';
 
 const RegisterContainer = ({ location, history }) => {
     const dispatch = useDispatch();
@@ -52,9 +52,6 @@ const RegisterContainer = ({ location, history }) => {
         if ([id, password, nickname, email, team].includes('')) {
             alert('빈 칸을 모두 입력하세요.');
         }
-        else {
-            alert("이메일 인증이 완료되지 않았습니다.");
-        }
     };
     // 인풋 값 변경
     const onChangeField = useCallback(payload => dispatch(changeField(payload)), [dispatch]);
@@ -69,6 +66,7 @@ const RegisterContainer = ({ location, history }) => {
     useEffect(() => {
         return () => {
             dispatch(initialize());
+            dispatch(getemailinitialize());
         }
     }, [dispatch]);
 
