@@ -5,7 +5,7 @@ import { changeField, admininitialize, adminloginPost } from '../modules/adminlo
 import AdminLoginForm from '../components/auth/AdminLoginForm';
 import { setCookie, getCookie } from '../lib/cookie';
 
-// 해당 api를 위한 컨테이너는 사용되지 않음 (컴포넌트 단에서 api를 호출함)
+
 const AdminLoginContainer = ({ history, empowerment }) => {
     const dispatch = useDispatch();
     const { id, password, adminlogin, error, admin } = useSelector(({ adminlogin }) => ({
@@ -40,10 +40,10 @@ const AdminLoginContainer = ({ history, empowerment }) => {
     // 로그인 성공 여부 확인
     useEffect(() => {
         if (adminlogin) {
-                alert("로그인 성공");
-                setCookie("user", adminlogin.token, 1);
-                // localStorage.setItem("admin", JSON.stringify(adminlogin.token)); // localStorage에 토큰 저장
-                history.push('/notification');    // 마이페이지로 이동
+            alert("로그인 성공");
+            setCookie("user", adminlogin.token, 1);
+            // localStorage.setItem("admin", JSON.stringify(adminlogin.token)); // localStorage에 토큰 저장
+            history.push('/notification');    // 마이페이지로 이동
         }
         if (error) {
             if (error) {
