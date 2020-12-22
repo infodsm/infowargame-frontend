@@ -127,7 +127,7 @@ const RegisterForm = ({ id, password, nickname, email, team, code, onChangeField
                 <div className="ButtonArea">
                     <StyledButton onClick={onSubmit}>sign in</StyledButton>
                             &nbsp;
-                        <StyledButton><Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
+                        <StyledButton><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>login</Link></StyledButton>
                 </div>
 
                 <div className="ModalArea">
